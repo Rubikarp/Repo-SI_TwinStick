@@ -11,6 +11,13 @@ public class InputHandler : MonoBehaviour
 
     public float moveSpeed = 10f;
 
+    public PlayerInput input;
+
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {      
         transform.position += Time.deltaTime * move.ToPlaneXZ() * moveSpeed;

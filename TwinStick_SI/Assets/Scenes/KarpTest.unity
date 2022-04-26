@@ -465,10 +465,10 @@ GameObject:
   - component: {fileID: 1003897358}
   - component: {fileID: 1003897357}
   - component: {fileID: 1003897356}
-  - component: {fileID: 1003897355}
-  - component: {fileID: 1003897354}
   - component: {fileID: 1003897359}
   - component: {fileID: 1003897360}
+  - component: {fileID: 1003897361}
+  - component: {fileID: 1003897362}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -476,40 +476,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1003897354
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003897353}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &1003897355
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003897353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1003897356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -605,7 +571,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1003897360}
-        m_TargetAssemblyTypeName: InputHandler, Core
+        m_TargetAssemblyTypeName: PlayerMovement, Core
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -621,7 +587,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1003897360}
-        m_TargetAssemblyTypeName: InputHandler, Core
+        m_TargetAssemblyTypeName: PlayerMovement, Core
         m_MethodName: Aim
         m_Mode: 0
         m_Arguments:
@@ -636,8 +602,8 @@ MonoBehaviour:
     m_ActionName: Player/Aim[/XInputControllerWindows/rightStick,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1003897360}
-        m_TargetAssemblyTypeName: InputHandler, Core
+      - m_Target: {fileID: 1003897361}
+        m_TargetAssemblyTypeName: PlayerShoot, Core
         m_MethodName: Shoot
         m_Mode: 0
         m_Arguments:
@@ -650,22 +616,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cdeba0e9-3a54-4242-ac0b-c8a3e58df243
     m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1003897360}
-        m_TargetAssemblyTypeName: InputHandler, Core
-        m_MethodName: ChargedShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 937b34d4-c88a-4894-a770-a3f846d481f0
-    m_ActionName: Player/ChargedShoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -680,12 +630,104 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003897353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5eb72ed41b7f4447a87307db368e121, type: 3}
+  m_Script: {fileID: 11500000, guid: c8975e51f15630c47b7dfb1a5b8cd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
-  aim: {x: 0, y: 0}
-  moveSpeed: 10
+  aim: {x: 0, y: 1}
+  runTime: 0
+  runTimeThreshold: 2
+  moveSpeed: 5
+  runSpeed: 10
+--- !u!114 &1003897361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003897353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9f3c48097cd4b4396a1a1e2b39acea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedTime: 0
+  chargedTimeThreshold: 2
+  shootCooldown: 0.5
+  shootLightCost: 2
+  shootHeavyCost: 5
+  canShoot: 1
+  inCharge: 0
+  shootHeavy: 0
+  onCharge:
+    m_PersistentCalls:
+      m_Calls: []
+  onCannotCharge:
+    m_PersistentCalls:
+      m_Calls: []
+  onCannotHeavy:
+    m_PersistentCalls:
+      m_Calls: []
+  onLightShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  onHeavyShoot:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1003897362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003897353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7445c0efab12d1444852cc4d374eb577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pollenStock: 50
+  pollenStockMax: 100
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onGain:
+    m_PersistentCalls:
+      m_Calls: []
+  onLose:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1010058336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010058337}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010058337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010058336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092033864}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092033863
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +739,7 @@ GameObject:
   - component: {fileID: 2092033864}
   - component: {fileID: 2092033867}
   - component: {fileID: 2092033866}
-  - component: {fileID: 2092033865}
+  - component: {fileID: 2092033868}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -716,23 +758,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.43, z: 0.43}
   m_LocalScale: {x: 0.57321, y: 0.48317, z: 1.4487}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1010058337}
   m_Father: {fileID: 1003897358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2092033865
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092033863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2092033866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -783,3 +813,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092033863}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2092033868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092033863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f459c8d80de138459f30ed43d91108f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponextremum: {fileID: 1010058337}
+  lightShoot: {fileID: 0}
+  heavyShoot: {fileID: 0}
