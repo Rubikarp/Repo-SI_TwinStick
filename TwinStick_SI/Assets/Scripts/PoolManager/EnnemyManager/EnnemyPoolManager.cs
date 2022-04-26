@@ -107,19 +107,25 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
 
     IEnumerator SpawnEnnemyThroughTime(List<GameObject> ennemyToSpawn, Transform parent)
     {
+
+
+
         int i = 0;
         foreach(GameObject ennemy in ennemyToSpawn)
         {
             i++;
             Debug.Log(ennemy.name);
-            AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
-            ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
-            float safezonex = UnityEngine.Random.RandomRange(-5, 5);
-            float safezonez = UnityEngine.Random.RandomRange(-5, 5);
-            ennemy.transform.position = parent.position + new Vector3(safezonex+i, 1, safezonez-i);
             ennemy.SetActive(true);
+            AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
+            
+            ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
+
+            float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
+            float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
+            ennemy.transform.position = parent.position + new Vector3(safezonex, 1.1f, safezonez);
+
             ennemyComp.FindNewTarget();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
         
     }

@@ -7,9 +7,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
 {
     [Header("Data")]
     [SerializeField] private int healthPoint;
+    [SerializeField] private TARGET_TYPE targetType = TARGET_TYPE.TARGET_TYPE_PLAYER;
     public bool HaveBee { get; }
     public int HealthPoint { get { return healthPoint; } }
-
+    public TARGET_TYPE TargetType { get { return targetType; } }
     [Header("Events")]
     public UnityEvent onHit;
     public UnityEvent onHeal;
