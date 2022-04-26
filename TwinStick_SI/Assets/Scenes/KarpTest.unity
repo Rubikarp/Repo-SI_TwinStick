@@ -635,10 +635,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   aim: {x: 0, y: 1}
-  runTime: 0
-  runTimeThreshold: 2
+  moveTime: 0
+  accThreshold: 0.5
+  runThreshold: 4
+  InRunningMode: 0
   moveSpeed: 5
-  runSpeed: 10
+  runBonusSpeed: 5
+  aimSpeed: 15
 --- !u!114 &1003897361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9f3c48097cd4b4396a1a1e2b39acea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pollenStock: {fileID: 1003897362}
   chargedTime: 0
   chargedTimeThreshold: 2
   shootCooldown: 0.5
@@ -668,6 +672,21 @@ MonoBehaviour:
   onCannotHeavy:
     m_PersistentCalls:
       m_Calls: []
+  onAnyShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1003897360}
+        m_TargetAssemblyTypeName: PlayerMovement, Core
+        m_MethodName: RunTimeReboot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLightShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -686,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7445c0efab12d1444852cc4d374eb577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenStock: 50
+  pollenStock: 10
   pollenStockMax: 100
   onChange:
     m_PersistentCalls:

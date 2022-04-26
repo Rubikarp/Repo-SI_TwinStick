@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using NaughtyAttributes;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,13 +24,18 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     [Header("RunTime")]
-    [SerializeField] float runTime = 0f;
-    [SerializeField] float runTimeThreshold = 2f;
-    public bool IsRunning{get{ return runTime > runTimeThreshold; } }
+    [SerializeField] float moveTime = 0f;
+    [SerializeField] float accThreshold = 0.3f;
+    [SerializeField] float runThreshold = 2f;
+    public bool InRunningMode = false;
 
     [Header("Speed")]
+    [ShowNonSerializedField] float speed = 0;
+    [Space(10)]
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float runSpeed = 10f;
+    [SerializeField] float runBonusSpeed = 5f;
+    [Space(10)]
+    [SerializeField] float aimSpeed = 10f;
 
     void Update()
     {
@@ -41,30 +47,46 @@ public class PlayerMovement : MonoBehaviour
     {
         if (move.magnitude > 0.1f)
         {
-            runTime += Time.deltaTime;
+            moveTime += Time.deltaTime;
         }
         else
         {
-            RunTimeReboot();
+            MoveTimeReboot();
         }
 
-        if (IsRunning)
+        if (moveTime < accThreshold)
         {
-            transform.position += Time.deltaTime * move.ToPlaneXZ() * runSpeed;
+            speed = Mathf.Lerp(0,moveSpeed,KarpEase.InOutSine(moveTime/ accThreshold));
+        }
+        else if (moveTime < runThreshold)
+        {
+            speed = moveSpeed;
+        }
+        else if(moveTime < runThreshold + accThreshold)
+        {
+            speed = moveSpeed + Mathf.Lerp(0, runBonusSpeed, KarpEase.InOutSine((moveTime - runThreshold) / accThreshold));
         }
         else
         {
-            transform.position += Time.deltaTime * move.ToPlaneXZ() * moveSpeed;
+            speed = moveSpeed + runBonusSpeed;
         }
+
+        transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
     }
-    private void RunTimeReboot()
+    public void MoveTimeReboot()
     {
-        runTime = 0f;
+        moveTime = 0f;
+    }
+    public void RunTimeReboot()
+    {
+        if(moveTime > accThreshold)
+        moveTime = accThreshold;
     }
 
     private void Aiming()
     {
-        transform.LookAt(transform.position + aim.ToPlaneXZ().normalized, Vector3.up);
+        Quaternion aimRot = Quaternion.LookRotation(aim.ToPlaneXZ().normalized, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, aimRot, Time.deltaTime * aimSpeed);
     }
 
 }

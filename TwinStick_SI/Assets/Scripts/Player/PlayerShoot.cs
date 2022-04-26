@@ -7,6 +7,8 @@ using NaughtyAttributes;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [Header("Component")]
+    [SerializeField, Required] PlayerPollen pollenStock;
 
     [Header("Parameter")]
     [ProgressBar("Charge", "chargedTimeThreshold", EColor.Green)]
@@ -28,6 +30,7 @@ public class PlayerShoot : MonoBehaviour
     public UnityEvent onCannotCharge;
     public UnityEvent onCannotHeavy;
     [Space(10)]
+    public UnityEvent onAnyShoot;
     public UnityEvent onLightShoot;
     public UnityEvent onHeavyShoot;
 
@@ -40,6 +43,7 @@ public class PlayerShoot : MonoBehaviour
                 break;
                  
             case InputActionPhase.Canceled:
+                if(inCharge)
                 TryShoot();
                 break;
         }
@@ -48,9 +52,10 @@ public class PlayerShoot : MonoBehaviour
     private void ShootCD() { canShoot = true; }
     private void TryCharge()
     {
-        if (!canShoot /* || !enough mana */)
+        if (!canShoot || !pollenStock.CanConsume(shootLightCost))
         {
             onCannotCharge?.Invoke();
+            Debug.LogError("Can't shoot");
             return;
         }
 
@@ -63,31 +68,24 @@ public class PlayerShoot : MonoBehaviour
     }
     public void TryShoot()
     {
+        onAnyShoot?.Invoke();
         if (shootHeavy)
         {
-            HeavyShoot();
+            pollenStock.ConsumePollen(shootHeavyCost);
+            onHeavyShoot?.Invoke();
+            Debug.Log("Heavy");
         }
         else
         {
-            LightShoot();
+            pollenStock.ConsumePollen(shootLightCost);
+            onLightShoot?.Invoke();
+            Debug.Log("Light");
         }
 
         Invoke("ShootCD", shootCooldown);
         chargedTime = 0f;
         inCharge = false;
         shootHeavy = false;
-    }
-
-    private void HeavyShoot()
-    {
-        onHeavyShoot?.Invoke();
-        Debug.Log("Heavy");
-    }
-
-    private void LightShoot()
-    {
-        onLightShoot?.Invoke();
-        Debug.Log("Light");
     }
 
     void Update()
@@ -98,7 +96,7 @@ public class PlayerShoot : MonoBehaviour
 
             if(chargedTime > chargedTimeThreshold)
             {
-                if (true /*enoughtMana*/)
+                if (pollenStock.CanConsume(shootHeavyCost))
                 {
                     shootHeavy = true;
                 }
@@ -107,7 +105,6 @@ public class PlayerShoot : MonoBehaviour
                     onCannotHeavy?.Invoke();
                     chargedTime = 0f;
                 }
-
             }
         }
     }

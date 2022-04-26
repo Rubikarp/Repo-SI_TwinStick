@@ -10,23 +10,25 @@ public class PlayerPollen : MonoBehaviour
     [ProgressBar("Pollen", "pollenStockMax", EColor.Yellow)]
     [SerializeField] private float pollenStock = 10f;
     [SerializeField] private float pollenStockMax = 100f;
-    public float pollenAvailable { get { return pollenStock; } }
+    public float PollenAvailable { get { return pollenStock; } }
+    public float MaxPollenAvailable { get { return pollenStockMax; } }
 
     [Header("Events")]
     public UnityEvent onChange;
     public UnityEvent onGain;
     public UnityEvent onLose;
 
-    public bool CanConsumePollent(float quantity)
+    public bool CanConsume(float quantity)
     {
-        return pollenAvailable >= quantity;
+        return pollenStock >= quantity;
     }
     public void ConsumePollen(float quantity)
     {
         quantity = Mathf.Max(0f, quantity);
-        if(quantity > pollenAvailable)
+        if(quantity > pollenStock)
         {
-            Debug.LogError("impossible " + quantity + " is less than " + pollenAvailable,this);
+            Debug.LogError("no more pollen available", this);
+            return;
         }
         pollenStock = Mathf.Clamp(pollenStock - quantity, 0, pollenStockMax);
     }
@@ -44,7 +46,7 @@ public class PlayerPollen : MonoBehaviour
     [Button]
     private void QuickPollenLoose()
     {
-        if(CanConsumePollent(10f))
+        if(CanConsume(10f))
         ConsumePollen(10f);
     }
 }
