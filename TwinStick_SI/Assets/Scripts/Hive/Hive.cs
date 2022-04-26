@@ -9,11 +9,11 @@ public class Hive : MonoBehaviour,IHealth
     [SerializeField] private int defaultHealthPoint=100;
     [SerializeField] private int healthPoint;
 
-    [SerializeField] private TARGET_TYPE targetType;
+    [SerializeField] private TARGET_TYPE targetType = TARGET_TYPE.TARGET_TYPE_BUILDING;
 
     public int HealthPoint { get { return healthPoint; } }
 
-    public int TargetType { get { return targetType; } }
+    public TARGET_TYPE TargetType { get { return targetType; } }
     void Start()
     {
         

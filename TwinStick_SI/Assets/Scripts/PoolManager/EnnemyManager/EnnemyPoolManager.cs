@@ -115,20 +115,17 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
         {
             i++;
             Debug.Log(ennemy.name);
+            ennemy.SetActive(true);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
+            
             ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
 
-            
             bool correctPos = false;
             float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
-            ennemy.transform.position = parent.position + new Vector3(safezonex, 1, safezonez);
-
-                
-            
-            ennemy.SetActive(true);
+            ennemy.transform.position = parent.position + new Vector3(safezonex, 1.1f, safezonez);
             ennemyComp.FindNewTarget();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
         
     }
