@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnnemyOnDie
-{
-    public void OnDie();
-}
 
 public enum AI_STATE
 {
@@ -17,10 +13,21 @@ public enum AI_STATE
     AI_STATE_DIE,
 }
 
+public enum AI_TYPE
+{
+    AI_MELEE,
+    AI_MELEE_TURRET,
+    AI_MELEE_GENERATOR,
+    AI_RANGE,
+    AI_RANGE_TURRET,
+    AI_RANGE_GENERATOR,
+}
+
 
 public abstract class AEnnemy : MonoBehaviour
 {
     public AI_STATE currentState;
+    public AI_TYPE typeOfEnnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,11 @@ public abstract class AEnnemy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void FindNewTarget()
+    {
+
     }
 
 
