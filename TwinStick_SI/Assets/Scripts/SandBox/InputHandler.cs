@@ -12,36 +12,22 @@ public class InputHandler : MonoBehaviour
     public float moveSpeed = 10f;
 
     void Update()
-    {
-        var gamepad = Gamepad.current;
-        if (gamepad is null)
-        {
-            Debug.LogError("Fréro il y a pas de manette !!!");
-            return;
-        }
-
-
-        if (gamepad.rightTrigger.wasPressedThisFrame)
-        {
-            Shoot();
-        }
-
-        move = gamepad.leftStick.ReadValue();
+    {      
         transform.position += Time.deltaTime * move.ToPlaneXZ() * moveSpeed;
-
-        aim = gamepad.rightStick.ReadValue();
         transform.LookAt(transform.position + aim.ToPlaneXZ().normalized,Vector3.up);
-
     }
 
-    private void Shoot()
+    public void Move(InputAction.CallbackContext context)
     {
-        Debug.Log("Bim!");
-
+        move = context.ReadValue<Vector2>();
+    }
+    public void Aim(InputAction.CallbackContext context)
+    {
+        aim = context.ReadValue<Vector2>();
     }
 
-    public void Fire(InputAction.CallbackContext context)
+    public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire!");
+        Debug.Log(context);
     }
 }

@@ -29,7 +29,7 @@
                     "id": "cdeba0e9-3a54-4242-ac0b-c8a3e58df243",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -181,7 +181,7 @@
                     "name": "",
                     "id": "c6d8af79-5fbb-41e0-90de-12de902d4b1b",
                     "path": "<Keyboard>/space",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "TwinStick",
                     "action": "Shoot",
@@ -195,7 +195,18 @@
         {
             "name": "TwinStick",
             "bindingGroup": "TwinStick",
-            "devices": []
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }
