@@ -42,7 +42,6 @@ public abstract class AEnnemy : MonoBehaviour
 
     public void FindNewTarget()
     {
-
     }
 
 

@@ -107,6 +107,9 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
 
     IEnumerator SpawnEnnemyThroughTime(List<GameObject> ennemyToSpawn, Transform parent)
     {
+
+
+
         int i = 0;
         foreach(GameObject ennemy in ennemyToSpawn)
         {
@@ -114,9 +117,15 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             Debug.Log(ennemy.name);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
             ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
-            float safezonex = UnityEngine.Random.RandomRange(-5, 5);
-            float safezonez = UnityEngine.Random.RandomRange(-5, 5);
-            ennemy.transform.position = parent.position + new Vector3(safezonex+i, 1, safezonez-i);
+
+            
+            bool correctPos = false;
+            float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
+            float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
+            ennemy.transform.position = parent.position + new Vector3(safezonex, 1, safezonez);
+
+                
+            
             ennemy.SetActive(true);
             ennemyComp.FindNewTarget();
             yield return new WaitForSeconds(0.5f);
