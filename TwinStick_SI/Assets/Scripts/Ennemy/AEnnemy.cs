@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ public abstract class AEnnemy : MonoBehaviour
                 else
                 {
                     // Move To Target ( Change Agent destination )
-                    
+
                     navAgent.destination = target.transform.position;
                 }
                 break;
@@ -83,7 +84,7 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
         }
     }
-
+    [Button]
     public void FindNewTarget()
     {
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
@@ -92,7 +93,7 @@ public abstract class AEnnemy : MonoBehaviour
     }
 
 
-    
+
 
 
 

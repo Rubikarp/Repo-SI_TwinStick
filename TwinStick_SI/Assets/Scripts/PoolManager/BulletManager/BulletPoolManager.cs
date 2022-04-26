@@ -50,4 +50,16 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
         return bulletCreated;
 
     }
+
+    
+    public void RemoveBullet(GameObject bullet)
+    {
+        bullet.SetActive(false);
+        bullet.transform.position = new Vector3(500, -500, -500);
+    }
+
+
+
+    
+
 }

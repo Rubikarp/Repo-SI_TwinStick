@@ -120,10 +120,10 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             
             ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
 
-            bool correctPos = false;
             float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             ennemy.transform.position = parent.position + new Vector3(safezonex, 1.1f, safezonez);
+
             ennemyComp.FindNewTarget();
             yield return new WaitForSeconds(0.2f);
         }
