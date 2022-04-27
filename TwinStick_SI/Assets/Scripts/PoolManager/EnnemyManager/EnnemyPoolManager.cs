@@ -77,15 +77,11 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
 
     public bool SpawnEnnemyAtLocation(List<EnnemyWave> waves,Transform parent)
     {
-        Debug.Log("Start Spwaning");
         List<GameObject> ennemyToSpawn = new List<GameObject>();
         List<GameObject> tempListOfCreatedEnnemy = new List<GameObject>(listOfCreatedEnnemy);
         List<GameObject> indexToRemove = new List<GameObject>();
-        Debug.Log(listOfCreatedEnnemy.Count + " | " + tempListOfCreatedEnnemy.Count);
-        Debug.Log("Checking Waves");
         foreach (EnnemyWave wave in waves)
         {
-            Debug.Log(wave.typeOfEnnemy + " | " + wave.numberSpawn);
             int ennemyToSerch = wave.numberSpawn;
             foreach (GameObject gameObject in tempListOfCreatedEnnemy)
             {
@@ -95,7 +91,6 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
                     AEnnemy ennemy = gameObject.GetComponent<AEnnemy>();
                     if (ennemy && ennemy.typeOfEnnemy == wave.typeOfEnnemy)
                     {
-                        Debug.Log("Find Ennemy To Spawn");
                         ennemyToSerch -= 1;
                         indexToRemove.Add(gameObject);
                         ennemyToSpawn.Add(gameObject);
@@ -127,7 +122,6 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
         foreach(GameObject ennemy in ennemyToSpawn)
         {
             i++;
-            Debug.Log(ennemy.name);
             ennemy.SetActive(true);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
             
