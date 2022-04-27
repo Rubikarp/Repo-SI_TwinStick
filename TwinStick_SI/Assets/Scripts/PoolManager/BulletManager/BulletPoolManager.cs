@@ -15,12 +15,10 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
     public List<GameObject> listOfCreatedBullet;
     void Start()
     {
-       CreateEnnemy(numberOfBulletGenerated);
-
-
+        CreateBullet(numberOfBulletGenerated);
     }
 
-    bool CreateEnnemy(int nb)
+    bool CreateBullet(int nb)
     {
         GameObject bulletCreated = (GameObject)Instantiate(bulletPrefab, new Vector3(500, -500, -500), Quaternion.identity);
         bulletCreated.name = "Bullet #" + (listOfCreatedBullet.Count);
@@ -41,25 +39,17 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
             } 
         }
 
-        GameObject bulletCreated = (GameObject)Instantiate(bulletPrefab, new Vector3(500, -500, -500), Quaternion.identity);
+        GameObject bulletCreated = (GameObject)Instantiate(bulletPrefab, position, rotation);
         bulletCreated.name = "Bullet #" + (listOfCreatedBullet.Count);
         bulletCreated.transform.SetParent(gameObject.transform);
         bulletCreated.SetActive(true);
 
-
         return bulletCreated;
-
     }
 
-    
     public void RemoveBullet(GameObject bullet)
     {
         bullet.SetActive(false);
         bullet.transform.position = new Vector3(500, -500, -500);
     }
-
-
-
-    
-
 }
