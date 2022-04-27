@@ -52,7 +52,7 @@ public class PlayerShoot : MonoBehaviour
     private void ShootCD() { canShoot = true; }
     private void TryCharge()
     {
-        if (!canShoot || !pollenStock.CanConsume(shootLightCost))
+        if (!canShoot || !pollenStock.CanConsume(shootLightCost)) 
         {
             onCannotCharge?.Invoke();
             Debug.LogError("Can't shoot");
