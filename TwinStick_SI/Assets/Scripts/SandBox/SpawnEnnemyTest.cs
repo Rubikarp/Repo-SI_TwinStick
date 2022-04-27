@@ -17,11 +17,11 @@ public class SpawnEnnemyTest : MonoBehaviour
         List<EnnemyWave> waves = new List<EnnemyWave>();
         EnnemyWave wave1 = new EnnemyWave();
         wave1.typeOfEnnemy = AI_TYPE.AI_MELEE;
-        wave1.numberSpawn = 3;
+        wave1.numberSpawn = 2;
         waves.Add(wave1);
         EnnemyWave wave2 = new EnnemyWave();
         wave2.typeOfEnnemy = AI_TYPE.AI_RANGE;
-        wave2.numberSpawn = 2;
+        wave2.numberSpawn = 5;
         waves.Add(wave2);
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }

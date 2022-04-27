@@ -4,5 +4,16 @@ using UnityEngine;
 
 public class MeleeEnnemy : AEnnemy
 {
-  
+
+    public override void Attack()
+    {
+
+        if (target.activeSelf)
+        {
+            
+            bh.TakeDamage();
+        }
+        
+    }
+
 }
