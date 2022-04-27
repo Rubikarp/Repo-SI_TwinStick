@@ -15,6 +15,7 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
     public List<GameObject> listOfCreatedBullet;
     void Start()
     {
+        listOfCreatedBullet = new List<GameObject>();
         CreateBullet(numberOfBulletGenerated);
 
 
@@ -22,6 +23,7 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
 
     bool CreateBullet(int nb)
     {
+        
         GameObject bulletCreated = (GameObject)Instantiate(bulletPrefab, new Vector3(500, -500, -500), Quaternion.identity);
         bulletCreated.name = "Bullet #" + (listOfCreatedBullet.Count);
         bulletCreated.transform.SetParent(gameObject.transform);
