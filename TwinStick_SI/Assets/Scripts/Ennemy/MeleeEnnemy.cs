@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class MeleeEnnemy : AEnnemy
 {
-  
+
+    public override void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

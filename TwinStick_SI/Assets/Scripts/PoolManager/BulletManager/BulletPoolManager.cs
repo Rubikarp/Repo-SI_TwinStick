@@ -16,6 +16,8 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
     void Start()
     {
         CreateBullet(numberOfBulletGenerated);
+
+
     }
 
     bool CreateBullet(int nb)
