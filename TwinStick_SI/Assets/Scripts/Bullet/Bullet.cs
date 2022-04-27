@@ -5,15 +5,31 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    // Start is called before the first frame update
+    [SerializeField] float speed = 10f;
+
+    [SerializeField] float life = 0;
+    [SerializeField] float lifeTime = 5f;
+    [SerializeField] AnimationCurve speedOverLifeTime = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
+
     void Start()
     {
-        
+        life = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        life += Time.deltaTime;
+        transform.position += Time.deltaTime * transform.forward * speed * speedOverLifeTime.Evaluate(life / lifeTime);
+
+        if(life >= lifeTime)
+        {
+            Destroy();
+        }
+    }
+
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject, 0.2f);
     }
 }
