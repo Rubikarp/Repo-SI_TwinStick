@@ -6,13 +6,14 @@ public class PlayerWeapon : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] Transform weaponextremum;
+    [SerializeField] Transform bulletContainer;
     [Space(5)]
     [SerializeField] GameObject lightShoot;
     [SerializeField] GameObject heavyShoot;
 
     public void HeavyShoot()
     {
-        
+        Instantiate(heavyShoot, weaponextremum.position, weaponextremum.rotation, bulletContainer);
     }
 
     public void LightShoot()

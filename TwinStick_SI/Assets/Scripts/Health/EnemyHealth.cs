@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnnemyHealth : MonoBehaviour, IHealth
+public class BasicHealth : MonoBehaviour, IHealth
 {
     [Header("Data")]
     [SerializeField] private int defaultHealth = 10;
