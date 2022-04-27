@@ -7,11 +7,10 @@ using NaughtyAttributes;
 public class PlayerPollen : MonoBehaviour
 {
     [Header("Data")]
-    [ProgressBar("Pollen", "pollenStockMax", EColor.Yellow)]
-    [SerializeField] private float pollenStock = 10f;
-    [SerializeField] private float pollenStockMax = 100f;
-    public float PollenAvailable { get { return pollenStock; } }
-    public float MaxPollenAvailable { get { return pollenStockMax; } }
+    [SerializeField] private float _pollenAvailable = 10f;
+    [SerializeField] private float _pollenStockMax = 100f;
+    public float pollenAvailable { get { return _pollenAvailable; } private set { _pollenAvailable = value; } }
+    public float pollenMaxStock { get { return _pollenStockMax; } private set { _pollenStockMax = value; } }
 
     [Header("Events")]
     public UnityEvent onChange;
@@ -20,33 +19,33 @@ public class PlayerPollen : MonoBehaviour
 
     public bool CanConsume(float quantity)
     {
-        return pollenStock >= quantity;
+        return pollenAvailable >= quantity;
     }
-    public void ConsumePollen(float quantity)
+    public void Consume(float quantity)
     {
         quantity = Mathf.Max(0f, quantity);
-        if(quantity > pollenStock)
+        if (quantity > pollenAvailable)
         {
             Debug.LogError("no more pollen available", this);
             return;
         }
-        pollenStock = Mathf.Clamp(pollenStock - quantity, 0, pollenStockMax);
+        pollenAvailable = Mathf.Clamp(pollenAvailable - quantity, 0, pollenMaxStock);
     }
-    public void LootPollen(float quantity)
+    public void Refill(float quantity)
     {
         quantity = Mathf.Max(0f, quantity);
-        pollenStock = Mathf.Clamp(pollenStock + quantity, 0, pollenStockMax);
+        pollenAvailable = Mathf.Clamp(pollenAvailable + quantity, 0, pollenMaxStock);
     }
 
     [Button]
     private void QuickPollenGain()
     {
-        LootPollen(10f);
+        Refill(10f);
     }
     [Button]
     private void QuickPollenLoose()
     {
-        if(CanConsume(10f))
-        ConsumePollen(10f);
+        if (CanConsume(10f))
+            Consume(10f);
     }
 }

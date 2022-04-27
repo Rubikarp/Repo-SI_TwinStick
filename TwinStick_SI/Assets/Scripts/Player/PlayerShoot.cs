@@ -52,7 +52,7 @@ public class PlayerShoot : MonoBehaviour
     private void ShootCD() { canShoot = true; }
     private void TryCharge()
     {
-        if (!canShoot || !pollenStock.CanConsume(shootLightCost))
+        if (!canShoot || !pollenStock.CanConsume(shootLightCost)) 
         {
             onCannotCharge?.Invoke();
             Debug.LogError("Can't shoot");
@@ -71,13 +71,13 @@ public class PlayerShoot : MonoBehaviour
         onAnyShoot?.Invoke();
         if (shootHeavy)
         {
-            pollenStock.ConsumePollen(shootHeavyCost);
+            pollenStock.Consume(shootHeavyCost);
             onHeavyShoot?.Invoke();
             Debug.Log("Heavy");
         }
         else
         {
-            pollenStock.ConsumePollen(shootLightCost);
+            pollenStock.Consume(shootLightCost);
             onLightShoot?.Invoke();
             Debug.Log("Light");
         }

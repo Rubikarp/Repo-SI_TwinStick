@@ -9,13 +9,18 @@ public class PlayerPollenDrawer : MonoBehaviour
 
     [SerializeField] Slider pollenGauge;
 
+    private void Start()
+    {
+        Reset();
+    }
+
     private void Reset()
     {
-        pollenGauge.maxValue = player.MaxPollenAvailable;
+        pollenGauge.maxValue = player.pollenMaxStock;
     }
 
     public void UpdateScore()
     {
-        pollenGauge.value = player.PollenAvailable;
+        pollenGauge.value = player.pollenAvailable;
     }
 }

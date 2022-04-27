@@ -10,7 +10,7 @@ public static class KarpHelper
     {
         get
         {
-            if (_camera == null) _camera = Camera.main;
+            if (_camera is null) _camera = Camera.main;
             return _camera;
         }
     }
@@ -77,7 +77,7 @@ public static class KarpHelper
     {
         return new Vector3(pos.x, 0, pos.y);
     }
-    public static Vector2 ToPlaneXZ(this Vector3 pos)
+    public static Vector2 ToVec2XZ(this Vector3 pos)
     {
         return new Vector2(pos.x, pos.z);
     }
