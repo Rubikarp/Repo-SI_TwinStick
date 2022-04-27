@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: abd0715663d8aef45af7acbfe2bd3599
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Idle
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 3
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 1
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: A_BeellyTheBee(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Feet
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_01
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.03130661, y: 1.1995215, z: -0.13645215}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_02
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.089812055, y: 1.2976454, z: -0.11194711}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_03
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.12410417, y: 1.1995215, z: -0.05858574}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_04
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.11291136, y: 1.1995215, z: 0.0048915027}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_05
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.062155403, y: 1.1897068, z: 0.04627075}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_06
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0009216874, y: 1.1995215, z: 0.046323355}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_07
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.017831182, y: 1.2835903, z: -0.005036628}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_08
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.06149095, y: 1.1995215, z: -0.05858574}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_09
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.025609884, y: 1.32004, z: -0.110053554}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_01
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.015065018, y: 2.2612522, z: 0.019603156}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_002
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.2087171, y: 2.203836, z: 0.08115187}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_003
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.05942849, y: 2.142834, z: 0.14519504}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_004
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.13055639, y: 2.1911051, z: 0.09221058}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_005
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.23285516, y: 2.1647832, z: -0.15186916}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_006
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.14603545, y: 2.1989753, z: -0.23082903}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_007
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.19427873, y: 2.1887884, z: -0.11220085}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_008
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.013519638, y: 2.265594, z: -0.2224938}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_009
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.14829983, y: 2.1785712, z: -0.1124556}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fluff_Hair_010
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.091094844, y: 2.1562662, z: -0.13039921}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 0.6130474, z: -0.00038053986}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Arms
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.0050603, z: -0.00038053986}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hands
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.0055927, z: -0.00038053986}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Entenna
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.9124061, z: -0.00038053986}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.6544627, z: -0.0009664773}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wing_01
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.1804613, z: -0.00038053986}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wing_02
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 1.1804613, z: -0.025500726}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wing_03
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.00521664, y: 1.0515524, z: -0.042381648}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wing_04
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.00521664, y: 1.0515524, z: -0.042381648}
+      rotation: {x: -0.70441604, y: 0.061628424, z: 0.061628424, w: 0.70441604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Stinger
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -0.0052166535, y: 0.7440616, z: -0.32918093}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Weapon
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -1.1226916, y: 0.78316647, z: 0.0039923666}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.42647105, y: 0.17907788, z: 0.7917371}
+    - name: Leave
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: -1.1684905, y: 1.3564941, z: -0.109259896}
+      rotation: {x: -0.39299121, y: 0.17724733, z: 0.07748541, w: 0.89896464}
+      scale: {x: 1.8440025, y: 1.8440025, z: 1.8440025}
+    - name: Bone_Body
+      parentName: A_BeellyTheBee(Clone)
+      position: {x: 0.0027439175, y: 0.57057863, z: 2.0239867e-18}
+      rotation: {x: 0.7128318, y: -0.701335, z: -0.0000017308506, w: 0.0000016237836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone_Leg_01_L
+      parentName: Bone_Body
+      position: {x: 0.024206398, y: 0.19567457, z: -0.0015218734}
+      rotation: {x: -0.016874176, y: 0.7069061, z: 0.70708567, w: 0.0053785834}
+      scale: {x: 0.9342166, y: 1.0000002, z: 1.0000004}
+    - name: Bone_Leg_02_L
+      parentName: Bone_Leg_01_L
+      position: {x: -0.2484637, y: -0.00000014156102, z: -0.0000000011900702}
+      rotation: {x: 0.000000059604645, y: -0, z: 0.02919887, w: 0.9995737}
+      scale: {x: 1.127645, y: 0.93991506, z: 1}
+    - name: Bone_Foot_L
+      parentName: Bone_Leg_02_L
+      position: {x: -0.27401978, y: 0.00000001527369, z: 0}
+      rotation: {x: -0.000000018887997, y: -0.00000006625706, z: -0.62038785, w: 0.7842952}
+      scale: {x: 1.7904027, y: 0.9981697, z: 1.0000002}
+    - name: Bone_Wing_01_L
+      parentName: Bone_Body
+      position: {x: -0.63080746, y: 0.24072534, z: -0.4372748}
+      rotation: {x: 0.5058674, y: 0.6715552, z: -0.42708385, w: 0.33273295}
+      scale: {x: -1.0150102, y: -0.999999, z: -0.98476326}
+    - name: Bone_Wing_02_L
+      parentName: Bone_Body
+      position: {x: -0.41768858, y: 0.16338679, z: -0.37518594}
+      rotation: {x: 0.6852235, y: 0.4694782, z: -0.30721533, w: 0.4644112}
+      scale: {x: -1.2126784, y: -1.0000005, z: -0.7276067}
+    - name: Bone_Wing_02_R
+      parentName: Bone_Body
+      position: {x: -0.41216367, y: -0.17638037, z: -0.37518775}
+      rotation: {x: 0.31472465, y: -0.4593537, z: 0.69276685, w: 0.45827588}
+      scale: {x: 1.0000001, y: 0.99999976, z: 1}
+    - name: Bone_Wing_01_R
+      parentName: Bone_Body
+      position: {x: -0.62244695, y: -0.27342442, z: -0.4372773}
+      rotation: {x: 0.43243605, y: -0.3257443, z: 0.5167197, w: 0.66324246}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1.0000004}
+    - name: Bone_Leg_01_R
+      parentName: Bone_Body
+      position: {x: 0.030466292, y: -0.189297, z: -0.0015238761}
+      rotation: {x: -0.016874176, y: 0.7069061, z: 0.70708567, w: 0.0053785834}
+      scale: {x: 0.9342168, y: 1.0000004, z: 1.0000005}
+    - name: Bone_Leg_02_R
+      parentName: Bone_Leg_01_R
+      position: {x: -0.2484637, y: -0.00000014156102, z: -0.0000000011900702}
+      rotation: {x: 0.000000059604645, y: -0, z: 0.02919887, w: 0.9995737}
+      scale: {x: 1.1131691, y: 0.95268464, z: 1}
+    - name: Bone_Foot_R
+      parentName: Bone_Leg_02_R
+      position: {x: -0.2740198, y: 0.00000001527369, z: 0}
+      rotation: {x: 0.000000010901622, y: -0.00000006712725, z: -0.6203879, w: 0.78429514}
+      scale: {x: 1.7902938, y: 0.99818206, z: 1.0000004}
+    - name: Bone_Arm_R
+      parentName: Bone_Body
+      position: {x: -0.42944533, y: -0.27492517, z: -0.0000015258788}
+      rotation: {x: -0.7174913, y: 0.6965675, z: -0.0000006152751, w: -0.0000006675545}
+      scale: {x: -1.0000002, y: -0.9999993, z: -1.0000007}
+    - name: Bone_Forearm_R
+      parentName: Bone_Arm_R
+      position: {x: -0.38742086, y: -0.000006008148, z: 1.1937117e-13}
+      rotation: {x: 5.684342e-14, y: 0.000000016943517, z: 0.022523224, w: 0.9997464}
+      scale: {x: 1.0000008, y: 1.0000002, z: 1.0000013}
+    - name: Bone_Hand_R
+      parentName: Bone_Forearm_R
+      position: {x: -0.32556388, y: 0.0000023841856, z: -6.624388e-15}
+      rotation: {x: 0.000000013006322, y: 0.0000000744832, z: 0.00000014714894, w: 1}
+      scale: {x: 3.4477782, y: 3.4477773, z: 3.4477758}
+    - name: Bone_Head
+      parentName: Bone_Body
+      position: {x: -0.6353948, y: -0.000000090897075, z: -1.1368683e-14}
+      rotation: {x: -0.00000095361963, y: -0.00000002547199, z: 0.0028109252, w: 0.99999607}
+      scale: {x: 1.0000014, y: 1, z: 1}
+    - name: Bone_Entena_01_L
+      parentName: Bone_Head
+      position: {x: -0.7676326, y: 0.29659623, z: 0.0000019073485}
+      rotation: {x: 0.000000049925177, y: 0.000003977748, z: -0.6010519, w: 0.79920995}
+      scale: {x: 0.9999993, y: 0.9999989, z: 0.99999994}
+    - name: Bone_Entena_02_L
+      parentName: Bone_Entena_01_L
+      position: {x: -0.52167815, y: -0.000000106399746, z: -5.019837e-13}
+      rotation: {x: -0.0000011003219, y: 0.0000011172856, z: -0.09859289, w: 0.99512786}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Bone_Entena_03_L
+      parentName: Bone_Entena_02_L
+      position: {x: -0.40807778, y: -0.000000047683702, z: 6.359869e-10}
+      rotation: {x: -0.00000207977, y: -0.000013137961, z: -0.012995349, w: 0.99991554}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: Bone_Entena_04_L
+      parentName: Bone_Entena_03_L
+      position: {x: -0.38741916, y: 0.00000014305112, z: -1.5404566e-12}
+      rotation: {x: 0.0000162769, y: 0.000040592407, z: 0.0066672065, w: 0.99997777}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Bone_Entena_05_L
+      parentName: Bone_Entena_04_L
+      position: {x: -0.17044948, y: -0.00000011920915, z: 2.8246622e-10}
+      rotation: {x: -0.0000015341822, y: -0.00003835402, z: 0.03786145, w: 0.999283}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: Bone_Entena_01_R
+      parentName: Bone_Head
+      position: {x: -0.76110077, y: -0.31743068, z: -0.0000019073485}
+      rotation: {x: 0.00000011414233, y: -0.00000394786, z: 0.60951906, w: 0.79277146}
+      scale: {x: 0.9999993, y: 0.99999917, z: 0.9999999}
+    - name: Bone_Entena_02_R
+      parentName: Bone_Entena_01_R
+      position: {x: -0.52167815, y: -0.000000106399746, z: -5.019837e-13}
+      rotation: {x: -0.0000020721982, y: 0.000004258839, z: 0.104568034, w: 0.9945178}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Bone_Entena_03_R
+      parentName: Bone_Entena_02_R
+      position: {x: -0.40807778, y: -0.000000047683702, z: 6.359869e-10}
+      rotation: {x: -0.0000020790362, y: -0.000013231085, z: -0.012995349, w: 0.99991554}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Bone_Entena_04_R
+      parentName: Bone_Entena_03_R
+      position: {x: -0.38741916, y: 0.00000014305112, z: -1.5404566e-12}
+      rotation: {x: 0.000016276981, y: 0.00004065294, z: 0.0066672065, w: 0.99997777}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: Bone_Entena_05_R
+      parentName: Bone_Entena_04_R
+      position: {x: -0.17044948, y: -0.00000011920915, z: 2.8246622e-10}
+      rotation: {x: -0.000001534797, y: -0.000038363323, z: 0.037861448, w: 0.999283}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: Bone_Arm_L
+      parentName: Bone_Body
+      position: {x: -0.438084, y: 0.25633454, z: 0.0000013351439}
+      rotation: {x: 0.00000067652013, y: 0.0000006318388, z: 0.7060712, w: -0.7081409}
+      scale: {x: 1.0000007, y: 1.0000007, z: 0.99999994}
+    - name: Bone_Forearm_L
+      parentName: Bone_Arm_L
+      position: {x: -0.38742086, y: -0.000006008148, z: 1.1937117e-13}
+      rotation: {x: 0.00000006263869, y: 0.000000027355725, z: 0.022523314, w: 0.9997464}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1}
+    - name: Bone_Hand_L
+      parentName: Bone_Forearm_L
+      position: {x: -0.32556388, y: 0.0000023841856, z: -6.624388e-15}
+      rotation: {x: -0.000000018626514, y: -0.000000034681353, z: -0.000000061467276,
+        w: 1}
+      scale: {x: 3.4477766, y: 3.447776, z: 3.4477754}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 10
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

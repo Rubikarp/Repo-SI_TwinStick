@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class QuitApp : MonoBehaviour
 {
-    public UnityEvent OnQuit;
     public UnityEvent OnWantToQuit;
+    public UnityEvent OnQuit;
 
     [ContextMenu("WantToQuit")]
     public void WantToQuitGame()
