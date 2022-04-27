@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             speed = moveSpeed + runBonusSpeed;
         }
 
-        transform.parent.position += Time.deltaTime * move.ToPlaneXZ() * speed;
+        transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
     }
     public void MoveTimeReboot()
     {
