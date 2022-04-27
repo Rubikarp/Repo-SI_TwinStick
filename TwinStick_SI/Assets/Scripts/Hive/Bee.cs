@@ -21,7 +21,6 @@ public class Bee : MonoBehaviour
     private Hive hive;
     [HideInInspector] public float turnAngle = 0;
     public GameObject beeBullet;
-    public Transform bulletContainer;
     public BulletPoolManager bulletPool;
 
     void Start()

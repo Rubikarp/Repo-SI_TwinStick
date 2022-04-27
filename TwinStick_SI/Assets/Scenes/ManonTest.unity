@@ -363,8 +363,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1632869228}
+  m_Children: []
   m_Father: {fileID: 1003897358}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -859,7 +858,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1196669592}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1164,10 +1164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101059e923202bb4fbeb67031827a17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersBees:
-  - {fileID: 1632869224}
+  playersBees: []
+  maxBeeFollowPlayer: 5
   beePrefab: {fileID: 3201734866077326607, guid: cd58624820072474c8671e8fb5626596,
     type: 3}
+  beeBulletContainer: {fileID: 1196669593}
   beeContainer: {fileID: 537059281}
 --- !u!1 &1010058336
 GameObject:
@@ -1200,6 +1201,54 @@ Transform:
   m_Father: {fileID: 2092033864}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1196669591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196669592}
+  - component: {fileID: 1196669593}
+  m_Layer: 0
+  m_Name: BeeBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196669592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196669591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1001495205}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196669593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196669591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00a2176941afc34a9413d515479490c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5626758187218644880, guid: f1ceac1f50570f44faeced3f805b55b9,
+    type: 3}
+  numberOfBulletGenerated: 100
+  listOfCreatedBullet: []
 --- !u!1 &1449077602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,24 +1321,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 72566911}
---- !u!114 &1632869224 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3201734866077326592, guid: cd58624820072474c8671e8fb5626596,
-    type: 3}
-  m_PrefabInstance: {fileID: 3201734866602690152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0480e657f9723bc498be3fa3c707aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1632869228 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-    type: 3}
-  m_PrefabInstance: {fileID: 3201734866602690152}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854487195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,77 +1587,18 @@ MonoBehaviour:
     type: 3}
   heavyShoot: {fileID: 5626758187218644880, guid: 385e5b131cb3109488c828f521221622,
     type: 3}
---- !u!1001 &3201734866602690152
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 537059281}
-    m_Modifications:
-    - target: {fileID: 3201734866077326592, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1003897353}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326596, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201734866077326607, guid: cd58624820072474c8671e8fb5626596,
-        type: 3}
-      propertyPath: m_Name
-      value: Bee
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd58624820072474c8671e8fb5626596, type: 3}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1003897363}
+        m_TargetAssemblyTypeName: BeeManager, Core
+        m_MethodName: PewPewInDir
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -8,6 +8,7 @@ public class BeeManager : MonoBehaviour
     int distanceBetweenBees;
     public int maxBeeFollowPlayer;
     public GameObject beePrefab;
+    public BulletPoolManager beeBulletContainer;
     public Transform beeContainer;
 
     [NaughtyAttributes.Button]
@@ -25,8 +26,10 @@ public class BeeManager : MonoBehaviour
         if(playersBees.Count < maxBeeFollowPlayer)
         {
             GameObject bee = Instantiate(beePrefab, beeContainer.position, beeContainer.rotation, beeContainer);
-            playersBees.Add(bee.GetComponent<Bee>());
-            playersBees[playersBees.Count-1].player = this.gameObject;
+            Bee myBee = bee.GetComponent<Bee>();
+            myBee.player = this.gameObject;
+            myBee.bulletPool = beeBulletContainer;
+            playersBees.Add(myBee);
             RearangeBees();
         }
     }
