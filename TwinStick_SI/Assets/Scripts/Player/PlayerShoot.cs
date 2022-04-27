@@ -71,13 +71,13 @@ public class PlayerShoot : MonoBehaviour
         onAnyShoot?.Invoke();
         if (shootHeavy)
         {
-            pollenStock.ConsumePollen(shootHeavyCost);
+            pollenStock.Consume(shootHeavyCost);
             onHeavyShoot?.Invoke();
             Debug.Log("Heavy");
         }
         else
         {
-            pollenStock.ConsumePollen(shootLightCost);
+            pollenStock.Consume(shootLightCost);
             onLightShoot?.Invoke();
             Debug.Log("Light");
         }
