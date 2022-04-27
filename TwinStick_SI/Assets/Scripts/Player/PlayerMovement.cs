@@ -14,17 +14,36 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 AimDir { get { return aim; } }
     public void Move(InputAction.CallbackContext context)
     {
-        move = context.ReadValue<Vector2>();
+        Vector2 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).ToVec2XZ();
+        Vector2 right = -Vector2.Perpendicular(forward);
+        move =  right * context.ReadValue<Vector2>().x + forward* context.ReadValue<Vector2>().y;
+        move.Normalize();
     }
     public void Aim(InputAction.CallbackContext context)
     {
-        if(context.ReadValue<Vector2>().magnitude > 0.1)
-        aim = context.ReadValue<Vector2>().normalized;
+        if(context.ReadValue<Vector2>().magnitude > 0.3)
+        {
+            Vector2 value = context.ReadValue<Vector2>().normalized;
+            Vector2 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).ToVec2XZ();
+            Vector2 right = -Vector2.Perpendicular(forward);
+            aim = (right * value.x + forward * value.y).normalized;
+        }
     }
     #endregion
 
     [Header("RunTime")]
-    [SerializeField, Required] Camera cam;
+    [SerializeField, Required] Camera _cam;
+    private Camera cam 
+    { 
+        get 
+        { 
+            if(_cam is null)
+            {
+                _cam = Camera.main;
+            }
+            return _cam; 
+        } 
+    }
 
     [Header("RunTime")]
     [SerializeField] float moveTime = 0f;
@@ -74,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             speed = moveSpeed + runBonusSpeed;
         }
 
-        transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
+        transform.parent.position += Time.deltaTime * move.ToPlaneXZ() * speed;
     }
     public void MoveTimeReboot()
     {
