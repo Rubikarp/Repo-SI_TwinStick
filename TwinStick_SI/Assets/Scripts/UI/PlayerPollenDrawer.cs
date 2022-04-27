@@ -9,6 +9,11 @@ public class PlayerPollenDrawer : MonoBehaviour
 
     [SerializeField] Slider pollenGauge;
 
+    private void Start()
+    {
+        Reset();
+    }
+
     private void Reset()
     {
         pollenGauge.maxValue = player.pollenMaxStock;
