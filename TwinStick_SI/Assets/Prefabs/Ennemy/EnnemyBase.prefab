@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1102737893571470924}
   - component: {fileID: 2775621784876831404}
   - component: {fileID: 6086093428775152574}
-  - component: {fileID: 6526985807642117326}
   - component: {fileID: 6808287296332537184}
   - component: {fileID: 670230366997547021}
+  - component: {fileID: -4330879084281292902}
   m_Layer: 0
-  m_Name: EnnemyMelee
+  m_Name: EnnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,21 +102,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6526985807642117326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837848815089234201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 624ab06d58da26345b599f8be7494979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 1
-  typeOfEnnemy: 0
-  target: {fileID: 0}
 --- !u!195 &6808287296332537184
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -155,6 +140,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!135 &-4330879084281292902
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837848815089234201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7.69
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5996820332208376595
 GameObject:
   m_ObjectHideFlags: 0
