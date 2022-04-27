@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Foliage 1
+  m_Name: M_Radio
   m_Shader: {fileID: -6465566751694194690, guid: 03d7ae4b29703dc4591ab109273429f9,
     type: 3}
   m_ValidKeywords: []
