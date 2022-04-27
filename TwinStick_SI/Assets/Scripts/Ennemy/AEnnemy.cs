@@ -33,13 +33,12 @@ public abstract class AEnnemy : MonoBehaviour
 
     public GameObject target;
     private NavMeshAgent navAgent;
-    // Start is called before the first frame update
+
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (currentState)

@@ -7,7 +7,7 @@ public class BasicHealth : MonoBehaviour, IHealth
 {
     [Header("Data")]
     [SerializeField] private int defaultHealth = 10;
-    [SerializeField] private int healthPoint;
+    [SerializeField] private int healthPoint = 10;
     [SerializeField] private TARGET_TYPE targetType = TARGET_TYPE.TARGET_TYPE_ENNEMY;
     public int HealthPoint { get { return healthPoint; } }
     public TARGET_TYPE TargetType { get { return targetType; } }
