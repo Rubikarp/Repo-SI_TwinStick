@@ -61,7 +61,6 @@ public abstract class AEnnemy : MonoBehaviour
                 else
                 {
                     // Move To Target ( Change Agent destination )
-
                     navAgent.destination = target.transform.position;
                 }
                 break;
@@ -90,6 +89,7 @@ public abstract class AEnnemy : MonoBehaviour
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         
     }
+
 
 
 
