@@ -6,7 +6,10 @@ public class RangeEnnemy : AEnnemy
 {
     public override void Attack()
     {
-        throw new System.NotImplementedException();
-
+        if (target.activeSelf)
+        {
+            BasicHealth bh = target.GetComponent<BasicHealth>();
+            bh.TakeDamage();
+        }
     }
 }

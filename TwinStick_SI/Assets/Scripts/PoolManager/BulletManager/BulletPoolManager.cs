@@ -54,10 +54,10 @@ public class BulletPoolManager : Singleton<BulletPoolManager>
     }
 
     
-    public void RemoveBullet(GameObject bullet)
+    public void RemoveBullet(Bullet bullet)
     {
-        bullet.SetActive(false);
-        bullet.transform.position = new Vector3(500, -500, -500);
+        bullet.gameObject.SetActive(false);
+        bullet.gameObject.transform.position = new Vector3(500, -500, -500);
     }
 
 

@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 4284435189526222123}
   - component: {fileID: -2049672798441417792}
   - component: {fileID: 5707671112698302985}
+  - component: {fileID: -6540560331877988460}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -316,9 +317,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4284435189526222123}
-        m_TargetAssemblyTypeName: BasicHealth, Core
-        m_MethodName: Dying
+      - m_Target: {fileID: -6540560331877988460}
+        m_TargetAssemblyTypeName: ATower, Core
+        m_MethodName: Die
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -358,6 +359,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.513799, y: 3, z: 1.3235656}
   m_Center: {x: 0.118912466, y: 0.5, z: -0.049311582}
+--- !u!114 &-6540560331877988460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284435189526222118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf2272719277bd469fee72e373279f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_type: 0
 --- !u!1 &4284435189676640358
 GameObject:
   m_ObjectHideFlags: 0

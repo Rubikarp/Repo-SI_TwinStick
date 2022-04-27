@@ -10,7 +10,7 @@ public class MeleeEnnemy : AEnnemy
 
         if (target.activeSelf)
         {
-            BasicHealth bh = target.GetComponent<BasicHealth>();
+            
             bh.TakeDamage();
         }
         

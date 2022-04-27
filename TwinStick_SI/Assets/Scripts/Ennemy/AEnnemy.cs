@@ -38,6 +38,12 @@ public abstract class AEnnemy : MonoBehaviour
     protected NavMeshAgent navAgent;
 
     protected Vector3 attackPosition;
+    [SerializeField][ReadOnly]
+    private float lastAttack=0;
+    [SerializeField][ReadOnly]
+    private float attackSpeed=2;
+
+    protected BasicHealth bh;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +64,7 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
             case AI_STATE.AI_STATE_IDLE:
                 // doing Nothing ( Waiting for a new target maybe ? )
-                navAgent.isStopped = true;
+                AI_STATE_IDLE();
                 break;
             case AI_STATE.AI_STATE_REACH_TARGET:
                 AI_STATE_REACH_TARGET();
@@ -96,7 +102,9 @@ public abstract class AEnnemy : MonoBehaviour
         isPriorityTarget = false;
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
-        
+        bh = target.GetComponent<BasicHealth>();
+
+
     }
     #endregion
 
@@ -158,23 +166,30 @@ public abstract class AEnnemy : MonoBehaviour
         }
     }
 
-    IEnumerator DrawAngle()
-    {
-
-            
-            yield return new WaitForEndOfFrame();
-
-    }
-
     public virtual void AI_STATE_ATTACK_TARGET()
     {
-        if ((transform.position - target.transform.position).magnitude < 2)
+        lastAttack += Time.deltaTime;
+        if (target.activeSelf)
         {
-            navAgent.isStopped = true;
+            if ((transform.position - target.transform.position).magnitude < attackDistance)
+            {
+                navAgent.isStopped = true;
+                if (lastAttack >= attackSpeed)
+                {
+                    
+                    
+                    lastAttack = 0;
+                    Attack();
+                }
+            }
+            else
+            {
+                navAgent.isStopped = false;
+            }
         }
         else
         {
-            navAgent.isStopped = false;
+            currentState = AI_STATE.AI_STATE_IDLE;
         }
 
     }

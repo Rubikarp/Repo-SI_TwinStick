@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,11 @@ public class BasicHealth : MonoBehaviour, IHealth
     public void Dying()
     {
         onDeath?.Invoke();
+    }
+
+    internal void ResetHealth()
+    {
+        healthPoint = defaultHealth;
     }
 }
 
