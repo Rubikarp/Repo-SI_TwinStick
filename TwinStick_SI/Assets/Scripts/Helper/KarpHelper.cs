@@ -10,7 +10,7 @@ public static class KarpHelper
     {
         get
         {
-            if (_camera == null) _camera = Camera.main;
+            if (_camera is null) _camera = Camera.main;
             return _camera;
         }
     }

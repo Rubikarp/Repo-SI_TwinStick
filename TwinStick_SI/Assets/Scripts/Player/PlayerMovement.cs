@@ -14,35 +14,29 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 AimDir { get { return aim; } }
     public void Move(InputAction.CallbackContext context)
     {
-        Vector2 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).ToVec2XZ();
-        Vector2 right = -Vector2.Perpendicular(forward);
-        move =  right * context.ReadValue<Vector2>().x + forward* context.ReadValue<Vector2>().y;
-        move.Normalize();
+        move = InputRelativeToCam(context.ReadValue<Vector2>()).normalized;
     }
     public void Aim(InputAction.CallbackContext context)
     {
-        if(context.ReadValue<Vector2>().magnitude > 0.3)
+        if (context.ReadValue<Vector2>().magnitude > 0.3)
         {
-            Vector2 value = context.ReadValue<Vector2>().normalized;
-            Vector2 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).ToVec2XZ();
-            Vector2 right = -Vector2.Perpendicular(forward);
-            aim = (right * value.x + forward * value.y).normalized;
+            aim = InputRelativeToCam(context.ReadValue<Vector2>().normalized).normalized;
         }
     }
     #endregion
 
-    [Header("RunTime")]
-    [SerializeField, Required] Camera _cam;
-    private Camera cam 
-    { 
-        get 
-        { 
-            if(_cam is null)
-            {
-                _cam = Camera.main;
-            }
-            return _cam; 
-        } 
+    private Camera cam
+    {
+        get
+        {
+            return KarpHelper.Camera;
+        }
+    }
+    public Vector2 InputRelativeToCam(Vector2 input)
+    {
+        Vector2 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).ToVec2XZ();
+        Vector2 right = -Vector2.Perpendicular(forward);
+        return input.x * right + input.y * forward;
     }
 
     [Header("RunTime")]
@@ -78,13 +72,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveTime < accThreshold)
         {
-            speed = Mathf.Lerp(0,moveSpeed,KarpEase.InOutSine(moveTime/ accThreshold));
+            speed = Mathf.Lerp(0, moveSpeed, KarpEase.InOutSine(moveTime / accThreshold));
         }
         else if (moveTime < runThreshold)
         {
             speed = moveSpeed;
         }
-        else if(moveTime < runThreshold + accThreshold)
+        else if (moveTime < runThreshold + accThreshold)
         {
             speed = moveSpeed + Mathf.Lerp(0, runBonusSpeed, KarpEase.InOutSine((moveTime - runThreshold) / accThreshold));
         }
@@ -101,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void RunTimeReboot()
     {
-        if(moveTime > accThreshold)
-        moveTime = accThreshold;
+        if (moveTime > accThreshold)
+            moveTime = accThreshold;
     }
 
     private void Aiming()
