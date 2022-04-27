@@ -8,9 +8,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] Transform weaponextremum;
     [SerializeField] Transform bulletContainer;
     [Space(5)]
-    [SerializeField] GameObject lightShoot;
+    [SerializeField] ParticleSystem lightShoot;
     [SerializeField] GameObject heavyShoot;
-    [SerializeField] ParticleSystem particleS;
 
 
     public void HeavyShoot()
@@ -20,6 +19,6 @@ public class PlayerWeapon : MonoBehaviour
 
     public void LightShoot()
     {
-        particleS.Play();
+        lightShoot.Play();
     }
 }

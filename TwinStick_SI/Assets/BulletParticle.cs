@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BulletParticle : MonoBehaviour
 {
-    [SerializeField] ParticleSystem particleS;
-
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("particle hit");
