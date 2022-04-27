@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Recup Input
     [SerializeField] Vector2 move = Vector2.zero;
-    [SerializeField] Vector2 aim = Vector2.up;
+    [SerializeField] Vector2 aim = Vector2.right;
     public Vector2 MoveDir { get { return move; } }
     public Vector2 AimDir { get { return aim; } }
     public void Move(InputAction.CallbackContext context)
@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
         aim = context.ReadValue<Vector2>().normalized;
     }
     #endregion
+
+    [Header("RunTime")]
+    [SerializeField, Required] Camera cam;
 
     [Header("RunTime")]
     [SerializeField] float moveTime = 0f;
@@ -89,4 +92,9 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, aimRot, Time.deltaTime * aimSpeed);
     }
 
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(transform.position, transform.position + (move.ToPlaneXZ() * 4f), Color.red);
+        Debug.DrawLine(transform.position, transform.position + (aim.ToPlaneXZ() * 4f), Color.green);
+    }
 }

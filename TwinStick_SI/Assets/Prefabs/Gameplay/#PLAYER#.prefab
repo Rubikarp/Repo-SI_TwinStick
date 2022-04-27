@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   aim: {x: 0, y: 1}
+  cam: {fileID: 3656799777559615985}
   moveTime: 0
   accThreshold: 0.5
   runThreshold: 4
@@ -473,8 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7445c0efab12d1444852cc4d374eb577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenStock: 10
-  pollenStockMax: 100
+  _pollenAvailable: 50
+  _pollenStockMax: 100
   onChange:
     m_PersistentCalls:
       m_Calls: []

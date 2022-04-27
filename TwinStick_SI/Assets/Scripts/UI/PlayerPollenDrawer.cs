@@ -11,11 +11,11 @@ public class PlayerPollenDrawer : MonoBehaviour
 
     private void Reset()
     {
-        pollenGauge.maxValue = player.MaxPollenAvailable;
+        pollenGauge.maxValue = player.pollenMaxStock;
     }
 
     public void UpdateScore()
     {
-        pollenGauge.value = player.PollenAvailable;
+        pollenGauge.value = player.pollenAvailable;
     }
 }
