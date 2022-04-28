@@ -4,7 +4,7 @@ using UnityEngine;
 using NaughtyAttributes;
 
 [RequireComponent(typeof(BasicHealth))]
-public class Hive : MonoBehaviour
+public class Hive : Singleton<Hive>
 {
     [Header("Component")]
     [SerializeField] private BasicHealth health;
@@ -17,7 +17,7 @@ public class Hive : MonoBehaviour
     public BulletPoolManager beeBulletContainer;
 
     [Header("Data")]
-    [SerializeField] private float pollenStock = 500f;
+    [SerializeField] public float pollenStock = 500f;
     [SerializeField] private float pollenStockMax = 1000f;
 
     private void Reset()

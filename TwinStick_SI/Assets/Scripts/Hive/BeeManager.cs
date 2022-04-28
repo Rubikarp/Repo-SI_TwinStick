@@ -77,7 +77,7 @@ public class BeeManager : MonoBehaviour
         {
             Bee bee = playersBees.Last();
             UnlinkBee(bee);
-            bee.state = BEE_STATE.WORKING;
+            bee.state = BEE_STATE.WAITING;
 
             return bee;
         }
