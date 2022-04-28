@@ -528,15 +528,51 @@ MonoBehaviour:
     m_ActionId: cdeba0e9-3a54-4242-ac0b-c8a3e58df243
     m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6159889582527151436}
+        m_TargetAssemblyTypeName: WhistleBee, Core
+        m_MethodName: CallBee
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b276d295-43eb-4b3c-b517-ab368ca0b81e
     m_ActionName: Player/CallBee[/Keyboard/c]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6159889582527151436}
+        m_TargetAssemblyTypeName: WhistleBee, Core
+        m_MethodName: FreeBee
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 536a4eef-9d21-4fd2-85a7-b33531751e5b
     m_ActionName: Player/FreeBee[/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6320476930404373882}
+        m_TargetAssemblyTypeName: BeeManager, Core
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b5b2e278-2561-4125-8f2c-3c05ed007302
     m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
@@ -690,11 +726,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101059e923202bb4fbeb67031827a17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerBee: 0
+  hive: {fileID: 0}
+  maxPlayerBee: 5
   playersBees: []
   beeContainer: {fileID: 3656799777620029435}
+  recupDist: 2
+  onGetBee:
+    m_PersistentCalls:
+      m_Calls: []
+  onFreeBee:
+    m_PersistentCalls:
+      m_Calls: []
   turnSpeed: 180
   distToPlayer: 2
+  distanceToBuy: 10
 --- !u!114 &6159889582527151436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e1248fc7715974ba6a5a744d73dd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whistleRange: 5
+  playerBee: {fileID: 6320476930404373882}
+  whistleRange: 7
   callingMode: 0
 --- !u!1 &3953536868179026693
 GameObject:
@@ -1203,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229568, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7780678
+      value: 2.1213872
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -1218,7 +1264,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.999999
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -1253,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.999999
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
