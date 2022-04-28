@@ -1,49 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class BeeManager : MonoBehaviour
 {
+    public int maxPlayerBee;
     public List<Bee> playersBees = new List<Bee>();
-    int distanceBetweenBees;
-    public int maxBeeFollowPlayer;
-    public GameObject beePrefab;
-    public BulletPoolManager beeBulletContainer;
     public Transform beeContainer;
 
-    [NaughtyAttributes.Button]
-    public void RearangeBees()
-    {
-        distanceBetweenBees = 360 / playersBees.Count;
-        for (int i = 0; i < playersBees.Count; i++)
-        {
-            playersBees[i].turnAngle = distanceBetweenBees * i;
-        }
-    }
-    [NaughtyAttributes.Button]
-    public void BuyBee()
-    {
-        if(playersBees.Count < maxBeeFollowPlayer)
-        {
-            GameObject bee = Instantiate(beePrefab, beeContainer.position, beeContainer.rotation, beeContainer);
-            Bee myBee = bee.GetComponent<Bee>();
-            myBee.player = this.gameObject;
-            myBee.bulletPool = beeBulletContainer;
-            playersBees.Add(myBee);
-            RearangeBees();
-        }
-    }
+    [Header("Movement")]
+    public float turnSpeed = 180f;
+    public float distToPlayer = 2f;
+    [Space(5)]
+    [ShowNonSerializedField] float angleBtwBees;
+    [ShowNonSerializedField] float turnAngle;
+
+
     [NaughtyAttributes.Button]
     public void KillTurret()
     {
         if(playersBees.Count > 0)
         {
-            Destroy(playersBees[0].gameObject);
-            playersBees.RemoveAt(0);
-            RearangeBees();
+            Bee sacrifice = playersBees.Last();
+            FreeBee(sacrifice);
+            sacrifice.Die();
         }
 
         //insérer destruction de la tour
+    }
+
+    public void FreeBee(Bee bee)
+    {
+        if (playersBees.Count > 0)
+        {
+            if (!playersBees.Contains(bee))
+            {
+                Debug.LogError(bee + " is not link to player", bee);
+                return;
+            }
+
+            playersBees.Remove(bee);
+            bee.linkToPlayer = false;
+        }
+    }
+    public void LinkBee(Bee bee)
+    {
+        if (playersBees.Count < maxPlayerBee)
+        {
+            if (playersBees.Contains(bee))
+            {
+                //already link
+                return;
+            }
+
+            playersBees.Add(bee);
+            bee.linkToPlayer = true;
+        }
     }
     public void PewPewInDir(Vector3 dir)
     {
@@ -52,11 +65,23 @@ public class BeeManager : MonoBehaviour
             playersBees[i].Pew(dir);
         }
     }
-    public void FreeTheBee()
+
+    private void Update()
     {
-        if (playersBees.Count > 0)
+        if(playersBees.Count > 0)
         {
-            //playersBees[playersBees.Count - 1].
+            SpinArroundPlayer();
+        }
+    }
+    public void SpinArroundPlayer()
+    {
+        turnAngle += Time.deltaTime * turnSpeed;
+        float angleBtwBees = 360f / playersBees.Count;
+        for (int i = 0; i < playersBees.Count; i++)
+        {
+            float currentAngle = turnAngle + (angleBtwBees * i);
+            Vector3 offSet = distToPlayer * new Vector3(Mathf.Cos(currentAngle * Mathf.Deg2Rad), 0, Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+            playersBees[i].transform.position = transform.position + offSet;
         }
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
 using UnityEngine.AI;
+using UnityEngine.Events;
+using NaughtyAttributes;
 
 public enum BEE_STATE
 {
@@ -12,36 +13,43 @@ public enum BEE_STATE
 }
 
 //navAgent.SetDestination();+ Mathf.Rad2Deg % 360
+[RequireComponent(typeof(BasicHealth))]
 public class Bee : MonoBehaviour
 {
-    public float turnSpeed;
-    public GameObject player;
-    public float distanceToPlayer;
+    [Header("Move")]
+    public bool linkToPlayer = false;
+    //
     private NavMeshAgent navAgent;
-    private Hive hive;
-    [HideInInspector] public float turnAngle = 0;
+
+    [Header("Data")]
+    [SerializeField] BasicHealth health;
+    public Hive hive;
+
+    [Header("Bullet")]
     public GameObject beeBullet;
     public BulletPoolManager bulletPool;
 
     void Start()
     {
-        
+        health = this.gameObject.GetComponent<BasicHealth>();
     }
 
     void Update()
     {
-        SpinArround();
-    }
+        if (!linkToPlayer)
+        {
 
-    public void SpinArround()
-    {
-        turnAngle += Time.deltaTime * turnSpeed;
-        turnAngle %= 360f;
-        transform.position = player.transform.position + new Vector3(Mathf.Cos(turnAngle * Mathf.Deg2Rad), 0, Mathf.Sin(turnAngle * Mathf.Deg2Rad)) * distanceToPlayer;
+        }
     }
 
     public void Pew(Vector3 dir)
     {
         bulletPool.Shoot(transform.position, Quaternion.LookRotation(dir, Vector3.up));
+    }
+
+    public void Die()
+    {
+        health.TakeDamage();
+        Destroy(gameObject, 0.15f);
     }
 }

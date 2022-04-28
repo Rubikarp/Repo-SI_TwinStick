@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3201734866077326594}
   - component: {fileID: 3201734866077326593}
   - component: {fileID: 3201734866077326592}
+  - component: {fileID: 2944847183533638635}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Untagged
@@ -114,7 +115,29 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceToPlayer: 2
   turnAngle: 0
+  hive: {fileID: 0}
   beeBullet: {fileID: 5626758187218644880, guid: f1ceac1f50570f44faeced3f805b55b9,
     type: 3}
-  bulletContainer: {fileID: 0}
   bulletPool: {fileID: 0}
+--- !u!114 &2944847183533638635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201734866077326607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cc9036c8a32ec49a038e408adb9dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultHealth: 1
+  healthPoint: 1
+  targetType: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  deathDelay: 0.2
