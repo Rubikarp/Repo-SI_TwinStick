@@ -74,7 +74,7 @@ public class TowerPoolManager : Singleton<TowerPoolManager>
                 tower.SetActive(true);
                 tower.transform.position = parent.position;
                 BasicHealth bh = tower.GetComponent<BasicHealth>();
-                bh.ResetHealth();
+                bh.Initialise();
                 return true;
             }
         }
@@ -82,7 +82,7 @@ public class TowerPoolManager : Singleton<TowerPoolManager>
         return false;
     }
 
-    internal void RemoveTower(ATower tower)
+    public void RemoveTower(ATower tower)
     {
 
         tower.gameObject.SetActive(false);

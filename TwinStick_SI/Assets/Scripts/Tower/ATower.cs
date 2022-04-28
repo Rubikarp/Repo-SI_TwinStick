@@ -18,6 +18,12 @@ public class ATower : MonoBehaviour
 
 
 
+
+    public virtual void OnHit()
+    {
+        // Ovverride for specific effect for each tower or go 1 for all
+    }
+
     public virtual void Die()
     {
         TowerPoolManager.Instance.RemoveTower(this);

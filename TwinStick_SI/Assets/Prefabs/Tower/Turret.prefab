@@ -302,10 +302,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4284435189526222123}
-        m_TargetAssemblyTypeName: BasicHealth, Core
-        m_MethodName: TakeDamage
-        m_Mode: 3
+      - m_Target: {fileID: -6540560331877988460}
+        m_TargetAssemblyTypeName: ATower, Core
+        m_MethodName: OnHit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

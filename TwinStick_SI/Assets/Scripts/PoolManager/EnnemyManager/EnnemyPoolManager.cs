@@ -124,8 +124,10 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             i++;
             ennemy.SetActive(true);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
-            
             ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
+
+            BasicHealth bh = ennemy.GetComponent<BasicHealth>();
+            bh.Initialise();
 
             float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
@@ -135,6 +137,14 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             yield return new WaitForSeconds(0.2f);
         }
         
+    }
+
+    public void RemoveEnnemy(AEnnemy ennemy)
+    {
+
+        ennemy.gameObject.SetActive(false);
+        ennemy.gameObject.transform.position = new Vector3(0, 0, 0);
+
     }
 
 

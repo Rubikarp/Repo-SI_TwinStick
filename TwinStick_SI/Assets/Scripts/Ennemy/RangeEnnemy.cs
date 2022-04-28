@@ -8,7 +8,6 @@ public class RangeEnnemy : AEnnemy
     {
         if (target.activeSelf)
         {
-            BasicHealth bh = target.GetComponent<BasicHealth>();
             bh.TakeDamage();
         }
     }
