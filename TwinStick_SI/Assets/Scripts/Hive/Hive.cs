@@ -12,7 +12,7 @@ public class Hive : MonoBehaviour
     [Header("Bees")]
     [SerializeField] private float beePrice = 10f;
     [SerializeField] GameObject beePrefab;
-    [SerializeField] List<Bee> allBees = new List<Bee>();
+    public List<Bee> allBees = new List<Bee>();
     [Space(5)]
     public BulletPoolManager beeBulletContainer;
 
@@ -34,7 +34,7 @@ public class Hive : MonoBehaviour
     {
         if (/*playerPollen.CanConsume(beePrice) &&*/ playerBee.playersBees.Count < playerBee.maxPlayerBee)
         {
-            playerPollen.Consume(beePrice);
+            //playerPollen.Consume(beePrice);
             GameObject bee = Instantiate(beePrefab, playerBee.beeContainer.position, playerBee.beeContainer.rotation, playerBee.beeContainer);
 
             Bee myBee = bee.GetComponent<Bee>();

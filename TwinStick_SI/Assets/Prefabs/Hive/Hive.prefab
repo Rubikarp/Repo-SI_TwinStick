@@ -215,6 +215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3776650422330948857}
+  beePrice: 10
+  beePrefab: {fileID: 3201734866077326607, guid: cd58624820072474c8671e8fb5626596,
+    type: 3}
+  allBees: []
+  beeBulletContainer: {fileID: 0}
   pollenStock: 500
   pollenStockMax: 1000
 --- !u!114 &3776650422330948857

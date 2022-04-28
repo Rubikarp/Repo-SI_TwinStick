@@ -12,14 +12,31 @@ public enum BEE_STATE
     WORKING,
 }
 
-//navAgent.SetDestination();+ Mathf.Rad2Deg % 360
+//navAgent.SetDestination();
 [RequireComponent(typeof(BasicHealth))]
 public class Bee : MonoBehaviour
 {
-    [Header("Move")]
-    public bool linkToPlayer = false;
-    //
     private NavMeshAgent navAgent;
+    private BEE_STATE _state = BEE_STATE.FOLLOWING;
+    public BEE_STATE state 
+    { 
+        get { return _state; }
+        set
+        {
+            _state = value;
+            switch (value)
+            {
+                case BEE_STATE.GROUNDED:
+                    break;
+                case BEE_STATE.FOLLOWING:
+                    break;
+                case BEE_STATE.WORKING:
+                    navAgent.SetDestination(hive.transform.position);
+                    break;
+                default:
+                    break;
+            }
+        } }
 
     [Header("Data")]
     [SerializeField] BasicHealth health;
@@ -29,14 +46,17 @@ public class Bee : MonoBehaviour
     public GameObject beeBullet;
     public BulletPoolManager bulletPool;
 
+
+
     void Start()
     {
         health = this.gameObject.GetComponent<BasicHealth>();
+        navAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        if (!linkToPlayer)
+        if (state is not BEE_STATE.FOLLOWING)
         {
 
         }

@@ -1,13 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using NaughtyAttributes;
+using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class BeeManager : MonoBehaviour
 {
-    public int maxPlayerBee;
+    public Hive hive;
+
+    public int maxPlayerBee = 5;
     public List<Bee> playersBees = new List<Bee>();
     public Transform beeContainer;
+    public float recupDist = 2f;
+
+    [Header("Event")]
+    public UnityEvent onGetBee;
+    public UnityEvent onFreeBee;
 
     [Header("Movement")]
     public float turnSpeed = 180f;
@@ -16,34 +29,23 @@ public class BeeManager : MonoBehaviour
     [ShowNonSerializedField] float angleBtwBees;
     [ShowNonSerializedField] float turnAngle;
 
+    [Header("Interact Actions")]
+    public float distanceToBuy;
 
-    [NaughtyAttributes.Button]
-    public void KillTurret()
+    public void Interact(InputAction.CallbackContext context)
     {
-        if(playersBees.Count > 0)
+        switch (context.phase)
         {
-            Bee sacrifice = playersBees.Last();
-            FreeBee(sacrifice);
-            sacrifice.Die();
-        }
-
-        //insérer destruction de la tour
-    }
-
-    public void FreeBee(Bee bee)
-    {
-        if (playersBees.Count > 0)
-        {
-            if (!playersBees.Contains(bee))
-            {
-                Debug.LogError(bee + " is not link to player", bee);
-                return;
-            }
-
-            playersBees.Remove(bee);
-            bee.linkToPlayer = false;
+            case InputActionPhase.Performed:
+                if(Vector3.Distance(transform.position, hive.transform.position) <= distanceToBuy)
+                {
+                    hive.BuyBee(GetComponent<PlayerPollen>(), this);
+                }
+                break;
         }
     }
+
+
     public void LinkBee(Bee bee)
     {
         if (playersBees.Count < maxPlayerBee)
@@ -54,10 +56,51 @@ public class BeeManager : MonoBehaviour
                 return;
             }
 
+            onGetBee?.Invoke();
             playersBees.Add(bee);
-            bee.linkToPlayer = true;
+            bee.state = BEE_STATE.FOLLOWING;
         }
     }
+    public void UnlinkBee(Bee bee)
+    {
+        if (playersBees.Count > 0)
+        {
+            onFreeBee?.Invoke();
+            playersBees.Remove(bee);
+            bee.transform.parent = hive.transform;
+        }
+    }
+    public Bee FreeABee()
+    {
+        if (playersBees.Count > 0)
+        {
+            Bee bee = playersBees.Last();
+            UnlinkBee(bee);
+            bee.state = BEE_STATE.WORKING;
+
+            return bee;
+        }
+        return null;
+    }
+    public void KillTurret()
+    {
+        if(playersBees.Count > 0)
+        {
+            FreeABee().Die();
+        }
+
+        //insérer destruction de la tour
+    }
+    public void BeeShield()
+    {
+        while (playersBees.Count > 0)
+        {
+            Bee bee = playersBees[0];
+            UnlinkBee(bee);
+            bee.state = BEE_STATE.GROUNDED;
+        }
+    }
+
     public void PewPewInDir(Vector3 dir)
     {
         for (int i = 0; i < playersBees.Count; i++)
@@ -68,9 +111,24 @@ public class BeeManager : MonoBehaviour
 
     private void Update()
     {
-        if(playersBees.Count > 0)
+        CheckForGroundedBee();
+
+        if (playersBees.Count > 0)
         {
             SpinArroundPlayer();
+        }
+
+    }
+    public void CheckForGroundedBee()
+    {
+        var tempList = hive.allBees.
+            Where(bee => Vector2.Distance(bee.transform.position.ToVec2XZ(), transform.position.ToVec2XZ()) < recupDist).
+            Where(bee => bee.state is BEE_STATE.GROUNDED).
+            Where(bee => !playersBees.Contains(bee)).ToList();
+
+        foreach (Bee bee in tempList)
+        {
+            LinkBee(bee);
         }
     }
     public void SpinArroundPlayer()
@@ -84,4 +142,14 @@ public class BeeManager : MonoBehaviour
             playersBees[i].transform.position = transform.position + offSet;
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        using (new Handles.DrawingScope(Color.red))
+        {
+            Handles.DrawWireDisc(transform.position, Vector3.up, recupDist);
+        }
+    }
+#endif
 }
