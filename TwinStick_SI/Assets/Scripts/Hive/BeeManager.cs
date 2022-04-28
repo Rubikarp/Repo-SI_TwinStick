@@ -37,8 +37,9 @@ public class BeeManager : MonoBehaviour
         switch (context.phase)
         {
             case InputActionPhase.Performed:
-                if(Vector3.Distance(transform.position, hive.transform.position) <= distanceToBuy)
+                if (Vector3.Distance(transform.position, hive.transform.position) <= distanceToBuy)
                 {
+                    
                     hive.BuyBee(GetComponent<PlayerPollen>(), this);
                 }
                 break;
