@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Ruche 1
-  m_Shader: {fileID: -6465566751694194690, guid: 03d7ae4b29703dc4591ab109273429f9,
+  m_Name: M_Branches
+  m_Shader: {fileID: -6465566751694194690, guid: 1ba6b82782f734840afed15f01b14bce,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c5040943b53a7004887e484a497737b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a41942eaf2cbfd4da137f27d8d3eb80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metalic:
@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 43398073c8832ed48ada31338d2a79fc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2a39be917d36d8a48a9fe38952a3aac1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -87,7 +87,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularSmooth:
-        m_Texture: {fileID: 2800000, guid: c5040943b53a7004887e484a497737b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 26b6cbb95d0d71c4cb728778641aec2b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -118,10 +118,10 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Hue: -2.95
+    - _Hue: 0
     - _Luminosity: 1
-    - _Max_Smooth: 1
-    - _Maxium_specular: 1
+    - _Max_Smooth: 0.2
+    - _Maxium_specular: 0.5
     - _Metallic: 0
     - _MinSmooth: 0
     - _Minimum_secular: 0
@@ -131,7 +131,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Saturation: 2.09
+    - _Saturation: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
