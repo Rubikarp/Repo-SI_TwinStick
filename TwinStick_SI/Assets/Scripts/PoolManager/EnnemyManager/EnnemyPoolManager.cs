@@ -12,11 +12,17 @@ public struct EnnemyPercent
     public int spawnForce;
 }
 
-
+[SerializeField]
 public struct EnnemyWave
 {
     public AI_TYPE typeOfEnnemy;
     public int numberSpawn;
+
+    public EnnemyWave(AI_TYPE typeOfEnnemy, int numberSpawn)
+    {
+        this.typeOfEnnemy = typeOfEnnemy;
+        this.numberSpawn = numberSpawn;
+    }
 }
 
 
@@ -141,7 +147,27 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
 
     public void RemoveEnnemy(AEnnemy ennemy)
     {
-
+        switch (ennemy.typeOfEnnemy)
+        {
+            case AI_TYPE.AI_MELEE:
+                break;
+            case AI_TYPE.AI_MELEE_TURRET:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_TURRET, ennemy.transform);
+                break;
+            case AI_TYPE.AI_MELEE_GENERATOR:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
+                break;
+            case AI_TYPE.AI_RANGE:
+                break;
+            case AI_TYPE.AI_RANGE_TURRET:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_TURRET, ennemy.transform);
+                break;
+            case AI_TYPE.AI_RANGE_GENERATOR:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
+                break;
+            default:
+                break;
+        }
         ennemy.gameObject.SetActive(false);
         ennemy.gameObject.transform.position = new Vector3(0, 0, 0);
 
@@ -152,5 +178,19 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
     void Update()
     {
         
+    }
+
+    public IEnumerable<GameObject> GetAllActiveEnnemy()
+    {
+        List<GameObject> activeEnnemy = new List<GameObject>();
+        foreach(GameObject ennemy in listOfCreatedEnnemy)
+        {
+            if (ennemy.activeSelf)
+            {
+                activeEnnemy.Add(ennemy);
+            }
+        }
+        return activeEnnemy;
+
     }
 }

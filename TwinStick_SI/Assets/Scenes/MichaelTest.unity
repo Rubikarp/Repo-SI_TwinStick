@@ -443,26 +443,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973945023}
-  - component: {fileID: 973945022}
+  - component: {fileID: 973945024}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpawnWavesTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &973945022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973945021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee88c9656bf5e9a4689f8c0292330f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &973945023
 Transform:
   m_ObjectHideFlags: 0
@@ -478,6 +466,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973945024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973945021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee88c9656bf5e9a4689f8c0292330f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1017806416
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,11 +619,23 @@ MonoBehaviour:
   listOfEnnemyType:
   - ennemyPrefab: {fileID: 7752264225057585485, guid: 430ae759ed7e0944887bca764f95445a,
       type: 3}
-    spawnForce: 1
+    spawnForce: 10
   - ennemyPrefab: {fileID: 1232584344439617694, guid: b8816966cebf97741bc431d7455e288a,
       type: 3}
-    spawnForce: 1
-  numberMultipier: 20
+    spawnForce: 20
+  - ennemyPrefab: {fileID: 8610959801737906975, guid: f7799c590ba4a5746997bba95b5c9ba4,
+      type: 3}
+    spawnForce: 4
+  - ennemyPrefab: {fileID: 5946799046650338145, guid: bb170d712f64d4b41b4958d78b08ab55,
+      type: 3}
+    spawnForce: 4
+  - ennemyPrefab: {fileID: 8610959801737906975, guid: 2995a18fb812eae47aa8f1c7d29a355e,
+      type: 3}
+    spawnForce: 4
+  - ennemyPrefab: {fileID: 5946799046650338145, guid: 3bc3f7069610b0d43a84c073a8153fcf,
+      type: 3}
+    spawnForce: 4
+  numberMultipier: 2
   listOfCreatedEnnemy:
   - {fileID: 0}
   - {fileID: 0}
@@ -844,31 +856,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fd037e54e1a2834cbe95592a2599f7f, type: 3}
---- !u!1 &8115437111448929206 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8115437110863089200, guid: 7fd037e54e1a2834cbe95592a2599f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8115437111448929205}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8115437111448929207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115437111448929206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cc9036c8a32ec49a038e408adb9dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultHealth: 10
-  healthPoint: 0
-  targetType: 4
-  onHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  deathDelay: 0.2

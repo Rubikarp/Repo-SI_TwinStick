@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
+[SerializeField]
 public enum AI_STATE
 {
     AI_STATE_SPAWNING,
@@ -15,6 +16,7 @@ public enum AI_STATE
     AI_STATE_DIE,
 }
 
+[SerializeField]
 public enum AI_TYPE
 {
     AI_MELEE,
@@ -89,6 +91,8 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
             case AI_STATE.AI_STATE_DIE:
                 // Die
+
+                AI_STATE_DIE();
                 break;
             default:
                 
@@ -180,7 +184,7 @@ public abstract class AEnnemy : MonoBehaviour
         if (target.activeSelf)
         {
             distanceFromEnnemy = (transform.position - target.transform.position).magnitude;
-            if (distanceFromEnnemy < attackDistance || (transform.position - navAgent.destination)<1)
+            if (distanceFromEnnemy < attackDistance || (transform.position - navAgent.destination).magnitude<1)
             {
                 navAgent.isStopped = true;
                 rigidBody.velocity = Vector3.zero;
@@ -209,6 +213,8 @@ public abstract class AEnnemy : MonoBehaviour
     public virtual void AI_STATE_DIE()
     {
         // Override for special ennemy that pop up Turret or Generator
+        navAgent.isStopped = false;
+        rigidBody.velocity = Vector3.zero;
         EnnemyPoolManager.Instance.RemoveEnnemy(this);
     }
 
@@ -225,11 +231,13 @@ public abstract class AEnnemy : MonoBehaviour
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
             {
                 target = col;
+                bh = target.GetComponent<BasicHealth>();
                 isPriorityTarget = true;
             }
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER && !isPriorityTarget)
             {
                 target = col;
+                bh = target.GetComponent<BasicHealth>();
                 isPriorityTarget = true;
             }
         }

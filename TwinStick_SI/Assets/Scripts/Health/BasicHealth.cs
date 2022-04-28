@@ -22,7 +22,7 @@ public class BasicHealth : MonoBehaviour, IHealth
 
     public void Initialise()
     {
-        healthPoint = defaultHealth;
+        //healthPoint = defaultHealth;
     }
 
     public void TakeDamage(int damage = 1)
@@ -31,16 +31,15 @@ public class BasicHealth : MonoBehaviour, IHealth
         damage = Mathf.Max(0, damage);
 
         //Get Hit
-        Debug.Log(healthPoint+" | "+damage + " | " +(healthPoint-damage));
         healthPoint = healthPoint - damage;
-        
+        onHit?.Invoke();
+
 
         //Check Death
         if (healthPoint <= 0)
         {
             Invoke("Dying", deathDelay);
         }
-        onHit?.Invoke();
     }
 
     [Button]

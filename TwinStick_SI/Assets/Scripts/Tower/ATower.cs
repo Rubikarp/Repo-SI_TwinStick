@@ -13,11 +13,33 @@ public enum TOWER_TYPE
 
 public class ATower : MonoBehaviour
 {
-    public TOWER_TYPE tower_type;  
+    public TOWER_TYPE tower_type;
+
+    public float actionSpeed = 1;
+    public float actionAmount = 2;
+
+
+    protected float timeElapsed = 0;
 
 
 
+    private void Update()
+    {
+        timeElapsed += Time.deltaTime;
 
+        if (timeElapsed >= actionSpeed)
+        {
+            Action();
+            timeElapsed = 0;
+        }
+
+    }
+
+
+    public virtual void Action()
+    {
+
+    }
 
     public virtual void OnHit()
     {

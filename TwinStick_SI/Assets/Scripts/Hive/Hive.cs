@@ -22,4 +22,16 @@ public class Hive : MonoBehaviour
     {
 
     }
+
+
+
+    public void OnDie()
+    {
+        // Loose Game
+    }
+
+    public void OnHit()
+    {
+        // Hit Hive
+    }
 }
