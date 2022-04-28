@@ -71,8 +71,20 @@ public class TowerPoolManager : Singleton<TowerPoolManager>
         {
             if (!tower.activeSelf && (tower.GetComponent<ATower>().tower_type==towerType))
             {
+                Vector3 towerpos = parent.position;
+                foreach (GameObject towerActif in listOfCreatedTower)
+                {
+                    if (towerActif.activeSelf)
+                    {
+                        if (Vector3.Distance(towerActif.transform.position, tower.transform.position) < 5)
+                        {
+                            towerpos = parent.transform.position + ((parent.transform.position - tower.transform.position).normalized * 4);
+                        }
+                    }
+                }
+
                 tower.SetActive(true);
-                tower.transform.position = parent.position;
+                tower.transform.position = towerpos;
                 BasicHealth bh = tower.GetComponent<BasicHealth>();
                 bh.Initialise();
                 return true;
@@ -88,5 +100,19 @@ public class TowerPoolManager : Singleton<TowerPoolManager>
         tower.gameObject.SetActive(false);
         tower.gameObject.transform.position = new Vector3(0, 0, 0);
         
+    }
+
+    public IEnumerable<GameObject> GetAllActiveTower()
+    {
+        List<GameObject> activeTower = new List<GameObject>();
+        foreach (GameObject tower in listOfCreatedTower)
+        {
+            if (tower.activeSelf)
+            {
+                activeTower.Add(tower);
+            }
+        }
+        return activeTower;
+
     }
 }

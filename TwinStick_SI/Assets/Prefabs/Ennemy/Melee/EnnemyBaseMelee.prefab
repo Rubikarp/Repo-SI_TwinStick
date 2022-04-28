@@ -69,6 +69,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
+      propertyPath: healthPoint
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+        type: 3}
+      propertyPath: defaultHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+        type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -145,6 +155,12 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 2933794856607582292}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4264799651259020162 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: -7811086394726122538, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+    type: 3}
+  m_PrefabInstance: {fileID: 2933794856607582292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7752264225057585485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4837848815089234201, guid: 6d8ccc874f3b0cf43a45a9c155760705,
@@ -169,6 +185,7 @@ MonoBehaviour:
   attackDistance: 3
   target: {fileID: 0}
   rigidBody: {fileID: 2448775223464886361}
+  boxCol: {fileID: 4264799651259020162}
   lastAttack: 0
   attackSpeed: 2
   distanceFromEnnemy: 0

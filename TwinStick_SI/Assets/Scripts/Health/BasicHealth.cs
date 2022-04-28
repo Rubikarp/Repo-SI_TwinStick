@@ -22,7 +22,7 @@ public class BasicHealth : MonoBehaviour, IHealth
 
     public void Initialise()
     {
-        //healthPoint = defaultHealth;
+        healthPoint = defaultHealth;
     }
 
     public void TakeDamage(int damage = 1)

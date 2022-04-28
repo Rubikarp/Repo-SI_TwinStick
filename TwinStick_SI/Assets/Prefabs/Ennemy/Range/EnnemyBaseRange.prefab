@@ -168,9 +168,16 @@ MonoBehaviour:
   attackDistance: 7
   target: {fileID: 0}
   rigidBody: {fileID: 6590274529193771402}
+  boxCol: {fileID: 4729073714510017105}
   lastAttack: 0
   attackSpeed: 2
   distanceFromEnnemy: 0
+--- !u!65 &4729073714510017105 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: -7811086394726122538, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+    type: 3}
+  m_PrefabInstance: {fileID: 5924618573018810759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &6590274529193771402 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 670230366997547021, guid: 6d8ccc874f3b0cf43a45a9c155760705,

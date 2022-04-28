@@ -20,7 +20,7 @@ public class TurretTower : ATower
 
     bool CheckTarget()
     {
-        if(target!=null || !target.activeSelf)
+        if(target==null || !target.activeSelf)
         {
             if (FindNewTarget())
             {

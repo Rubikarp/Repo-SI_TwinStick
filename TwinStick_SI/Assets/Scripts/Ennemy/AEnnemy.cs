@@ -40,6 +40,8 @@ public abstract class AEnnemy : MonoBehaviour
     protected NavMeshAgent navAgent;
     [SerializeField] 
     protected Rigidbody rigidBody;
+    [SerializeField]
+    protected BoxCollider boxCol;
 
     protected Vector3 attackPosition;
     [SerializeField][ReadOnly]
@@ -109,6 +111,28 @@ public abstract class AEnnemy : MonoBehaviour
     {
         isPriorityTarget = false;
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
+
+        GameObject closestTower=null;
+        float closestDistance = 0;
+        foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
+        {
+            float distance = Vector3.Distance(tower.transform.position, transform.position);
+            if (distance < (boxCol.size.x)/2)
+            {
+                if((closestTower==null || !closestTower.activeSelf) || distance < closestDistance)
+                {
+                    closestTower = tower;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        if (closestTower != null)
+        {
+            target = closestTower;
+        }
+
+
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         bh = target.GetComponent<BasicHealth>();
 
@@ -147,7 +171,7 @@ public abstract class AEnnemy : MonoBehaviour
 
                 float angle = Vector3.Angle(target.transform.forward, (transform.position - target.transform.position).normalized);
                 
-                angle = Random.Range(angle - 40, angle + 40);
+                angle = Random.Range(angle - 90, angle + 90);
                 Debug.Log(angle);
                 if (typeOfEnnemy == AI_TYPE.AI_RANGE)
                 {
