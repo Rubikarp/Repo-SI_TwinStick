@@ -30,11 +30,13 @@ public class PlayerPollen : MonoBehaviour
             return;
         }
         pollenAvailable = Mathf.Clamp(pollenAvailable - quantity, 0, pollenMaxStock);
+        onChange.Invoke();
     }
     public void Refill(float quantity)
     {
         quantity = Mathf.Max(0f, quantity);
         pollenAvailable = Mathf.Clamp(pollenAvailable + quantity, 0, pollenMaxStock);
+        onChange.Invoke();
     }
 
     [Button]

@@ -18,12 +18,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Aim(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<Vector2>().magnitude > 0.3)
-        {
-            aim = InputRelativeToCam(context.ReadValue<Vector2>().normalized).normalized;
-        }
+        aim = context.ReadValue<Vector2>();
     }
     #endregion
+
+    [SerializeField] Animator animator;
 
     private Camera cam
     {
@@ -64,10 +63,12 @@ public class PlayerMovement : MonoBehaviour
         if (move.magnitude > 0.1f)
         {
             moveTime += Time.deltaTime;
+            animator.SetBool("IsMoving", true);
         }
         else
         {
             MoveTimeReboot();
+            animator.SetBool("IsMoving", false);
         }
 
         if (moveTime < accThreshold)
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         else if (moveTime < runThreshold)
         {
             speed = moveSpeed;
+            animator.SetBool("IsSprinting", false);
         }
         else if (moveTime < runThreshold + accThreshold)
         {
@@ -85,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             speed = moveSpeed + runBonusSpeed;
+            animator.SetBool("IsSprinting", true);
         }
 
         transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
@@ -101,7 +104,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aiming()
     {
-        Quaternion aimRot = Quaternion.LookRotation(aim.ToPlaneXZ().normalized, Vector3.up);
+        Quaternion aimRot;
+
+        if (aim.magnitude > 0.3)
+        {
+            aimRot = Quaternion.LookRotation(InputRelativeToCam(aim.normalized).ToPlaneXZ().normalized, Vector3.up);
+        }
+        else
+        {
+            aimRot = Quaternion.LookRotation(move.ToPlaneXZ().normalized, Vector3.up);
+        }
         transform.rotation = Quaternion.Slerp(transform.rotation, aimRot, Time.deltaTime * aimSpeed);
     }
 
