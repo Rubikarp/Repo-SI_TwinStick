@@ -11,10 +11,18 @@ public struct EnnemyPercent
 
     public int spawnForce;
 }
+
+[SerializeField]
 public struct EnnemyWave
 {
     public AI_TYPE typeOfEnnemy;
     public int numberSpawn;
+
+    public EnnemyWave(AI_TYPE typeOfEnnemy, int numberSpawn)
+    {
+        this.typeOfEnnemy = typeOfEnnemy;
+        this.numberSpawn = numberSpawn;
+    }
 }
 
 public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
@@ -106,8 +114,10 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             i++;
             ennemy.SetActive(true);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
-
             ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
+
+            BasicHealth bh = ennemy.GetComponent<BasicHealth>();
+            bh.Initialise();
 
             float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
@@ -116,5 +126,54 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             ennemyComp.FindNewTarget();
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    public void RemoveEnnemy(AEnnemy ennemy)
+    {
+        switch (ennemy.typeOfEnnemy)
+        {
+            case AI_TYPE.AI_MELEE:
+                break;
+            case AI_TYPE.AI_MELEE_TURRET:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_TURRET, ennemy.transform);
+                break;
+            case AI_TYPE.AI_MELEE_GENERATOR:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
+                break;
+            case AI_TYPE.AI_RANGE:
+                break;
+            case AI_TYPE.AI_RANGE_TURRET:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_TURRET, ennemy.transform);
+                break;
+            case AI_TYPE.AI_RANGE_GENERATOR:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
+                break;
+            default:
+                break;
+        }
+        ennemy.gameObject.SetActive(false);
+        ennemy.gameObject.transform.position = new Vector3(0, 0, 0);
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public IEnumerable<GameObject> GetAllActiveEnnemy()
+    {
+        List<GameObject> activeEnnemy = new List<GameObject>();
+        foreach(GameObject ennemy in listOfCreatedEnnemy)
+        {
+            if (ennemy.activeSelf)
+            {
+                activeEnnemy.Add(ennemy);
+            }
+        }
+        return activeEnnemy;
+
     }
 }

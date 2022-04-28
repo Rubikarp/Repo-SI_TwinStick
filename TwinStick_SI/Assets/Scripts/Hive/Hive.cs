@@ -45,4 +45,16 @@ public class Hive : MonoBehaviour
             playerBee.LinkBee(myBee);
         }
     }
+
+
+
+    public void OnDie()
+    {
+        // Loose Game
+    }
+
+    public void OnHit()
+    {
+        // Hit Hive
+    }
 }

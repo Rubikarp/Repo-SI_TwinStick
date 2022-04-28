@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,30 +6,44 @@ using UnityEngine;
 public class SpawnEnnemyTest : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    
+
     void Start()
     {
-        StartCoroutine(Test());
+
+        
         
     }
 
-    IEnumerator Test()
+    [Button("Spawn Ennemy Turret")]
+    void spawnEnnemy1()
     {
-        yield return new WaitForSeconds(1);
         List<EnnemyWave> waves = new List<EnnemyWave>();
-        EnnemyWave wave1 = new EnnemyWave();
-        wave1.typeOfEnnemy = AI_TYPE.AI_MELEE;
-        wave1.numberSpawn = 2;
-        waves.Add(wave1);
-        EnnemyWave wave2 = new EnnemyWave();
-        wave2.typeOfEnnemy = AI_TYPE.AI_RANGE;
-        wave2.numberSpawn = 5;
-        waves.Add(wave2);
+        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE_TURRET, 1));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    [Button("Spawn Ennemy Generator")]
+    void spawnEnnemy3()
     {
-        
+        List<EnnemyWave> waves = new List<EnnemyWave>();
+        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE_GENERATOR, 1));
+        EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
+
+    [Button("Spawn Ennemy Wave")]
+    void spawnEnnemy2()
+    {
+        List<EnnemyWave> waves = new List<EnnemyWave>();
+        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE, 5));
+        EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
+    }
+
+
+
+
+
+
+
 }

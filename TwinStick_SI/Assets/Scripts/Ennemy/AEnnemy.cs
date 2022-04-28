@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
+[SerializeField]
 public enum AI_STATE
 {
     AI_STATE_SPAWNING,
@@ -15,6 +16,7 @@ public enum AI_STATE
     AI_STATE_DIE,
 }
 
+[SerializeField]
 public enum AI_TYPE
 {
     AI_MELEE,
@@ -36,12 +38,18 @@ public abstract class AEnnemy : MonoBehaviour
     public GameObject target;
     bool isPriorityTarget=false;
     protected NavMeshAgent navAgent;
+    [SerializeField] 
+    protected Rigidbody rigidBody;
+    [SerializeField]
+    protected BoxCollider boxCol;
 
     protected Vector3 attackPosition;
     [SerializeField][ReadOnly]
     private float lastAttack=0;
     [SerializeField][ReadOnly]
     private float attackSpeed=2;
+    [SerializeField][ReadOnly]
+    private float distanceFromEnnemy;
 
     protected BasicHealth bh;
 
@@ -85,6 +93,8 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
             case AI_STATE.AI_STATE_DIE:
                 // Die
+
+                AI_STATE_DIE();
                 break;
             default:
                 
@@ -101,6 +111,28 @@ public abstract class AEnnemy : MonoBehaviour
     {
         isPriorityTarget = false;
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
+
+        GameObject closestTower=null;
+        float closestDistance = 0;
+        foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
+        {
+            float distance = Vector3.Distance(tower.transform.position, transform.position);
+            if (distance < (boxCol.size.x)/2)
+            {
+                if((closestTower==null || !closestTower.activeSelf) || distance < closestDistance)
+                {
+                    closestTower = tower;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        if (closestTower != null)
+        {
+            target = closestTower;
+        }
+
+
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         bh = target.GetComponent<BasicHealth>();
 
@@ -139,8 +171,12 @@ public abstract class AEnnemy : MonoBehaviour
 
                 float angle = Vector3.Angle(target.transform.forward, (transform.position - target.transform.position).normalized);
                 
-                angle = Random.Range(angle - 20, angle + 20);
+                angle = Random.Range(angle - 90, angle + 90);
                 Debug.Log(angle);
+                if (typeOfEnnemy == AI_TYPE.AI_RANGE)
+                {
+                   // attackDistance = Random.Range(attackDistance - 3, attackDistance+3);
+                }
                 attackPosition = target.transform.position + (new Vector3(Mathf.Sin(angle*Mathf.Deg2Rad), navAgent.destination.y, Mathf.Cos(angle * Mathf.Deg2Rad)) * attackDistance);
                 navAgent.destination = attackPosition;
 
@@ -171,13 +207,14 @@ public abstract class AEnnemy : MonoBehaviour
         lastAttack += Time.deltaTime;
         if (target.activeSelf)
         {
-            if ((transform.position - target.transform.position).magnitude < attackDistance)
+            distanceFromEnnemy = (transform.position - target.transform.position).magnitude;
+            if (distanceFromEnnemy < attackDistance || (transform.position - navAgent.destination).magnitude<1)
             {
                 navAgent.isStopped = true;
+                rigidBody.velocity = Vector3.zero;
+                
                 if (lastAttack >= attackSpeed)
                 {
-                    
-                    
                     lastAttack = 0;
                     Attack();
                 }
@@ -200,6 +237,9 @@ public abstract class AEnnemy : MonoBehaviour
     public virtual void AI_STATE_DIE()
     {
         // Override for special ennemy that pop up Turret or Generator
+        navAgent.isStopped = false;
+        rigidBody.velocity = Vector3.zero;
+        EnnemyPoolManager.Instance.RemoveEnnemy(this);
     }
 
     #endregion
@@ -215,11 +255,13 @@ public abstract class AEnnemy : MonoBehaviour
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
             {
                 target = col;
+                bh = target.GetComponent<BasicHealth>();
                 isPriorityTarget = true;
             }
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER && !isPriorityTarget)
             {
                 target = col;
+                bh = target.GetComponent<BasicHealth>();
                 isPriorityTarget = true;
             }
         }
@@ -235,6 +277,22 @@ public abstract class AEnnemy : MonoBehaviour
 
     #endregion
 
+
+
+    #region Feedback 
+
+    public void OnHit()
+    {
+
+    }
+
+    public void OnDie()
+    {
+        currentState = AI_STATE.AI_STATE_DIE;
+        
+    }
+
+    #endregion
 
 
 }

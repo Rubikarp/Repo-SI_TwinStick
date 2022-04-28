@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,8 +31,9 @@ public class BasicHealth : MonoBehaviour, IHealth
         damage = Mathf.Max(0, damage);
 
         //Get Hit
-        healthPoint -= damage;
+        healthPoint = healthPoint - damage;
         onHit?.Invoke();
+
 
         //Check Death
         if (healthPoint <= 0)
@@ -40,14 +42,12 @@ public class BasicHealth : MonoBehaviour, IHealth
         }
     }
 
+    [Button]
     public void Dying()
     {
         onDeath?.Invoke();
     }
 
-    internal void ResetHealth()
-    {
-        healthPoint = defaultHealth;
-    }
+    
 }
 
