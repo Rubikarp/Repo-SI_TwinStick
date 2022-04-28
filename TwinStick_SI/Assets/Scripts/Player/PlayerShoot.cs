@@ -9,6 +9,8 @@ public class PlayerShoot : MonoBehaviour
 {
     [Header("Component")]
     [SerializeField, Required] PlayerPollen pollenStock;
+    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] Animator animator;
 
     [Header("Parameter")]
     [ProgressBar("Charge", "chargedTimeThreshold", EColor.Green)]
@@ -73,12 +75,14 @@ public class PlayerShoot : MonoBehaviour
         {
             pollenStock.Consume(shootHeavyCost);
             onHeavyShoot?.Invoke();
+            animator.SetTrigger("HeavyShoot");
             Debug.Log("Heavy");
         }
         else
         {
             pollenStock.Consume(shootLightCost);
             onLightShoot?.Invoke();
+            animator.SetTrigger("LightShoot");
             Debug.Log("Light");
         }
 
@@ -92,6 +96,11 @@ public class PlayerShoot : MonoBehaviour
     {
         if (inCharge && !shootHeavy)
         {
+            if (chargedTime > chargedTimeThreshold * 0.2f)
+            {
+                animator.SetBool("IsCharging", true);
+            }
+            
             chargedTime += Time.deltaTime;
 
             if(chargedTime > chargedTimeThreshold)
@@ -107,6 +116,14 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-    }
+        else
+        {
+            animator.SetBool("IsCharging", false);
+        }
 
+        if (inCharge || shootHeavy)
+        {
+            playerMovement.RunTimeReboot();
+        }
+    }
 }
