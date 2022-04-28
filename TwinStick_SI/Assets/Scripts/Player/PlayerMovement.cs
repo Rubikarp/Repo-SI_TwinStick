@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem sprintParticles;
+    [SerializeField] Rigidbody rbody;
 
     private Camera cam
     {
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     [Space(10)]
     [SerializeField] float aimSpeed = 10f;
 
+
     void Update()
     {
         Running();
@@ -69,28 +72,36 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveTimeReboot();
             animator.SetBool("IsMoving", false);
+
+            sprintParticles.Stop();
         }
 
         if (moveTime < accThreshold)
         {
             speed = Mathf.Lerp(0, moveSpeed, KarpEase.InOutSine(moveTime / accThreshold));
+
+            animator.SetBool("IsSprinting", false);
         }
         else if (moveTime < runThreshold)
         {
             speed = moveSpeed;
-            animator.SetBool("IsSprinting", false);
+            sprintParticles.Stop();
         }
         else if (moveTime < runThreshold + accThreshold)
         {
             speed = moveSpeed + Mathf.Lerp(0, runBonusSpeed, KarpEase.InOutSine((moveTime - runThreshold) / accThreshold));
+
+            animator.SetBool("IsSprinting", true);
+            sprintParticles.Play();
         }
         else
         {
             speed = moveSpeed + runBonusSpeed;
-            animator.SetBool("IsSprinting", true);
+            
         }
 
-        transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
+        rbody.velocity = Vector3.Scale(rbody.velocity,Vector3.up) + move.ToPlaneXZ() * speed;
+        //transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
     }
     public void MoveTimeReboot()
     {
