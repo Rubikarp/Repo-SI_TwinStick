@@ -8,7 +8,7 @@ public class RangeEnnemy : AEnnemy
     {
         if (target.activeSelf)
         {
-            bh.TakeDamage();
+            bh.TakeDamage(attackDamage);
         }
     }
 }

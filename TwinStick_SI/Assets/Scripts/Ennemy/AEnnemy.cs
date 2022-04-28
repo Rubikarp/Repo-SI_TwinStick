@@ -25,6 +25,9 @@ public enum AI_TYPE
     AI_RANGE,
     AI_RANGE_TURRET,
     AI_RANGE_GENERATOR,
+    AI_EXPLODE,
+    AI_EXPLODE_TURRET,
+    AI_EXPLODE_GENERATOR,
 }
 
 
@@ -33,8 +36,8 @@ public abstract class AEnnemy : MonoBehaviour
     public AI_STATE currentState;
     public AI_TYPE typeOfEnnemy;
 
-    public int speed = 3;
     public int attackDistance = 10;
+    public int attackDamage = 1;
     public GameObject target;
     bool isPriorityTarget=false;
     protected NavMeshAgent navAgent;
@@ -57,6 +60,7 @@ public abstract class AEnnemy : MonoBehaviour
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        
     }
 
     void Update()
