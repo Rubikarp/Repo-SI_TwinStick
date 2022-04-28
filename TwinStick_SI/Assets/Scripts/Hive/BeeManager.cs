@@ -138,7 +138,7 @@ public class BeeManager : MonoBehaviour
         for (int i = 0; i < playersBees.Count; i++)
         {
             float currentAngle = turnAngle + (angleBtwBees * i);
-            Vector3 offSet = distToPlayer * new Vector3(Mathf.Cos(currentAngle * Mathf.Deg2Rad), 0, Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+            Vector3 offSet = distToPlayer * new Vector3(Mathf.Cos(currentAngle * Mathf.Deg2Rad), 0.5f, Mathf.Sin(currentAngle * Mathf.Deg2Rad));
             playersBees[i].transform.position = transform.position + offSet;
         }
     }
