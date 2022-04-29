@@ -9,8 +9,9 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] Transform weaponextremum;
     [SerializeField] Transform bulletContainer;
     [Space(5)]
-    [SerializeField] ParticleSystem lightShoot;
+    [SerializeField] GameObject lightShoot;
     [SerializeField] GameObject heavyShoot;
+    [SerializeField] ParticleSystem particleS;
 
     public UnityEvent<Vector3> onShoot;
 
@@ -23,6 +24,6 @@ public class PlayerWeapon : MonoBehaviour
     public void LightShoot()
     {
         onShoot?.Invoke(weaponextremum.forward);
-        lightShoot.Play();
+        particleS.Play();
     }
 }

@@ -5065,7 +5065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDist: 5
---- !u!1 &3656799777492232597
+--- !u!1 &3656799776426642098
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5118,6 +5118,39 @@ MonoBehaviour:
   onShoot:
     m_PersistentCalls:
       m_Calls: []
+  particleS: {fileID: 8989617804454141216}
+--- !u!1 &3656799777492232597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3656799777492232596}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3656799777492232596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656799777492232597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8349825561597634372}
+  m_Father: {fileID: 3656799776426642109}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3656799777617819473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,7 +5422,7 @@ MonoBehaviour:
   playerMovement: {fileID: 3656799777620029413}
   animator: {fileID: 1062505822}
   chargedTime: 0
-  chargedTimeThreshold: 1
+  chargedTimeThreshold: 1.1
   shootCooldown: 0.45
   shootLightCost: 2
   shootHeavyCost: 5
@@ -6243,7 +6276,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229568, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 1.775
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -6283,17 +6316,17 @@ PrefabInstance:
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 204.183
+      value: 0.0000001788139
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.719997
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.712345
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
