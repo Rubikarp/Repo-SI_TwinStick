@@ -2046,7 +2046,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107984
+  m_Name: pb_Mesh30672
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11898,6 +11898,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 443303910, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 823628472, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5
@@ -11920,6 +11924,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1407776451, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407776451, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1654205969, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
@@ -12010,6 +12018,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '#PLAYER#'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063483859357478426, guid: 3e62e1416989e634e8859d4cd264dfdd,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063483859357478426, guid: 3e62e1416989e634e8859d4cd264dfdd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5354419181179251855, guid: 3e62e1416989e634e8859d4cd264dfdd,
         type: 3}

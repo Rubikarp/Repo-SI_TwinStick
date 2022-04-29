@@ -14,9 +14,9 @@ public class HiveDrawer : MonoBehaviour
     public TextMeshProUGUI pollenStockVisu;
     public Slider hiveHealthSlider;
 
-    public void UpdateVisu()
+    public void Update()
     {
-        pollenStockVisu.text = "Pollen Available /n" + hive.pollenStock.ToString();
+        pollenStockVisu.text = Mathf.FloorToInt(hive.pollenStock).ToString();
 
         hiveHealthSlider.value = hiveHealth.healthPoint;
         hiveHealthSlider.maxValue = hiveHealth.defaultHealth;

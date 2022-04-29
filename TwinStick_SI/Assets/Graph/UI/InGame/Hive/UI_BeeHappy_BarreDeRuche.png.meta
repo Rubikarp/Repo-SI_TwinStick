@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4255219d9ff74449a832135f4cd44f1
+guid: 089a38b996a10fc42ab2fec4a00e4cbc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -104,22 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_BeeHappy_PollenBar_Pollen_0
+      name: UI_BeeHappy_BarreDeRuche_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 91
-        width: 1408
-        height: 263
+        x: 98
+        y: 29
+        width: 2154
+        height: 494
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 408, y: 167, z: 86, w: 222}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8132191873c911e4a8ffb16dcd1dba4c
-      internalID: -159097239
+      spriteID: 341cb317032471e47a06a5cfea82e582
+      internalID: 1873626098
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_BeeHappy_PollenBar_Pollen_0: -159097239
+      UI_BeeHappy_BarreDeRuche_0: 1873626098
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
