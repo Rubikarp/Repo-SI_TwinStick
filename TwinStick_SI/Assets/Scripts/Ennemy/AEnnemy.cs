@@ -213,6 +213,7 @@ public abstract class AEnnemy : MonoBehaviour
                 // Move To Target ( Change Agent destination )
                 navAgent.isStopped = false;
                 navAgent.destination = target.transform.position;
+                
             }
             
         }
