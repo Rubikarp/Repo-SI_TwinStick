@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretTower : ATower
 {
 
-    private GameObject target;
+    public GameObject target;
     private BasicHealth bhTarget;
 
     public int AttackDistance = 10;
@@ -20,6 +20,7 @@ public class TurretTower : ATower
         {
             anim.SetTrigger("isAttacking");
             bhTarget.TakeDamage((int)actionAmount);
+            timeElapsed = 0;
         }
     }
 
@@ -29,6 +30,7 @@ public class TurretTower : ATower
         {
             Vector3 toTarget = target.transform.position - transform.position;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(toTarget.normalized, Vector3.up), Time.deltaTime * 6f);
+            
             Debug.DrawRay(transform.position, toTarget, Color.cyan);
         }
     }
@@ -43,19 +45,31 @@ public class TurretTower : ATower
                 return true;
             }
         }
+        else
+        {
+            return true;
+        }
         return false;
     }
 
     bool FindNewTarget()
     {
+        GameObject closest = null;
+        float closestDist = AttackDistance;
         foreach(GameObject ennemy in EnnemyPoolManager.Instance.GetAllActiveEnnemy())
         {
-            if ((ennemy.transform.position - transform.position).magnitude <= AttackDistance)
+            float distance = (Vector3.Distance(ennemy.transform.position, transform.position));
+            if ((distance <= AttackDistance) && (closestDist>=distance) )
             {
-                target = ennemy;
-                bhTarget = target.GetComponent<BasicHealth>();
-                return true;
+                closest = ennemy;
+                
             }
+        }
+        if (closest != null)
+        {
+            target = closest;
+            bhTarget = target.GetComponent<BasicHealth>();
+            return true;
         }
         return false;
     }

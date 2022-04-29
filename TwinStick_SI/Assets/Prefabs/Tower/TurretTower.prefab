@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultHealth: 10
   healthPoint: 0
-  targetType: 2
+  targetType: 4
   onHit:
     m_PersistentCalls:
       m_Calls:
@@ -180,7 +180,9 @@ MonoBehaviour:
   actionSpeed: 1
   actionAmount: 2
   anim: {fileID: 8085556728017450313}
-  AttackDistance: 6
+  timeElapsed: 0
+  target: {fileID: 0}
+  AttackDistance: 10
 --- !u!1 &7783022009142402435
 GameObject:
   m_ObjectHideFlags: 0

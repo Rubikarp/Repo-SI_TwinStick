@@ -54,6 +54,7 @@ public class Bullet : MonoBehaviour
                     if(bh.TargetType== TARGET_TYPE.TARGET_TYPE_ENNEMY)
                     {
                         bh.TakeDamage(damage);
+                        haveTouch = true;
                         Destroy();
                     }
                     break;
@@ -61,6 +62,7 @@ public class Bullet : MonoBehaviour
                     if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_ENNEMY)
                     {
                         bh.TakeDamage(damage);
+                        haveTouch = true;
                         Destroy();
                     }
                     break;
@@ -68,13 +70,16 @@ public class Bullet : MonoBehaviour
                     if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER || bh.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING || bh.TargetType == TARGET_TYPE.TARGET_TYPE_HIVE)
                     {
                         bh.TakeDamage(damage);
+                        haveTouch = true;
                         Destroy();
+
+
                     }
                     break;
                 default:
                     break;
             }
-            haveTouch = true;
+            
         }
     }
 

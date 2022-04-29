@@ -110,7 +110,8 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
             case AI_STATE.AI_STATE_DIE:
                 // Die
-
+                navAgent.isStopped = true;
+                rigidBody.velocity = Vector3.zero;
                 AI_STATE_DIE();
                 break;
             default:
@@ -332,8 +333,16 @@ public abstract class AEnnemy : MonoBehaviour
 
     public void OnDie()
     {
+        navAgent.isStopped = true;
+        rigidBody.velocity = Vector3.zero;
+        StartCoroutine(Die());
+    }
+
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(0.5f);
         currentState = AI_STATE.AI_STATE_DIE;
-        
     }
 
     #endregion

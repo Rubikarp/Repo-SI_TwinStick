@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class FeedBackHitDie : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class FeedBackHitDie : MonoBehaviour
 
         foreach (ParticleSystem item in listOfParticles)
         {
+            MainModule mm = item.main;
+            mm.startSize = size;
+            item.Stop();
             item.Play();
         }
 
