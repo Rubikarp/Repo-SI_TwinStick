@@ -112,8 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  shooterType: 2
   life: 0
   lifeTime: 0.52
+  damage: 1
   speedOverLifeTime:
     serializedVersion: 2
     m_Curve:
