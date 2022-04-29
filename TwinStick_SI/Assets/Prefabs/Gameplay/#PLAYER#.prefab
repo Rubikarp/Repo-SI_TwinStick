@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 2311738497803574331, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2311738497803574331, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 2311738497803574331, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2311738497803574331, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
@@ -378,6 +378,11 @@ PrefabInstance:
       propertyPath: whistleWave
       value: 
       objectReference: {fileID: 8236672488996869324}
+    - target: {fileID: 5636346411573422236, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6405761408412393295, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
       propertyPath: bulletContainer
@@ -734,7 +739,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.167327
+      value: 0.7673232
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -744,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.404574
+      value: -3.104568
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -779,7 +784,7 @@ PrefabInstance:
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.167327
+      value: 0.7673232
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -789,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.404574
+      value: -3.104568
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}

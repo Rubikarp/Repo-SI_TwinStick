@@ -131,6 +131,7 @@ public abstract class AEnnemy : MonoBehaviour
         if(target == null)
         {
             target = (GameObject)GameObject.FindObjectOfType<Hive>().gameObject;
+            bh = target.GetComponent<IHealth>();
         }
 
         bool checkfornew = true;
@@ -182,14 +183,14 @@ public abstract class AEnnemy : MonoBehaviour
         }
         GameObject player = GameObject.FindObjectOfType<PlayerHealth>().gameObject;
         float PlayerDist = Vector3.Distance(transform.position, player.transform.position);
-        if (closestDistance> PlayerDist || (target.GetComponent<BasicHealth>().TargetType == TARGET_TYPE.TARGET_TYPE_HIVE && PlayerDist<10))
+        if (closestDistance> PlayerDist || (target.GetComponent<IHealth>().TargetType == TARGET_TYPE.TARGET_TYPE_HIVE && PlayerDist<10))
         {
             target = player;
         }
 
 
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
-        bh = target.GetComponent<BasicHealth>();
+        bh = target.GetComponent<IHealth>();
         //Debug.Log(gameObject.name + " | Target Found : " + target.name);
 
 
