@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  shooterType: 4
+  shooterType: 3
   life: 0
   lifeTime: 2
   damage: 1

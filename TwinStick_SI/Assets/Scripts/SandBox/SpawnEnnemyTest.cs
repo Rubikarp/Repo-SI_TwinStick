@@ -43,8 +43,8 @@ public class SpawnEnnemyTest : MonoBehaviour
     [Button("Spawn Ennemy Wave Range")]
     void spawnEnnemy4()
     {
-        List<EnnemyWave> waves = new List<EnnemyWave>();
-        waves.Add(new EnnemyWave(AI_TYPE.AI_RANGE, 5));
+        List<EnnemyGroup> waves = new List<EnnemyGroup>();
+        waves.Add(new EnnemyGroup(AI_TYPE.AI_RANGE, 5));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 
@@ -52,8 +52,8 @@ public class SpawnEnnemyTest : MonoBehaviour
     [Button("Spawn Ennemy Wave Explode")]
     void spawnEnnemy5()
     {
-        List<EnnemyWave> waves = new List<EnnemyWave>();
-        waves.Add(new EnnemyWave(AI_TYPE.AI_EXPLODE, 5));
+        List<EnnemyGroup> waves = new List<EnnemyGroup>();
+        waves.Add(new EnnemyGroup(AI_TYPE.AI_EXPLODE, 5));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 

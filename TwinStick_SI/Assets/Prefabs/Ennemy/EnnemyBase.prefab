@@ -36,7 +36,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3273218497794564022}
-  - {fileID: 7178267306761678869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -169,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultHealth: 10
   healthPoint: 10
-  targetType: 4
+  targetType: 3
   onHit:
     m_PersistentCalls:
       m_Calls: []

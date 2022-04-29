@@ -126,7 +126,7 @@ public abstract class AEnnemy : MonoBehaviour
     {
         isPriorityTarget = false;
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
-
+        Debug.Log(gameObject.name+" | Target Found : " + target.name);
         GameObject closestTower=null;
         float closestDistance = 0;
         foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
@@ -150,6 +150,7 @@ public abstract class AEnnemy : MonoBehaviour
 
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         bh = target.GetComponent<BasicHealth>();
+        Debug.Log(gameObject.name + " | Target Found : " + target.name);
 
 
     }
@@ -264,22 +265,28 @@ public abstract class AEnnemy : MonoBehaviour
     {
         GameObject col = collision.gameObject;
         
-        IHealth targetable = col.GetComponent<IHealth>();
+        BasicHealth targetable = col.GetComponent<BasicHealth>();
         if (targetable!=null)
         {
-            if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
+            Debug.Log(gameObject.name + " | " + targetable.TargetType);
+            if (targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
             {
                 target = col;
-                bh = target.GetComponent<BasicHealth>();
+                bh = targetable;
                 isPriorityTarget = true;
+                Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER && !isPriorityTarget)
             {
                 target = col;
-                bh = target.GetComponent<BasicHealth>();
+                bh = targetable;
                 isPriorityTarget = true;
+                Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
         }
+
+        
+
     }
     #endregion
 
