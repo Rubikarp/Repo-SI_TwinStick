@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed28cc40380652498bd3da3bb4e2f98, type: 3}
-  m_Name: Wave6_2
+  m_Name: Wave21
   m_EditorClassIdentifier: 
   groups:
   - typeOfEnnemy: 0
-    numberSpawn: 5
-  - typeOfEnnemy: 4
-    numberSpawn: 1
+    numberSpawn: 10

@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046601719298525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 265.16406, y: 2.7255678, z: 231.58952}
+  m_LocalPosition: {x: 265.16406, y: 2.7255678, z: 228.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602094033678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.4917, y: 2.3214674, z: 146.68365}
+  m_LocalPosition: {x: 283.53, y: 2.3214674, z: 146.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,110 +217,90 @@ MonoBehaviour:
     spawnPoint: {fileID: 2745046601201301761}
     cooldownBeforeNextWave: 0
   gameWaves:
-  - name: Wave1
+  - name: 
     ennemies: {fileID: 11400000, guid: 2e29f1001a9892642b74149e866e0997, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 15
-  - name: Wave2
+    cooldownBeforeNextWave: 5
+  - name: 
     ennemies: {fileID: 11400000, guid: cee9aba0a6221524580eda85f1f3110f, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 15
-  - name: Wave3
+    cooldownBeforeNextWave: 10
+  - name: 
     ennemies: {fileID: 11400000, guid: 900ec6b39d128ac4fb67d45cadb0b5f3, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 20
-  - name: Wave4
+    cooldownBeforeNextWave: 5
+  - name: 
     ennemies: {fileID: 11400000, guid: 438aa951c3463c14a922c8ce2f537692, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 15
-  - name: Wave5
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 5
+  - name: 
     ennemies: {fileID: 11400000, guid: 222079c260d733249906eb82853daeca, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 15
-  - name: Wave6_1
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 5
+  - name: 
     ennemies: {fileID: 11400000, guid: b62a1ebfc5638e547ba0438353a2cbe1, type: 2}
-    spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 0
-  - name: Wave6_2
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 3
+  - name: 
     ennemies: {fileID: 11400000, guid: 670b99e610d22c142a68f4fecd26c2b8, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 90
-  - name: Wave7_1
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 5
+  - name: 
     ennemies: {fileID: 11400000, guid: 3ffcfe9be088b5e4b887a8e248da1538, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: fea7a9016692b5f44857b5b2b4236a63, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
     cooldownBeforeNextWave: 0
-  - name: Wave7_2
-    ennemies: {fileID: 11400000, guid: 4bc62e9bd2fa5af4491579b837dc48f4, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 150
-  - name: Wave8
-    ennemies: {fileID: 11400000, guid: 6518d10b93708c44e944ad6ddebb5cc6, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 115
-  - name: Wave9
-    ennemies: {fileID: 11400000, guid: fea7a9016692b5f44857b5b2b4236a63, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 75
-  - name: Wave10
+  - name: 
     ennemies: {fileID: 11400000, guid: c92882fb415b8764a8615cfe8a4f0d50, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 120
-  - name: Wave11_1
-    ennemies: {fileID: 11400000, guid: 72ee8453bbcfc2b4bab2660295b849f8, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
     cooldownBeforeNextWave: 0
-  - name: Wave11_2
-    ennemies: {fileID: 11400000, guid: f5efc99a8b555a84eb9ce98387c33a9f, type: 2}
+  - name: 
+    ennemies: {fileID: 11400000, guid: d66000afb403997459d536534a20b4c3, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 160
-  - name: Wave12_1
-    ennemies: {fileID: 11400000, guid: d33edf634021c614bb1a2a170964f1e1, type: 2}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: 07ff4e0a6f852e249b845543afd4181e, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: f139747350bf958478d9340d4355212e, type: 2}
+    spawnPoint: {fileID: 2745046601719298525}
+    cooldownBeforeNextWave: 5
+  - name: 
+    ennemies: {fileID: 11400000, guid: fa443a9c376d0e449be1182adf5e502a, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: f88c6e743d4efbc4e8f8918eb60b492f, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: 807f73a852110ab4baea8335fb338c12, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 5
+  - name: 
+    ennemies: {fileID: 11400000, guid: 6f0e448dfdf862145a679ade3832f867, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: f5f30e93bdfe41947a1ec69dffff886b, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: 6a6b2642b32a4fb49a54e28fcd86ace8, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: 2054223d0ab8c2b4cbec4f27aba80b8e, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 5
+  - name: 
+    ennemies: {fileID: 11400000, guid: 172964fe96c46414fa925b7d3d0cd92e, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
     cooldownBeforeNextWave: 0
-  - name: Wave12_2
-    ennemies: {fileID: 11400000, guid: 3ffad165b72ac7b45844b076d0608d6a, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 230
-  - name: Wave13
-    ennemies: {fileID: 11400000, guid: 87369025e8192744dbbb2bec477b766f, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 250
-  - name: Wave14
-    ennemies: {fileID: 11400000, guid: 295613d8f03edf54ca3a2d605834afbe, type: 2}
-    spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 160
-  - name: Wave15
-    ennemies: {fileID: 11400000, guid: d1be21114fc6b8e4a9d60dc6ed1a8748, type: 2}
-    spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 260
-  - name: Wave16_1
-    ennemies: {fileID: 11400000, guid: 0ae9d7de744d8834e8ca1bb0bf607865, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 0
-  - name: Wave16_2
-    ennemies: {fileID: 11400000, guid: 18c3c8f89329f35419d30155f2158c7b, type: 2}
-    spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 360
-  - name: Wave17_1
-    ennemies: {fileID: 11400000, guid: 39ddfdd3bb9b5384882686ffbd33cbb4, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 0
-  - name: Wave17_2
-    ennemies: {fileID: 11400000, guid: 44881b42d60c2b24cb81479b3003a479, type: 2}
-    spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 500
-  - name: Wave18_1
-    ennemies: {fileID: 11400000, guid: 42dc7cc8f92704944a1b658528b07faa, type: 2}
-    spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 0
-  - name: Wave18_2
-    ennemies: {fileID: 11400000, guid: 5b0a8a22df79fc940bc2ad9e229e95b1, type: 2}
-    spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 0
-  - name: Wave18_3
-    ennemies: {fileID: 11400000, guid: 44881b42d60c2b24cb81479b3003a479, type: 2}
-    spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 1460
   ennemyManager: {fileID: 2745046603227808868}
 --- !u!1 &2745046602754883355
 GameObject:
@@ -346,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602754883355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 149.48799, y: 0, z: 70.4356}
+  m_LocalPosition: {x: 151.32, y: 0, z: 68.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -414,6 +394,9 @@ MonoBehaviour:
       type: 3}
     spawnForce: 2
   - ennemyPrefab: {fileID: 5946799046650338145, guid: bb170d712f64d4b41b4958d78b08ab55,
+      type: 3}
+    spawnForce: 2
+  - ennemyPrefab: {fileID: 4789679626822391032, guid: df9d82e8fec0fc8478adef5c2c66b477,
       type: 3}
     spawnForce: 2
   numberMultipier: 10
