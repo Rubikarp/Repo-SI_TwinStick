@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System.Linq;
 #if UNITY_EDITOR
@@ -12,6 +13,9 @@ public class WhistleBee : MonoBehaviour
 
     [SerializeField] BeeManager playerBee;
     public float whistleRange = 5f;
+
+    public UnityEvent onCall;
+    public UnityEvent onRelease;
 
     public bool callingMode = false;
     public Coroutine CallingNearbyBee;
@@ -36,6 +40,7 @@ public class WhistleBee : MonoBehaviour
             case InputActionPhase.Performed:
                 //if n'est pas a coté d'une tourelle
                 playerBee.FreeABee();
+                onRelease?.Invoke();
                 break;
         }
     }
@@ -44,6 +49,8 @@ public class WhistleBee : MonoBehaviour
     {
         while (callingMode)
         {
+            onCall?.Invoke();
+
             var tempList = playerBee.hive.allBees.
                 Where(x => !playerBee.playersBees.Contains(x)).
                 Where(bee => bee.state != BEE_STATE.GROUNDED).ToList();
