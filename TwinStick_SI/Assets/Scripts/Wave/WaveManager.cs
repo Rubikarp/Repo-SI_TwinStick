@@ -28,7 +28,7 @@ public class WaveManager : MonoBehaviour
     [Space(10)]
     public int waveNbr;
     public UnityEvent onNewWave;
-    [SerializeField] GameWave currentWave;
+    public GameWave currentWave;
     public List<GameWave> gameWaves = new List<GameWave>();
 
     public EnnemyPoolManager ennemyManager;

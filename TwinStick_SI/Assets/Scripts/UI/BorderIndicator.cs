@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class BorderIndicator : MonoBehaviour
 {
     [Header("Info")]
-    [SerializeField] Transform player;
-    [SerializeField] Transform target;
+    public Transform player;
+    public Transform target;
 
     [Header("Info")]
     public Image img;
@@ -13,9 +13,19 @@ public class BorderIndicator : MonoBehaviour
 
     Vector3 targetDir;
 
+    private void Update()
+    {
+        if(target is not null || player is not null)
+        {
+            PlaceOnScreen();
+        }
+    }
+
     protected void PlaceOnScreen()
     {
-        targetDir = player.position - target.position;
+        Vector2 targetPos = KarpHelper.Camera.WorldToScreenPoint(target.position);
+        Vector2 playerPos = KarpHelper.Camera.WorldToScreenPoint(player.position);
+        targetDir = playerPos - targetPos;
 
         //Je pars du principe que le pivot est en [0.5/0.5]
         float minX = img.GetPixelAdjustedRect().width * 0.5f;
@@ -24,18 +34,18 @@ public class BorderIndicator : MonoBehaviour
         float maxX = Screen.width - minX;
         float maxY = Screen.height - minX;
 
-        Vector2 pos = KarpHelper.Camera.WorldToScreenPoint(target.position);
-
         //if not facing the element
-        if (Vector3.Dot(-targetDir, player.forward) < 0)
+        /*
+         * if (Vector3.Dot(targetDir, player.forward) < 0)
         {
-            pos.x = pos.x < Screen.width * 0.5f ? maxX : minX;
+            targetPos.x = targetPos.x < Screen.width * 0.5f ? maxX : minX;
         }
+        */
 
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
 
-        img.transform.position = pos;
+        img.transform.position = targetPos;
 
         FaceTarget(targetDir);
     }
