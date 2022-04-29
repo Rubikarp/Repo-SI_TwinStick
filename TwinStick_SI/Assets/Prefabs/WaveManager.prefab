@@ -374,7 +374,55 @@ MonoBehaviour:
   - name: 
     ennemies: {fileID: 11400000, guid: 172964fe96c46414fa925b7d3d0cd92e, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 15
+  - name: 
+    ennemies: {fileID: 11400000, guid: dff979a9dbcbec0439fb34b642e35ca9, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
     cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: 7df918517495fca4b8e9e3745ce77337, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: 4453069ada46e18429dfe71f87bb9b33, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: cd2b4fabbef0aac4584d13a61111547e, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 20
+  - name: 
+    ennemies: {fileID: 11400000, guid: 71f1446d66d078b4f873310f170b4c15, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: e9a5f5812568282429d53f4c29d68ce1, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: 7634f71017bc97d4abcca66f255d5b15, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 10
+  - name: 
+    ennemies: {fileID: 11400000, guid: e1f753f53290e4f4498d426237f2a4b8, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: 
+    ennemies: {fileID: 11400000, guid: 84bc21aee1c5e70408dce5f7b30b84bb, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 5
+  - name: 
+    ennemies: {fileID: 11400000, guid: 4b3511213943eeb4dac36c0f76a0d3ac, type: 2}
+    spawnPoint: {fileID: 2745046601719298525}
+    cooldownBeforeNextWave: 5
+  - name: 
+    ennemies: {fileID: 11400000, guid: 780099b3229bf814799f0256e27ad2b4, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 20
+  - name: 
+    ennemies: {fileID: 11400000, guid: e3f52f52340cd0c4f8ab2f9cd9658781, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 10
   ennemyManager: {fileID: 2745046603227808868}
 --- !u!1 &2745046602754883355
 GameObject:
