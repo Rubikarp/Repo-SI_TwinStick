@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26bded9e3a3614a42ac91bf20dad7376
+guid: a67ef53c0309d754e90cfd05adb3dd50
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,9 +42,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -102,18 +102,40 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI_BeeHappy_PositionEnemisPresent_0
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 89
+        width: 759
+        height: 586
+      alignment: 9
+      pivot: {x: 0.35573122, y: 0.4778157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98a5da8d58d3f249913994e4d6c6b8b
+      internalID: 26450039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 8ce8bb1c09d8afd48b6a122d3186f5a9
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_BeeHappy_PositionEnemisPresent_0: 26450039
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

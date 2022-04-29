@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using NaughtyAttributes;
 
 [Serializable]
@@ -26,6 +27,7 @@ public class WaveManager : MonoBehaviour
     public float delayBeforeFirstWave = 0f;
     [Space(10)]
     public int waveNbr;
+    public UnityEvent onNewWave;
     [SerializeField] GameWave currentWave;
     public List<GameWave> gameWaves = new List<GameWave>();
 
@@ -40,6 +42,7 @@ public class WaveManager : MonoBehaviour
             currentWave = gameWaves[waveNbr];
             ennemyManager.SpawnEnnemyAtLocation(currentWave.ennemies, currentWave.spawnPoint.transform);
             waveNbr++;
+            onNewWave?.Invoke();
             yield return new WaitForSeconds(currentWave.cooldownBeforeNextWave);
         }
 
