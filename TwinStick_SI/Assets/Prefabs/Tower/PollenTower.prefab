@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2049672798441417792}
   - component: {fileID: 5707671112698302985}
   - component: {fileID: -8970752806452736351}
+  - component: {fileID: 6419346517677306953}
   m_Layer: 0
   m_Name: PollenTower
   m_TagString: Untagged
