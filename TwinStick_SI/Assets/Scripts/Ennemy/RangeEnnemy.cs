@@ -19,7 +19,19 @@ public class RangeEnnemy : AEnnemy
         if (target.activeSelf)
         {
             //bh.TakeDamage(attackDamage);
-            ew.Shoot((target.transform.position - transform.position).normalized);
+            
+            anim.SetBool("isAttacking", true);
+            
+            
+            StartCoroutine(StopAttack(1f));
         }
+    }
+
+    IEnumerator StopAttack(float seconds)
+    {
+        yield return new WaitForSeconds(0.5f);
+        ew.Shoot((target.transform.position - transform.position).normalized);
+        yield return new WaitForSeconds(seconds);
+        anim.SetBool("isAttacking", false);
     }
 }
