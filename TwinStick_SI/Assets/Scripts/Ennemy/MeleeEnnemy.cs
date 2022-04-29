@@ -11,7 +11,7 @@ public class MeleeEnnemy : AEnnemy
         if (target.activeSelf)
         {
             
-            bh.TakeDamage();
+            bh.TakeDamage(attackDamage);
         }
         
     }
