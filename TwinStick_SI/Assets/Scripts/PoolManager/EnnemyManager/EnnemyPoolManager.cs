@@ -12,13 +12,13 @@ public struct EnnemyPercent
     public int spawnForce;
 }
 
-[SerializeField]
-public struct EnnemyWave
+[Serializable]
+public struct EnnemyGroup
 {
     public AI_TYPE typeOfEnnemy;
     public int numberSpawn;
 
-    public EnnemyWave(AI_TYPE typeOfEnnemy, int numberSpawn)
+    public EnnemyGroup(AI_TYPE typeOfEnnemy, int numberSpawn)
     {
         this.typeOfEnnemy = typeOfEnnemy;
         this.numberSpawn = numberSpawn;
@@ -72,12 +72,50 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
         }
         return true;
     }
-    public bool SpawnEnnemyAtLocation(List<EnnemyWave> waves, Transform parent)
+    public bool SpawnEnnemyAtLocation(EnemyWave ennmyWaves, Transform parent)
+    {
+        if(ennmyWaves is null)
+        {
+            return true;
+        }
+
+        List<GameObject> ennemyToSpawn = new List<GameObject>();
+        List<GameObject> tempListOfCreatedEnnemy = new List<GameObject>(listOfCreatedEnnemy);
+        List<GameObject> indexToRemove = new List<GameObject>();
+        foreach (EnnemyGroup wave in ennmyWaves.groups)
+        {
+            int ennemyToSerch = wave.numberSpawn;
+            foreach (GameObject gameObject in tempListOfCreatedEnnemy)
+            {
+                if (!gameObject.activeSelf)
+                {
+                    if (ennemyToSerch <= 0) { break; }
+                    AEnnemy ennemy = gameObject.GetComponent<AEnnemy>();
+                    if (ennemy && ennemy.typeOfEnnemy == wave.typeOfEnnemy)
+                    {
+                        ennemyToSerch -= 1;
+                        indexToRemove.Add(gameObject);
+                        ennemyToSpawn.Add(gameObject);
+                    }
+                }
+            }
+            foreach (GameObject index in indexToRemove)
+            {
+                tempListOfCreatedEnnemy.Remove(index);
+            }
+            indexToRemove.Clear();
+        }
+
+        StartCoroutine(SpawnEnnemyThroughTime(ennemyToSpawn, parent));
+
+        return true;
+    }
+    [Obsolete] public bool SpawnEnnemyAtLocation(List<EnnemyGroup> waves, Transform parent)
     {
         List<GameObject> ennemyToSpawn = new List<GameObject>();
         List<GameObject> tempListOfCreatedEnnemy = new List<GameObject>(listOfCreatedEnnemy);
         List<GameObject> indexToRemove = new List<GameObject>();
-        foreach (EnnemyWave wave in waves)
+        foreach (EnnemyGroup wave in waves)
         {
             int ennemyToSerch = wave.numberSpawn;
             foreach (GameObject gameObject in tempListOfCreatedEnnemy)
@@ -154,13 +192,6 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
         ennemy.gameObject.SetActive(false);
         ennemy.gameObject.transform.position = new Vector3(0, 0, 0);
 
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public IEnumerable<GameObject> GetAllActiveEnnemy()

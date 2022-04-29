@@ -19,24 +19,24 @@ public class SpawnEnnemyTest : MonoBehaviour
     [Button("Spawn Ennemy Turret")]
     void spawnEnnemy1()
     {
-        List<EnnemyWave> waves = new List<EnnemyWave>();
-        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE_TURRET, 1));
+        List<EnnemyGroup> waves = new List<EnnemyGroup>();
+        waves.Add(new EnnemyGroup(AI_TYPE.AI_MELEE_TURRET, 1));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 
     [Button("Spawn Ennemy Generator")]
     void spawnEnnemy3()
     {
-        List<EnnemyWave> waves = new List<EnnemyWave>();
-        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE_GENERATOR, 1));
+        List<EnnemyGroup> waves = new List<EnnemyGroup>();
+        waves.Add(new EnnemyGroup(AI_TYPE.AI_MELEE_GENERATOR, 1));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 
     [Button("Spawn Ennemy Wave")]
     void spawnEnnemy2()
     {
-        List<EnnemyWave> waves = new List<EnnemyWave>();
-        waves.Add(new EnnemyWave(AI_TYPE.AI_MELEE, 5));
+        List<EnnemyGroup> waves = new List<EnnemyGroup>();
+        waves.Add(new EnnemyGroup(AI_TYPE.AI_MELEE, 5));
         EnnemyPoolManager.Instance.SpawnEnnemyAtLocation(waves, transform);
     }
 
