@@ -791,6 +791,7 @@ MonoBehaviour:
   onLose:
     m_PersistentCalls:
       m_Calls: []
+  bees: {fileID: 4980340896011937466}
 --- !u!114 &4980340896011937466
 MonoBehaviour:
   m_ObjectHideFlags: 0

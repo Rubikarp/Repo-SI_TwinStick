@@ -48,7 +48,7 @@ public class PlayerPollen : MonoBehaviour
             if(bees.hive.pollenStock > 0 && _pollenAvailable < _pollenStockMax)
             {
                 bees.hive.pollenStock -= Time.deltaTime * 100f;
-                pollenAvailable += Time.deltaTime * 100f;
+                Refill(Time.deltaTime * 100f);
             }
         }
     }
