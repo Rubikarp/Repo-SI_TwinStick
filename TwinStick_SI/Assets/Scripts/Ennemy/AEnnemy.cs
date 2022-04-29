@@ -46,6 +46,8 @@ public abstract class AEnnemy : MonoBehaviour
     protected Rigidbody rigidBody;
     [SerializeField]
     protected BoxCollider boxCol;
+    [SerializeField]
+    protected Animator anim;
 
     protected Vector3 attackPosition;
     [SerializeField][ReadOnly]
