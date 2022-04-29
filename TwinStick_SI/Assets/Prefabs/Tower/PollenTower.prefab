@@ -371,11 +371,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower_type: 1
-  actionSpeed: 5
+  actionSpeed: 10
   actionAmount: 2
   prefabPollen: {fileID: 653945289505826656, guid: 16a4b3101cc7e7c48b5255240f540358,
     type: 3}
   distanceSpawnPollen: 1
   maxGeneratedPollen: 10
   generatedPollen: 0
-  minimumPollenToBee: 1
+  minimumPollenToBee: 3

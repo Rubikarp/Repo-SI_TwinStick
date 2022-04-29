@@ -10,29 +10,42 @@ public class GeneratorTower : ATower
     public int maxGeneratedPollen = 5;
     public int generatedPollen = 0;
     public int minimumPollenToBee;
+    public List<Pollen> towerPollens = new List<Pollen>();
 
     public override void Action()
     {
-        float pollentToGenerate = Mathf.Clamp(actionAmount, 0, maxGeneratedPollen - generatedPollen+1);
-        generatedPollen += (int)pollentToGenerate;
-        for (int i = 0; i < pollentToGenerate; i++)
+        
+        generatedPollen += (int)actionAmount;
+        for (int i = 0; i < actionAmount; i++)
         {
             GameObject pollen = Instantiate(prefabPollen);
             float x = Random.Range(-1, 1);
             float y = Random.Range(-1, 1);
             pollen.transform.position = transform.position + new Vector3(Mathf.Cos(x), -0.5f, Mathf.Sin(y)) * (distanceSpawnPollen+Random.Range(0,1));
             pollen.GetComponent<Pollen>().ownerTower = this;
-            if ( i >= minimumPollenToBee)
+            towerPollens.Add(pollen.GetComponent<Pollen>());
+        }
+        if (generatedPollen > minimumPollenToBee)
+        {
+            foreach (Pollen pollens in towerPollens)
             {
-                foreach (Bee bee in Hive.Instance.allBees)
+                if (generatedPollen >= minimumPollenToBee)
                 {
-                    if(bee.state == BEE_STATE.WAITING)
+                    foreach (Bee bee in Hive.Instance.allBees)
                     {
-                        pollen.GetComponent<Pollen>().transporterBee = bee;
-                        bee.state = BEE_STATE.WORKING;
-                        bee.navAgent.SetDestination(pollen.transform.position);
-                        break;
+                        if (bee.state == BEE_STATE.WAITING)
+                        {
+                            bee.state = BEE_STATE.WORKING;
+                            pollens.transporterBee = bee;
+                            pollens.transporterBee.pollenCaried = pollens;
+                            pollens.transporterBee.hasPollen = true;
+                            bee.navAgent.SetDestination(pollens.transform.position);
+                            generatedPollen--;
+
+                            break;
+                        }
                     }
+
                 }
             }
         }
