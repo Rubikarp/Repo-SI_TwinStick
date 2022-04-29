@@ -53,6 +53,7 @@ public class Bullet : MonoBehaviour
                 case TARGET_TYPE.TARGET_TYPE_BUILDING:
                     if(bh.TargetType== TARGET_TYPE.TARGET_TYPE_ENNEMY)
                     {
+                        Debug.Log("Dealing Building Damage to " + col.name);
                         bh.TakeDamage(damage);
                         haveTouch = true;
                         Destroy();
@@ -61,7 +62,10 @@ public class Bullet : MonoBehaviour
                 case TARGET_TYPE.TARGET_TYPE_PLAYER:
                     if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_ENNEMY)
                     {
+                        Debug.Log("Dealing Player Damage to " + col.name);
                         bh.TakeDamage(damage);
+                        bh.gameObject.GetComponent<AEnnemy>().target = GameObject.FindObjectOfType<PlayerHealth>().gameObject;
+                        bh.gameObject.GetComponent<AEnnemy>().bh = GameObject.FindObjectOfType<PlayerHealth>();
                         haveTouch = true;
                         Destroy();
                     }
@@ -69,7 +73,9 @@ public class Bullet : MonoBehaviour
                 case TARGET_TYPE.TARGET_TYPE_ENNEMY:
                     if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER || bh.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING || bh.TargetType == TARGET_TYPE.TARGET_TYPE_HIVE)
                     {
+                        Debug.Log("Dealing Ennemy Damage to " + col.name);
                         bh.TakeDamage(damage);
+                        
                         haveTouch = true;
                         Destroy();
 
