@@ -373,6 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower_type: 0
+  actionSpeed: 0.5
+  actionAmount: 1
+  AttackDistance: 6
 --- !u!1 &4284435189676640358
 GameObject:
   m_ObjectHideFlags: 0

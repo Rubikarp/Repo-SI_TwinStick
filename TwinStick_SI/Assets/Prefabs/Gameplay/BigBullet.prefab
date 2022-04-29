@@ -9750,7 +9750,7 @@ MonoBehaviour:
   shooterType: 2
   life: 0
   lifeTime: 1.5
-  damage: 1
+  damage: 20
   speedOverLifeTime:
     serializedVersion: 2
     m_Curve:

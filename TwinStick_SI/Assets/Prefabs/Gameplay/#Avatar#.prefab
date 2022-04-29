@@ -673,8 +673,8 @@ MonoBehaviour:
   chargedTime: 0
   chargedTimeThreshold: 1
   shootCooldown: 0.45
-  shootLightCost: 2
-  shootHeavyCost: 5
+  shootLightCost: 1
+  shootHeavyCost: 2
   canShoot: 1
   inCharge: 0
   shootHeavy: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7445c0efab12d1444852cc4d374eb577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pollenAvailable: 50
+  _pollenAvailable: 100
   _pollenStockMax: 100
   onChange:
     m_PersistentCalls:

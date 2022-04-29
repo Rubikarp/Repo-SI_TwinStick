@@ -201,12 +201,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602502678955}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 498bb8c7f68a2f84cba19d28856e1a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFirstWave: 30
+  delayBeforeFirstWave: 10
   waveNbr: 0
   currentWave:
     name: 
@@ -217,23 +217,23 @@ MonoBehaviour:
   - name: Wave1
     ennemies: {fileID: 11400000, guid: 2e29f1001a9892642b74149e866e0997, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 30
+    cooldownBeforeNextWave: 15
   - name: Wave2
     ennemies: {fileID: 11400000, guid: cee9aba0a6221524580eda85f1f3110f, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 90
+    cooldownBeforeNextWave: 45
   - name: Wave3
     ennemies: {fileID: 11400000, guid: 900ec6b39d128ac4fb67d45cadb0b5f3, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 130
+    cooldownBeforeNextWave: 60
   - name: Wave4
     ennemies: {fileID: 11400000, guid: 438aa951c3463c14a922c8ce2f537692, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 40
+    cooldownBeforeNextWave: 20
   - name: Wave5
     ennemies: {fileID: 11400000, guid: 222079c260d733249906eb82853daeca, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 120
+    cooldownBeforeNextWave: 60
   - name: Wave6_1
     ennemies: {fileID: 11400000, guid: b62a1ebfc5638e547ba0438353a2cbe1, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
@@ -241,7 +241,7 @@ MonoBehaviour:
   - name: Wave6_2
     ennemies: {fileID: 11400000, guid: 670b99e610d22c142a68f4fecd26c2b8, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 170
+    cooldownBeforeNextWave: 90
   - name: Wave7_1
     ennemies: {fileID: 11400000, guid: 3ffcfe9be088b5e4b887a8e248da1538, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
@@ -249,19 +249,19 @@ MonoBehaviour:
   - name: Wave7_2
     ennemies: {fileID: 11400000, guid: 4bc62e9bd2fa5af4491579b837dc48f4, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 270
+    cooldownBeforeNextWave: 150
   - name: Wave8
     ennemies: {fileID: 11400000, guid: 6518d10b93708c44e944ad6ddebb5cc6, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 230
+    cooldownBeforeNextWave: 115
   - name: Wave9
     ennemies: {fileID: 11400000, guid: fea7a9016692b5f44857b5b2b4236a63, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 150
+    cooldownBeforeNextWave: 75
   - name: Wave10
     ennemies: {fileID: 11400000, guid: c92882fb415b8764a8615cfe8a4f0d50, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 240
+    cooldownBeforeNextWave: 120
   - name: Wave11_1
     ennemies: {fileID: 11400000, guid: 72ee8453bbcfc2b4bab2660295b849f8, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
@@ -269,7 +269,7 @@ MonoBehaviour:
   - name: Wave11_2
     ennemies: {fileID: 11400000, guid: f5efc99a8b555a84eb9ce98387c33a9f, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 320
+    cooldownBeforeNextWave: 160
   - name: Wave12_1
     ennemies: {fileID: 11400000, guid: d33edf634021c614bb1a2a170964f1e1, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
@@ -277,19 +277,19 @@ MonoBehaviour:
   - name: Wave12_2
     ennemies: {fileID: 11400000, guid: 3ffad165b72ac7b45844b076d0608d6a, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 460
+    cooldownBeforeNextWave: 230
   - name: Wave13
     ennemies: {fileID: 11400000, guid: 87369025e8192744dbbb2bec477b766f, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
-    cooldownBeforeNextWave: 500
+    cooldownBeforeNextWave: 250
   - name: Wave14
     ennemies: {fileID: 11400000, guid: 295613d8f03edf54ca3a2d605834afbe, type: 2}
     spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 320
+    cooldownBeforeNextWave: 160
   - name: Wave15
     ennemies: {fileID: 11400000, guid: d1be21114fc6b8e4a9d60dc6ed1a8748, type: 2}
     spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 520
+    cooldownBeforeNextWave: 260
   - name: Wave16_1
     ennemies: {fileID: 11400000, guid: 0ae9d7de744d8834e8ca1bb0bf607865, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
@@ -297,7 +297,7 @@ MonoBehaviour:
   - name: Wave16_2
     ennemies: {fileID: 11400000, guid: 18c3c8f89329f35419d30155f2158c7b, type: 2}
     spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 730
+    cooldownBeforeNextWave: 360
   - name: Wave17_1
     ennemies: {fileID: 11400000, guid: 39ddfdd3bb9b5384882686ffbd33cbb4, type: 2}
     spawnPoint: {fileID: 2745046602094033678}
@@ -305,7 +305,7 @@ MonoBehaviour:
   - name: Wave17_2
     ennemies: {fileID: 11400000, guid: 44881b42d60c2b24cb81479b3003a479, type: 2}
     spawnPoint: {fileID: 2745046602056240361}
-    cooldownBeforeNextWave: 1000
+    cooldownBeforeNextWave: 500
   - name: Wave18_1
     ennemies: {fileID: 11400000, guid: 42dc7cc8f92704944a1b658528b07faa, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
