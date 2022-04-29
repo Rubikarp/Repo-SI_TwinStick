@@ -101,13 +101,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   typeOfEnnemy: 6
-  speed: 5
   attackDistance: 2
   attackDamage: 10
   target: {fileID: 0}
+  navAgent: {fileID: 6854695075829004417}
   rigidBody: {fileID: 582656587606076908}
   boxCol: {fileID: 1351734840535998007}
   lastAttack: 0
   attackSpeed: 2
   distanceFromEnnemy: 0
   explosionRange: 4
+--- !u!195 &6854695075829004417 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6808287296332537184, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+    type: 3}
+  m_PrefabInstance: {fileID: 97709079733773793}
+  m_PrefabAsset: {fileID: 0}
