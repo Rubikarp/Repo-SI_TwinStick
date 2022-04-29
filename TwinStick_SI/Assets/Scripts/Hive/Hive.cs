@@ -7,7 +7,7 @@ using NaughtyAttributes;
 public class Hive : Singleton<Hive>
 {
     [Header("Component")]
-    [SerializeField] private BasicHealth health;
+    public BasicHealth health;
 
     [Header("Bees")]
     [SerializeField] private float beePrice = 10f;
@@ -23,11 +23,6 @@ public class Hive : Singleton<Hive>
     private void Reset()
     {
         health = this.gameObject.GetComponent<BasicHealth>();
-    }
-
-    public void GetBee()
-    {
-
     }
 
     public void BuyBee(PlayerPollen playerPollen, BeeManager playerBee)
@@ -46,13 +41,10 @@ public class Hive : Singleton<Hive>
         }
     }
 
-
-
     public void OnDie()
     {
         // Loose Game
     }
-
     public void OnHit()
     {
         // Hit Hive

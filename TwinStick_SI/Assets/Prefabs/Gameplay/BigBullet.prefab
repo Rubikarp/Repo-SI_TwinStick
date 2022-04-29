@@ -9732,7 +9732,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.022727273
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5626758187218644881
 MonoBehaviour:
@@ -9747,8 +9747,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
+  shooterType: 2
   life: 0
   lifeTime: 1.5
+  damage: 20
   speedOverLifeTime:
     serializedVersion: 2
     m_Curve:

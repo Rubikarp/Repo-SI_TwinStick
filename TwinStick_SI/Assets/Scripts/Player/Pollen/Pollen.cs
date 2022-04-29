@@ -63,4 +63,16 @@ public class Pollen : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerPollen>())
+        {
+            if(ownerTower is not null) 
+                ownerTower.towerPollens.Remove(this);
+
+            other.GetComponent<PlayerPollen>().Refill(pollenAmount);
+            Destroy(this.gameObject);
+        }
+    }
 }

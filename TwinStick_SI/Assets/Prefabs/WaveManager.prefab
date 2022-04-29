@@ -1,0 +1,417 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2745046601147840978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046601147840979}
+  m_Layer: 0
+  m_Name: Spawn Point (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046601147840979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046601147840978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 208.9, y: 0, z: 115.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046601201301761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046601201301762}
+  m_Layer: 0
+  m_Name: Spawn Point (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046601201301762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046601201301761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 267.28, y: 0.94, z: -20.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046601719298525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046601719298526}
+  m_Layer: 0
+  m_Name: Spawn Point (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046601719298526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046601719298525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 270.2, y: 0, z: 231.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046602056240361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046602056240362}
+  m_Layer: 0
+  m_Name: Spawn Point (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046602056240362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046602056240361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 166.3, y: 0, z: 200.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046602094033678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046602094033679}
+  m_Layer: 0
+  m_Name: Spawn Point (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046602094033679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046602094033678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 251.7, y: 0, z: 52.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046602502678955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046602502678957}
+  - component: {fileID: 2745046602502678956}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046602502678957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046602502678955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2745046603227808869}
+  - {fileID: 2745046601201301762}
+  - {fileID: 2745046602754883356}
+  - {fileID: 2745046602094033679}
+  - {fileID: 2745046602056240362}
+  - {fileID: 2745046601719298526}
+  - {fileID: 2745046601147840979}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2745046602502678956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046602502678955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498bb8c7f68a2f84cba19d28856e1a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeFirstWave: 10
+  waveNbr: 0
+  currentWave:
+    name: 
+    ennemies: {fileID: 11400000, guid: 11d873abccf965741b203150582ad76d, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 0
+  gameWaves:
+  - name: Wave1
+    ennemies: {fileID: 11400000, guid: 2e29f1001a9892642b74149e866e0997, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 15
+  - name: Wave2
+    ennemies: {fileID: 11400000, guid: cee9aba0a6221524580eda85f1f3110f, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 45
+  - name: Wave3
+    ennemies: {fileID: 11400000, guid: 900ec6b39d128ac4fb67d45cadb0b5f3, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 60
+  - name: Wave4
+    ennemies: {fileID: 11400000, guid: 438aa951c3463c14a922c8ce2f537692, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 20
+  - name: Wave5
+    ennemies: {fileID: 11400000, guid: 222079c260d733249906eb82853daeca, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 60
+  - name: Wave6_1
+    ennemies: {fileID: 11400000, guid: b62a1ebfc5638e547ba0438353a2cbe1, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 0
+  - name: Wave6_2
+    ennemies: {fileID: 11400000, guid: 670b99e610d22c142a68f4fecd26c2b8, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 90
+  - name: Wave7_1
+    ennemies: {fileID: 11400000, guid: 3ffcfe9be088b5e4b887a8e248da1538, type: 2}
+    spawnPoint: {fileID: 2745046601201301761}
+    cooldownBeforeNextWave: 0
+  - name: Wave7_2
+    ennemies: {fileID: 11400000, guid: 4bc62e9bd2fa5af4491579b837dc48f4, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 150
+  - name: Wave8
+    ennemies: {fileID: 11400000, guid: 6518d10b93708c44e944ad6ddebb5cc6, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 115
+  - name: Wave9
+    ennemies: {fileID: 11400000, guid: fea7a9016692b5f44857b5b2b4236a63, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 75
+  - name: Wave10
+    ennemies: {fileID: 11400000, guid: c92882fb415b8764a8615cfe8a4f0d50, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 120
+  - name: Wave11_1
+    ennemies: {fileID: 11400000, guid: 72ee8453bbcfc2b4bab2660295b849f8, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: Wave11_2
+    ennemies: {fileID: 11400000, guid: f5efc99a8b555a84eb9ce98387c33a9f, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 160
+  - name: Wave12_1
+    ennemies: {fileID: 11400000, guid: d33edf634021c614bb1a2a170964f1e1, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: Wave12_2
+    ennemies: {fileID: 11400000, guid: 3ffad165b72ac7b45844b076d0608d6a, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 230
+  - name: Wave13
+    ennemies: {fileID: 11400000, guid: 87369025e8192744dbbb2bec477b766f, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 250
+  - name: Wave14
+    ennemies: {fileID: 11400000, guid: 295613d8f03edf54ca3a2d605834afbe, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 160
+  - name: Wave15
+    ennemies: {fileID: 11400000, guid: d1be21114fc6b8e4a9d60dc6ed1a8748, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 260
+  - name: Wave16_1
+    ennemies: {fileID: 11400000, guid: 0ae9d7de744d8834e8ca1bb0bf607865, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 0
+  - name: Wave16_2
+    ennemies: {fileID: 11400000, guid: 18c3c8f89329f35419d30155f2158c7b, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 360
+  - name: Wave17_1
+    ennemies: {fileID: 11400000, guid: 39ddfdd3bb9b5384882686ffbd33cbb4, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 0
+  - name: Wave17_2
+    ennemies: {fileID: 11400000, guid: 44881b42d60c2b24cb81479b3003a479, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 500
+  - name: Wave18_1
+    ennemies: {fileID: 11400000, guid: 42dc7cc8f92704944a1b658528b07faa, type: 2}
+    spawnPoint: {fileID: 2745046602754883355}
+    cooldownBeforeNextWave: 0
+  - name: Wave18_2
+    ennemies: {fileID: 11400000, guid: 5b0a8a22df79fc940bc2ad9e229e95b1, type: 2}
+    spawnPoint: {fileID: 2745046602094033678}
+    cooldownBeforeNextWave: 0
+  - name: Wave18_3
+    ennemies: {fileID: 11400000, guid: 44881b42d60c2b24cb81479b3003a479, type: 2}
+    spawnPoint: {fileID: 2745046602056240361}
+    cooldownBeforeNextWave: 1460
+  ennemyManager: {fileID: 2745046603227808868}
+--- !u!1 &2745046602754883355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046602754883356}
+  m_Layer: 0
+  m_Name: Spawn Point (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046602754883356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046602754883355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 147.3, y: 0, z: 38.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2745046603227808867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745046603227808869}
+  - component: {fileID: 2745046603227808868}
+  m_Layer: 0
+  m_Name: EnnemyPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745046603227808869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046603227808867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2745046602502678957}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2745046603227808868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745046603227808867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b172f4903a6635429043be78ece3cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfEnnemyType:
+  - ennemyPrefab: {fileID: 7752264225057585485, guid: 430ae759ed7e0944887bca764f95445a,
+      type: 3}
+    spawnForce: 10
+  - ennemyPrefab: {fileID: 8610959801737906975, guid: 2995a18fb812eae47aa8f1c7d29a355e,
+      type: 3}
+    spawnForce: 2
+  - ennemyPrefab: {fileID: 8610959801737906975, guid: f7799c590ba4a5746997bba95b5c9ba4,
+      type: 3}
+    spawnForce: 2
+  - ennemyPrefab: {fileID: 1232584344439617694, guid: b8816966cebf97741bc431d7455e288a,
+      type: 3}
+    spawnForce: 10
+  - ennemyPrefab: {fileID: 5946799046650338145, guid: 3bc3f7069610b0d43a84c073a8153fcf,
+      type: 3}
+    spawnForce: 2
+  - ennemyPrefab: {fileID: 5946799046650338145, guid: bb170d712f64d4b41b4958d78b08ab55,
+      type: 3}
+    spawnForce: 2
+  numberMultipier: 10
+  listOfCreatedEnnemy: []
