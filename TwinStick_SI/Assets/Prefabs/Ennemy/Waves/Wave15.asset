@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Wave15
   m_EditorClassIdentifier: 
   groups:
-  - typeOfEnnemy: 0
-    numberSpawn: 30
   - typeOfEnnemy: 4
-    numberSpawn: 10
-  - typeOfEnnemy: 6
-    numberSpawn: 5
+    numberSpawn: 2
+  - typeOfEnnemy: 8
+    numberSpawn: 2

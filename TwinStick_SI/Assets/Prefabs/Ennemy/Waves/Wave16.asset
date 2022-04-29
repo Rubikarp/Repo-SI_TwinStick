@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed28cc40380652498bd3da3bb4e2f98, type: 3}
-  m_Name: Wave6_1
+  m_Name: Wave16
   m_EditorClassIdentifier: 
   groups:
-  - typeOfEnnemy: 0
-    numberSpawn: 10
   - typeOfEnnemy: 4
-    numberSpawn: 2
-  - typeOfEnnemy: 6
     numberSpawn: 1
+  - typeOfEnnemy: 8
+    numberSpawn: 1
+  - typeOfEnnemy: 0
+    numberSpawn: 2

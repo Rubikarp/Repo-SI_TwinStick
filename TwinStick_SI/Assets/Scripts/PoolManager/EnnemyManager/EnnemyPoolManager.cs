@@ -187,6 +187,9 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             case AI_TYPE.AI_RANGE_GENERATOR:
                 TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
                 break;
+            case AI_TYPE.AI_EXPLODE_GENERATOR:
+                TowerPoolManager.Instance.SpawnTowerAtLocation(TOWER_TYPE.TOWER_TYPE_GENERATOR, ennemy.transform);
+                break;
             default:
                 break;
         }

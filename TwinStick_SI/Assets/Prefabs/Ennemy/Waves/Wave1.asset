@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groups:
   - typeOfEnnemy: 0
-    numberSpawn: 5
+    numberSpawn: 2
+  - typeOfEnnemy: 8
+    numberSpawn: 1
