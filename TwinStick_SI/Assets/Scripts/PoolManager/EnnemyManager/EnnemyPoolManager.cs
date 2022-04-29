@@ -153,7 +153,7 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             i++;
             ennemy.SetActive(true);
             AEnnemy ennemyComp = ennemy.GetComponent<AEnnemy>();
-            ennemyComp.currentState = AI_STATE.AI_STATE_SPAWNING;
+            ennemyComp.currentState = AI_STATE.AI_STATE_IDLE;
 
             BasicHealth bh = ennemy.GetComponent<BasicHealth>();
             bh.Initialise();

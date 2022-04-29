@@ -8,9 +8,19 @@ public class BulletParticle : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.TryGetComponent(out BasicHealth basicHealth))
+        GameObject col = other.gameObject;
+
+        BasicHealth bh = col.GetComponent<BasicHealth>();
+
+        if (bh != null)
         {
-            basicHealth.TakeDamage(damagePerBullet);
+            if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_ENNEMY)
+            {
+                Debug.Log("Dealing Player Damage to " + col.name);
+                bh.TakeDamage(damagePerBullet);
+
+            }
+
         }
     }
 }

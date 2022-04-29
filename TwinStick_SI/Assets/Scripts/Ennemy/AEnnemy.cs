@@ -57,7 +57,7 @@ public abstract class AEnnemy : MonoBehaviour
     [SerializeField][ReadOnly]
     private float distanceFromEnnemy;
 
-    protected IHealth bh;
+    public IHealth bh;
 
     // Start is called before the first frame update
     void Start()
@@ -128,33 +128,64 @@ public abstract class AEnnemy : MonoBehaviour
     [Button]
     public void FindNewTarget()
     {
-        isPriorityTarget = false;
-        target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
-        Debug.Log(gameObject.name+" | Target Found : " + target.name);
-        GameObject closestTower=null;
-        float closestDistance = 0;
-        foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
+        bool checkfornew = true;
+        if (target.activeSelf)
         {
-            float distance = Vector3.Distance(tower.transform.position, transform.position);
-            if (distance < (boxCol.size.x)/2)
+            if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_HIVE)
             {
-                if((closestTower==null || !closestTower.activeSelf) || distance < closestDistance)
-                {
-                    closestTower = tower;
-                    closestDistance = distance;
-                }
+
+            }
+            else if(bh.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING)
+            {
+                checkfornew = false;
+            }
+            else if (bh.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER)
+            {
+                checkfornew = false;
             }
         }
 
-        if (closestTower != null)
+        GameObject closestTower = null;
+        float closestDistance = 1000;
+
+        if (checkfornew)
         {
-            target = closestTower;
+            isPriorityTarget = false;
+            target = (GameObject)GameObject.FindObjectOfType<Hive>().gameObject;
+            //Debug.Log(gameObject.name+" | Target Found : " + target.name);
+            
+            foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
+            {
+                float distance = Vector3.Distance(tower.transform.position, transform.position);
+                if (distance < (boxCol.size.x) / 2)
+                {
+                    if ((closestTower == null || !closestTower.activeSelf) || distance < closestDistance)
+                    {
+                        closestTower = tower;
+                        closestDistance = distance;
+                    }
+                }
+            }
+
+
+
+
+            if (closestTower != null)
+            {
+                target = closestTower;
+            }
+        }
+        GameObject player = GameObject.FindObjectOfType<PlayerHealth>().gameObject;
+        float PlayerDist = Vector3.Distance(transform.position, player.transform.position);
+        if (closestDistance> PlayerDist || (target.GetComponent<BasicHealth>().TargetType == TARGET_TYPE.TARGET_TYPE_HIVE && PlayerDist<10))
+        {
+            target = player;
         }
 
 
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         bh = target.GetComponent<BasicHealth>();
-        Debug.Log(gameObject.name + " | Target Found : " + target.name);
+        //Debug.Log(gameObject.name + " | Target Found : " + target.name);
 
 
     }
@@ -172,6 +203,15 @@ public abstract class AEnnemy : MonoBehaviour
 
     public virtual void AI_STATE_REACH_TARGET()
     {
+
+        /*if(bh.TargetType == TARGET_TYPE.TARGET_TYPE_HIVE)
+        {
+            if(!(Vector3.Distance(target.transform.position,transform.position) <= attackDistance))
+            {
+                FindNewTarget();
+            }
+        }*/
+
 
         if (target == null)
         {
@@ -206,7 +246,7 @@ public abstract class AEnnemy : MonoBehaviour
 
                 
 
-                Debug.Log(anglebase + " | " + angle);
+                //Debug.Log(anglebase + " | " + angle);
                 
                 */
 
@@ -253,7 +293,7 @@ public abstract class AEnnemy : MonoBehaviour
                     float angle = Vector3.Angle(target.transform.forward, (transform.position - target.transform.position).normalized);
 
                     angle = Random.Range(angle - 90, angle + 90);
-                    Debug.Log(angle);
+                    //Debug.Log(angle);
                     if (typeOfEnnemy == AI_TYPE.AI_RANGE)
                     {
                         // attackDistance = Random.Range(attackDistance - 3, attackDistance+3);
@@ -291,20 +331,20 @@ public abstract class AEnnemy : MonoBehaviour
         IHealth targetable = col.GetComponent<IHealth>();
         if (targetable!=null)
         {
-            Debug.Log(gameObject.name + " | " + targetable.TargetType);
+            //Debug.Log(gameObject.name + " | " + targetable.TargetType);
             if (targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
             {
                 target = col;
                 bh = targetable;
                 isPriorityTarget = true;
-                Debug.Log(gameObject.name + " | Target Found : " + target.name);
+                //Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER && !isPriorityTarget)
             {
                 target = col;
                 bh = targetable;
                 isPriorityTarget = true;
-                Debug.Log(gameObject.name + " | Target Found : " + target.name);
+                //Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
         }
 
