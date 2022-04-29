@@ -57,7 +57,7 @@ public abstract class AEnnemy : MonoBehaviour
     [SerializeField][ReadOnly]
     private float distanceFromEnnemy;
 
-    protected BasicHealth bh;
+    protected IHealth bh;
 
     // Start is called before the first frame update
     void Start()
@@ -268,7 +268,7 @@ public abstract class AEnnemy : MonoBehaviour
     {
         GameObject col = collision.gameObject;
         
-        BasicHealth targetable = col.GetComponent<BasicHealth>();
+        IHealth targetable = col.GetComponent<IHealth>();
         if (targetable!=null)
         {
             Debug.Log(gameObject.name + " | " + targetable.TargetType);
