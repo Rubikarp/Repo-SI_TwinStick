@@ -5414,19 +5414,7 @@ MonoBehaviour:
     type: 3}
   onShoot:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6320476930404373882}
-        m_TargetAssemblyTypeName: BeeManager, Core
-        m_MethodName: PewPewInDir
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3656799777617819473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,7 +5479,6 @@ GameObject:
   - component: {fileID: 6320476930404373882}
   - component: {fileID: 6159889582527151436}
   - component: {fileID: 8833646850760088778}
-  - component: {fileID: 2375974994492596674}
   m_Layer: 0
   m_Name: '#Avatar#'
   m_TagString: Untagged
@@ -5903,8 +5890,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   callingMode: 0
-  whistleWave: {fileID: 8236672488996869324}
-  whistleGlow: {fileID: 1299341894567283}
 --- !u!143 &8833646850760088778
 CharacterController:
   m_ObjectHideFlags: 0
