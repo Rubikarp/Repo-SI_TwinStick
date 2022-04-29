@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultHealth: 10
-  healthPoint: 0
+  healthPoint: 10
   targetType: 2
   onHit:
     m_PersistentCalls:
@@ -371,11 +371,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower_type: 1
-  actionSpeed: 10
-  actionAmount: 2
+  actionSpeed: 5
+  actionAmount: 1
   prefabPollen: {fileID: 653945289505826656, guid: 16a4b3101cc7e7c48b5255240f540358,
     type: 3}
-  distanceSpawnPollen: 1
-  maxGeneratedPollen: 10
+  distanceSpawnPollen: 2
+  maxGeneratedPollen: 100
   generatedPollen: 0
   minimumPollenToBee: 3
+  towerPollens: []

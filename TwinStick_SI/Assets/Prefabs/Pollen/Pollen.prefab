@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc06b06815634742b5cf3a24095b1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenAmount: 1
+  pollenAmount: 2
   ownerTower: {fileID: 0}
   transporterBee: {fileID: 0}
   collectPollenDistance: 1
