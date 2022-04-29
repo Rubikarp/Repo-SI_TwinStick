@@ -19,10 +19,13 @@ public class TurretTower : ATower
     {
         if (CheckTarget())
         {
-            anim.SetTrigger("isAttacking");
-            onFire.Invoke();
-            bhTarget.TakeDamage((int)actionAmount);
-            timeElapsed = 0;
+            if (Vector3.Distance(target.transform.position, transform.position) <= AttackDistance)
+            {
+                anim.SetTrigger("isAttacking");
+                onFire.Invoke();
+                bhTarget.TakeDamage((int)actionAmount);
+                timeElapsed = 0;
+            }
         }
     }
 

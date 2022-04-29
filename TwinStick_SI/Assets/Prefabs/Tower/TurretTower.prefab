@@ -181,6 +181,8 @@ MonoBehaviour:
   actionSpeed: 1
   actionAmount: 2
   anim: {fileID: 8085556728017450313}
+  timeElapsed: 0
+  target: {fileID: 0}
   AttackDistance: 6
   onFire:
     m_PersistentCalls:
