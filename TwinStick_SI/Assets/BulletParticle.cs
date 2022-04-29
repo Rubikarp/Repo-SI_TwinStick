@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BulletParticle : MonoBehaviour
 {
+    public int damagePerBullet = 1;
+
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("particle hit");
+        if (other.TryGetComponent(out BasicHealth basicHealth))
+        {
+            //basicHealth.TakeDamage(damagePerBullet);
+        }
     }
 }

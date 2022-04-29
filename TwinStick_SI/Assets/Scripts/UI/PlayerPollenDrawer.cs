@@ -17,6 +17,7 @@ public class PlayerPollenDrawer : MonoBehaviour
     private void Reset()
     {
         pollenGauge.maxValue = player.pollenMaxStock;
+        UpdateScore();
     }
 
     public void UpdateScore()

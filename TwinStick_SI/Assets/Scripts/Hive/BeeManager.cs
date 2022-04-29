@@ -1,50 +1,107 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using NaughtyAttributes;
+using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class BeeManager : MonoBehaviour
 {
-    public List<Bee> playersBees = new List<Bee>();
-    int distanceBetweenBees;
-    public int maxBeeFollowPlayer;
-    public GameObject beePrefab;
-    public BulletPoolManager beeBulletContainer;
-    public Transform beeContainer;
+    public Hive hive;
 
-    [NaughtyAttributes.Button]
-    public void RearangeBees()
+    public int maxPlayerBee = 5;
+    public List<Bee> playersBees = new List<Bee>();
+    public Transform beeContainer;
+    public float recupDist = 2f;
+
+    [Header("Event")]
+    public UnityEvent onGetBee;
+    public UnityEvent onFreeBee;
+
+    [Header("Movement")]
+    public float turnSpeed = 180f;
+    public float distToPlayer = 2f;
+    [Space(5)]
+    [ShowNonSerializedField] float angleBtwBees;
+    [ShowNonSerializedField] float turnAngle;
+
+    [Header("Interact Actions")]
+    public float distanceToBuy;
+
+    public void Interact(InputAction.CallbackContext context)
     {
-        distanceBetweenBees = 360 / playersBees.Count;
-        for (int i = 0; i < playersBees.Count; i++)
+        switch (context.phase)
         {
-            playersBees[i].turnAngle = distanceBetweenBees * i;
+            case InputActionPhase.Performed:
+                if (Vector3.Distance(transform.position, hive.transform.position) <= distanceToBuy)
+                {
+                    
+                    hive.BuyBee(GetComponent<PlayerPollen>(), this);
+                }
+                break;
         }
     }
-    [NaughtyAttributes.Button]
-    public void BuyBee()
+
+
+    public void LinkBee(Bee bee)
     {
-        if(playersBees.Count < maxBeeFollowPlayer)
+        if (playersBees.Count < maxPlayerBee)
         {
-            GameObject bee = Instantiate(beePrefab, beeContainer.position, beeContainer.rotation, beeContainer);
-            Bee myBee = bee.GetComponent<Bee>();
-            myBee.player = this.gameObject;
-            myBee.bulletPool = beeBulletContainer;
-            playersBees.Add(myBee);
-            RearangeBees();
+            if (playersBees.Contains(bee))
+            {
+                //already link
+                return;
+            }
+
+            onGetBee?.Invoke();
+            playersBees.Add(bee);
+            bee.state = BEE_STATE.FOLLOWING;
         }
     }
-    [NaughtyAttributes.Button]
+    public void UnlinkBee(Bee bee)
+    {
+        if (playersBees.Count > 0)
+        {
+            onFreeBee?.Invoke();
+            playersBees.Remove(bee);
+            bee.transform.parent = hive.transform;
+        }
+    }
+    public Bee FreeABee()
+    {
+        if (playersBees.Count > 0)
+        {
+            Bee bee = playersBees.Last();
+            UnlinkBee(bee);
+            bee.state = BEE_STATE.WORKING;
+
+            return bee;
+        }
+        return null;
+    }
     public void KillTurret()
     {
         if(playersBees.Count > 0)
         {
-            Destroy(playersBees[0].gameObject);
-            playersBees.RemoveAt(0);
-            RearangeBees();
+            FreeABee().Die();
         }
 
         //insérer destruction de la tour
     }
+    public void BeeShield()
+    {
+        while (playersBees.Count > 0)
+        {
+            Bee bee = playersBees[0];
+            UnlinkBee(bee);
+            bee.state = BEE_STATE.GROUNDED;
+        }
+    }
+
     public void PewPewInDir(Vector3 dir)
     {
         for (int i = 0; i < playersBees.Count; i++)
@@ -52,11 +109,48 @@ public class BeeManager : MonoBehaviour
             playersBees[i].Pew(dir);
         }
     }
-    public void FreeTheBee()
+
+    private void Update()
     {
+        CheckForGroundedBee();
+
         if (playersBees.Count > 0)
         {
-            //playersBees[playersBees.Count - 1].
+            SpinArroundPlayer();
+        }
+
+    }
+    public void CheckForGroundedBee()
+    {
+        var tempList = hive.allBees.
+            Where(bee => Vector2.Distance(bee.transform.position.ToVec2XZ(), transform.position.ToVec2XZ()) < recupDist).
+            Where(bee => bee.state is BEE_STATE.GROUNDED).
+            Where(bee => !playersBees.Contains(bee)).ToList();
+
+        foreach (Bee bee in tempList)
+        {
+            LinkBee(bee);
         }
     }
+    public void SpinArroundPlayer()
+    {
+        turnAngle += Time.deltaTime * turnSpeed;
+        float angleBtwBees = 360f / playersBees.Count;
+        for (int i = 0; i < playersBees.Count; i++)
+        {
+            float currentAngle = turnAngle + (angleBtwBees * i);
+            Vector3 offSet = distToPlayer * new Vector3(Mathf.Cos(currentAngle * Mathf.Deg2Rad), 0.5f, Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+            playersBees[i].transform.position = transform.position + offSet;
+        }
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        using (new Handles.DrawingScope(Color.red))
+        {
+            Handles.DrawWireDisc(transform.position, Vector3.up, recupDist);
+        }
+    }
+#endif
 }

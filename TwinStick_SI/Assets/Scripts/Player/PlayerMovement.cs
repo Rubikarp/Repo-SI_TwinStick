@@ -18,12 +18,14 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Aim(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<Vector2>().magnitude > 0.3)
-        {
-            aim = InputRelativeToCam(context.ReadValue<Vector2>().normalized).normalized;
-        }
+        aim = context.ReadValue<Vector2>();
     }
     #endregion
+
+    [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem sprintParticles;
+    //[SerializeField] Rigidbody rbody;
+    [SerializeField] CharacterController controller;
 
     private Camera cam
     {
@@ -52,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runBonusSpeed = 5f;
     [Space(10)]
     [SerializeField] float aimSpeed = 10f;
+    [SerializeField] float gravityScale = 1f;
+
+    private float velocity;
+    private Quaternion aimRot;
 
     void Update()
     {
@@ -64,30 +70,50 @@ public class PlayerMovement : MonoBehaviour
         if (move.magnitude > 0.1f)
         {
             moveTime += Time.deltaTime;
+            animator.SetBool("IsMoving", true);
         }
         else
         {
             MoveTimeReboot();
+            animator.SetBool("IsMoving", false);
+
+            sprintParticles.Stop();
         }
 
         if (moveTime < accThreshold)
         {
             speed = Mathf.Lerp(0, moveSpeed, KarpEase.InOutSine(moveTime / accThreshold));
+
+            animator.SetBool("IsSprinting", false);
         }
         else if (moveTime < runThreshold)
         {
             speed = moveSpeed;
+            sprintParticles.Stop();
         }
         else if (moveTime < runThreshold + accThreshold)
         {
             speed = moveSpeed + Mathf.Lerp(0, runBonusSpeed, KarpEase.InOutSine((moveTime - runThreshold) / accThreshold));
+
+            animator.SetBool("IsSprinting", true);
+            sprintParticles.Play();
         }
         else
         {
             speed = moveSpeed + runBonusSpeed;
+            
         }
 
-        transform.position += Time.deltaTime * move.ToPlaneXZ() * speed;
+        if (controller.isGrounded)
+        {
+            controller.Move(Time.deltaTime * move.ToPlaneXZ() * speed);
+            velocity = 0f;
+        }
+        else
+        {
+            velocity += Physics.gravity.y * gravityScale * Time.deltaTime;
+            controller.Move(Time.deltaTime * move.ToPlaneXZ() * speed + Vector3.up * velocity);
+        }
     }
     public void MoveTimeReboot()
     {
@@ -101,7 +127,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aiming()
     {
-        Quaternion aimRot = Quaternion.LookRotation(aim.ToPlaneXZ().normalized, Vector3.up);
+        if (aim.magnitude > 0.3)
+        {
+            aimRot = Quaternion.LookRotation(InputRelativeToCam(aim.normalized).ToPlaneXZ().normalized, Vector3.up);
+        }
+        else
+        {
+            if (move.magnitude > 0.1f)
+            {
+                aimRot = Quaternion.LookRotation(move.ToPlaneXZ().normalized, Vector3.up);
+            }
+        }
+
         transform.rotation = Quaternion.Slerp(transform.rotation, aimRot, Time.deltaTime * aimSpeed);
     }
 

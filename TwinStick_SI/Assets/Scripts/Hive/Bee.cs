@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
 using UnityEngine.AI;
+using UnityEngine.Events;
+using NaughtyAttributes;
 
 public enum BEE_STATE
 {
@@ -11,37 +12,64 @@ public enum BEE_STATE
     WORKING,
 }
 
-//navAgent.SetDestination();+ Mathf.Rad2Deg % 360
+//navAgent.SetDestination();
+[RequireComponent(typeof(BasicHealth))]
 public class Bee : MonoBehaviour
 {
-    public float turnSpeed;
-    public GameObject player;
-    public float distanceToPlayer;
     private NavMeshAgent navAgent;
-    private Hive hive;
-    [HideInInspector] public float turnAngle = 0;
+    private BEE_STATE _state = BEE_STATE.FOLLOWING;
+    public BEE_STATE state 
+    { 
+        get { return _state; }
+        set
+        {
+            _state = value;
+            switch (value)
+            {
+                case BEE_STATE.GROUNDED:
+                    break;
+                case BEE_STATE.FOLLOWING:
+                    break;
+                case BEE_STATE.WORKING:
+                    navAgent.SetDestination(hive.transform.position);
+                    break;
+                default:
+                    break;
+            }
+        } }
+
+    [Header("Data")]
+    [SerializeField] BasicHealth health;
+    public Hive hive;
+
+    [Header("Bullet")]
     public GameObject beeBullet;
     public BulletPoolManager bulletPool;
 
+
+
     void Start()
     {
-        
+        health = this.gameObject.GetComponent<BasicHealth>();
+        navAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        SpinArround();
-    }
+        if (state is not BEE_STATE.FOLLOWING)
+        {
 
-    public void SpinArround()
-    {
-        turnAngle += Time.deltaTime * turnSpeed;
-        turnAngle %= 360f;
-        transform.position = player.transform.position + new Vector3(Mathf.Cos(turnAngle * Mathf.Deg2Rad), 0, Mathf.Sin(turnAngle * Mathf.Deg2Rad)) * distanceToPlayer;
+        }
     }
 
     public void Pew(Vector3 dir)
     {
         bulletPool.Shoot(transform.position, Quaternion.LookRotation(dir, Vector3.up));
+    }
+
+    public void Die()
+    {
+        health.TakeDamage();
+        Destroy(gameObject, 0.15f);
     }
 }
