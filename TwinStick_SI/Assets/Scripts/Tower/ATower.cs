@@ -18,7 +18,8 @@ public class ATower : MonoBehaviour
     public float actionSpeed = 1;
     public float actionAmount = 2;
 
-
+    [SerializeField]
+    protected Animator anim;
     protected float timeElapsed = 0;
 
 
@@ -33,8 +34,13 @@ public class ATower : MonoBehaviour
             timeElapsed = 0;
         }
 
+        Orient();
     }
 
+    public virtual void Orient()
+    {
+
+    }
 
     public virtual void Action()
     {
