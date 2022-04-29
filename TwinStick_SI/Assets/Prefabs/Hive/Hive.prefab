@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 8115437110863089215}
   - component: {fileID: 5036853577056430190}
   - component: {fileID: 3776650422330948857}
+  - component: {fileID: 1189194055191162510}
   m_Layer: 0
   m_Name: Hive
   m_TagString: Untagged
@@ -371,6 +372,7 @@ MonoBehaviour:
     type: 3}
   allBees: []
   beeBulletContainer: {fileID: 3612568345401150348}
+  pollenGenSpeed: 10
   pollenStock: 500
   pollenStockMax: 1000
 --- !u!114 &3776650422330948857
@@ -405,8 +407,33 @@ MonoBehaviour:
         m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1189194055191162510}
+        m_TargetAssemblyTypeName: Menu.SceneChange, Core
+        m_MethodName: ChangeToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   deathDelay: 0.2
+--- !u!114 &1189194055191162510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115437110863089200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b167d781b663538488b18f6549550712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 0_MainMenu
 --- !u!1 &8711264754872536521
 GameObject:
   m_ObjectHideFlags: 0
