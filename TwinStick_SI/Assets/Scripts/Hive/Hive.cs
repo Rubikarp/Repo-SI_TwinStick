@@ -17,12 +17,17 @@ public class Hive : Singleton<Hive>
     public BulletPoolManager beeBulletContainer;
 
     [Header("Data")]
+    [SerializeField] public float pollenGenSpeed = 10f;
     [SerializeField] public float pollenStock = 500f;
-    [SerializeField] private float pollenStockMax = 1000f;
-
+    [SerializeField] public float pollenStockMax = 1000f;
     private void Reset()
     {
         health = this.gameObject.GetComponent<BasicHealth>();
+    }
+
+    private void Update()
+    {
+        pollenStock += Time.deltaTime * pollenGenSpeed;
     }
 
     public void BuyBee(PlayerPollen playerPollen, BeeManager playerBee)
