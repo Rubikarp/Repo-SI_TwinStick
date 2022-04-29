@@ -1,11 +1,14 @@
     using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExplodeEnnemy : AEnnemy
 {
 
     public float explosionRange=2;
+    public UnityEvent onAttack;
+
 
     public override void Attack()
     {
@@ -20,6 +23,7 @@ public class ExplodeEnnemy : AEnnemy
                 if (Vector3.Distance(tbh.transform.position,transform.position)<explosionRange)
                 {
                     anim.SetBool("isAttacking", true);
+                    onAttack.Invoke();
                     tbh.TakeDamage(attackDamage);
                     StartCoroutine(StopAttack(1f));
                 }

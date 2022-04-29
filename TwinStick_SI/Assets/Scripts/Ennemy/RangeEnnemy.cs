@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RangeEnnemy : AEnnemy
 {
 
     EnnemyWeapon ew;
-
+    public UnityEvent onAttack;
 
     private void Start()
     {
@@ -21,8 +22,9 @@ public class RangeEnnemy : AEnnemy
             //bh.TakeDamage(attackDamage);
             
             anim.SetBool("isAttacking", true);
-            
-            
+            onAttack.Invoke();
+
+
             StartCoroutine(StopAttack(1f));
         }
     }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MeleeEnnemy : AEnnemy
 {
+    public UnityEvent onAttack;
+
 
     public override void Attack()
     {
@@ -11,6 +14,7 @@ public class MeleeEnnemy : AEnnemy
         if (target.activeSelf)
         {
             anim.SetBool("isAttacking", true);
+            onAttack.Invoke();
             bh.TakeDamage(attackDamage);
             StartCoroutine(StopAttack(1.08f));
             

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TurretTower : ATower
 {
@@ -10,7 +11,7 @@ public class TurretTower : ATower
 
     public int AttackDistance = 10;
 
-
+    public UnityEvent onFire;
 
 
 
@@ -19,6 +20,7 @@ public class TurretTower : ATower
         if (CheckTarget())
         {
             anim.SetTrigger("isAttacking");
+            onFire.Invoke();
             bhTarget.TakeDamage((int)actionAmount);
         }
     }

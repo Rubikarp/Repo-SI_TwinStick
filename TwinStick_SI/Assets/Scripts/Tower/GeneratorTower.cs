@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GeneratorTower : ATower
 {
@@ -12,6 +13,8 @@ public class GeneratorTower : ATower
     public int minimumPollenToBee;
     public List<Pollen> towerPollens = new List<Pollen>();
 
+    public UnityEvent onGenerate;
+
     public override void Action()
     {
         
@@ -19,6 +22,7 @@ public class GeneratorTower : ATower
         for (int i = 0; i < actionAmount; i++)
         {
             GameObject pollen = Instantiate(prefabPollen);
+            onGenerate.Invoke();
             float x = Random.Range(-1, 1);
             float y = Random.Range(-1, 1);
             pollen.transform.position = transform.position + new Vector3(Mathf.Cos(x), -0.5f, Mathf.Sin(y)) * (distanceSpawnPollen+Random.Range(0,1));
