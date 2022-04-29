@@ -12,6 +12,9 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] ParticleSystem lightShoot;
     [SerializeField] GameObject heavyShoot;
 
+    [SerializeField] ParticleSystem particleS;
+
+
     public UnityEvent<Vector3> onShoot;
 
     public void HeavyShoot()
@@ -23,6 +26,7 @@ public class PlayerWeapon : MonoBehaviour
     public void LightShoot()
     {
         onShoot?.Invoke(weaponextremum.forward);
-        lightShoot.Play();
+        particleS.Play();
+
     }
 }
