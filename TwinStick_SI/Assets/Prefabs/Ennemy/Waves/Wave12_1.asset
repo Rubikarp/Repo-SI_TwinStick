@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed28cc40380652498bd3da3bb4e2f98, type: 3}
   m_Name: Wave12_1
   m_EditorClassIdentifier: 
-  groups: []
+  groups:
+  - typeOfEnnemy: 0
+    numberSpawn: 8
+  - typeOfEnnemy: 4
+    numberSpawn: 3
+  - typeOfEnnemy: 6
+    numberSpawn: 4
