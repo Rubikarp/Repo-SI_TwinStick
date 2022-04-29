@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class ATower : MonoBehaviour
 
     [SerializeField]
     protected Animator anim;
+    [SerializeField][ReadOnly]
     protected float timeElapsed = 0;
 
 
