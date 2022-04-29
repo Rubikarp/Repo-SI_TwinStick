@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,11 +19,24 @@ public class ExplodeEnnemy : AEnnemy
             {
                 if (Vector3.Distance(tbh.transform.position,transform.position)<explosionRange)
                 {
+                    anim.SetBool("isAttacking", true);
                     tbh.TakeDamage(attackDamage);
+                    StartCoroutine(StopAttack(1f));
                 }
             }
         }
 
 
     }
+
+
+
+    IEnumerator StopAttack(float seconds)
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(seconds);
+        anim.SetBool("isAttacking", false);
+    }
+
 }

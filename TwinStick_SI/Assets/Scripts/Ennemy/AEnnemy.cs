@@ -103,6 +103,7 @@ public abstract class AEnnemy : MonoBehaviour
                 else
                 {
                     // Stop Moving And Shoot Target ( Set Agent Speed to 0 ? )
+                    
                     AI_STATE_ATTACK_TARGET();
                 }
                 RotationBahevior();
@@ -223,6 +224,7 @@ public abstract class AEnnemy : MonoBehaviour
 
     public virtual void AI_STATE_ATTACK_TARGET()
     {
+        isPriorityTarget = true;
         lastAttack += Time.deltaTime;
         if (target.activeSelf)
         {
@@ -240,7 +242,24 @@ public abstract class AEnnemy : MonoBehaviour
             }
             else
             {
-                navAgent.isStopped = false;
+                if (distanceFromEnnemy > 20)
+                {
+                    FindNewTarget();
+                }
+                else
+                {
+                    navAgent.isStopped = false;
+                    float angle = Vector3.Angle(target.transform.forward, (transform.position - target.transform.position).normalized);
+
+                    angle = Random.Range(angle - 90, angle + 90);
+                    Debug.Log(angle);
+                    if (typeOfEnnemy == AI_TYPE.AI_RANGE)
+                    {
+                        // attackDistance = Random.Range(attackDistance - 3, attackDistance+3);
+                    }
+                    attackPosition = target.transform.position + (new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), navAgent.destination.y, Mathf.Cos(angle * Mathf.Deg2Rad)) * attackDistance);
+                    navAgent.destination = attackPosition;
+                }
             }
         }
         else
