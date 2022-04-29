@@ -25,6 +25,7 @@ public class BasicHealth : MonoBehaviour, IHealth
         healthPoint = defaultHealth;
     }
 
+    [Button]
     public void TakeDamage(int damage = 1)
     {
         //Damage can't be negative
