@@ -10,7 +10,7 @@ public class BulletParticle : MonoBehaviour
     {
         if (other.TryGetComponent(out BasicHealth basicHealth))
         {
-            //basicHealth.TakeDamage(damagePerBullet);
+            basicHealth.TakeDamage(damagePerBullet);
         }
     }
 }

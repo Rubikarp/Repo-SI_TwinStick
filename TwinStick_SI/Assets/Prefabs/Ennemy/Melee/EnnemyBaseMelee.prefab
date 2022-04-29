@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnnemyBaseMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 5138645866136840987, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5443975116203025638, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
       propertyPath: m_RootOrder
@@ -185,12 +190,12 @@ PrefabInstance:
     - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
       propertyPath: healthPoint
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
       propertyPath: defaultHealth
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
