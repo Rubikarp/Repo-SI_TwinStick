@@ -128,6 +128,11 @@ public abstract class AEnnemy : MonoBehaviour
     [Button]
     public void FindNewTarget()
     {
+        if(target == null)
+        {
+            target = (GameObject)GameObject.FindObjectOfType<Hive>().gameObject;
+        }
+
         bool checkfornew = true;
         if (target.activeSelf)
         {
