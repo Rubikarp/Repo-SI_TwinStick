@@ -9,6 +9,7 @@ public enum BEE_STATE
 {
     GROUNDED,
     FOLLOWING,
+    WAITING,
     WORKING,
 }
 
@@ -16,7 +17,7 @@ public enum BEE_STATE
 [RequireComponent(typeof(BasicHealth))]
 public class Bee : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
+    [HideInInspector ]public NavMeshAgent navAgent;
     private BEE_STATE _state = BEE_STATE.FOLLOWING;
     public BEE_STATE state 
     { 
@@ -30,8 +31,10 @@ public class Bee : MonoBehaviour
                     break;
                 case BEE_STATE.FOLLOWING:
                     break;
-                case BEE_STATE.WORKING:
+                case BEE_STATE.WAITING:
                     navAgent.SetDestination(hive.transform.position);
+                    break;
+                case BEE_STATE.WORKING:
                     break;
                 default:
                     break;
