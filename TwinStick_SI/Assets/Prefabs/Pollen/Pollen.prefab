@@ -111,3 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pollenAmount: 1
+  ownerTower: {fileID: 0}
+  transporterBee: {fileID: 0}
+  collectPollenDistance: 0.1
+  enterHiveDistance: 5
