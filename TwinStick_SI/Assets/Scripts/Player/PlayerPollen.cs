@@ -17,6 +17,8 @@ public class PlayerPollen : MonoBehaviour
     public UnityEvent onGain;
     public UnityEvent onLose;
 
+    [SerializeField] BeeManager bees;
+
     public bool CanConsume(float quantity)
     {
         return pollenAvailable >= quantity;
@@ -37,6 +39,18 @@ public class PlayerPollen : MonoBehaviour
         quantity = Mathf.Max(0f, quantity);
         pollenAvailable = Mathf.Clamp(pollenAvailable + quantity, 0, pollenMaxStock);
         onChange.Invoke();
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(bees.hive.transform.position, transform.position) < 12f)
+        {
+            if(bees.hive.pollenStock > 0 && _pollenAvailable < _pollenStockMax)
+            {
+
+            }
+
+        }
     }
 
     [Button]
