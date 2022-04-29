@@ -15,11 +15,15 @@ public class WhistleBee : MonoBehaviour
 
     public bool callingMode = false;
     public Coroutine CallingNearbyBee;
+    public ParticleSystem whistleWave;
+    public ParticleSystem whistleGlow;
     public void CallBee(InputAction.CallbackContext context)
     {
         switch (context.phase)
         {
             case InputActionPhase.Performed:
+                whistleGlow.Play();
+                whistleWave.Play();
                 callingMode = true;
                 CallingNearbyBee = StartCoroutine(Calling());
                 break;
@@ -35,6 +39,7 @@ public class WhistleBee : MonoBehaviour
         {
             case InputActionPhase.Performed:
                 //if n'est pas a coté d'une tourelle
+                whistleGlow.Play();
                 playerBee.FreeABee();
                 break;
         }
@@ -55,6 +60,13 @@ public class WhistleBee : MonoBehaviour
                 if (distance< whistleRange)
                 {
                     playerBee.LinkBee(bee);
+                    if (bee.hasPollen == true)
+                    {
+                        this.GetComponent<PlayerPollen>().Refill(bee.pollenCaried.pollenAmount);
+                        bee.pollenCaried.ownerTower.towerPollens.Remove(bee.pollenCaried);
+                        Destroy(bee.pollenCaried.gameObject);
+                        bee.hasPollen = false;
+                    }
                     break;
                 }
             }
