@@ -686,8 +686,8 @@ MonoBehaviour:
   chargedTime: 0
   chargedTimeThreshold: 1
   shootCooldown: 0.45
-  shootLightCost: 1
-  shootHeavyCost: 2
+  shootLightCost: 2
+  shootHeavyCost: 4
   canShoot: 1
   inCharge: 0
   shootHeavy: 0

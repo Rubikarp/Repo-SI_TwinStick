@@ -494,11 +494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7541243723747648342}
     m_Modifications:
-    - target: {fileID: 1731121023434319362, guid: 22b5973cd4377094abeb87bd61fcc6c7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5
-      objectReference: {fileID: 0}
     - target: {fileID: 1731121023821104993, guid: 22b5973cd4377094abeb87bd61fcc6c7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -775,11 +770,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 8576301939658999904, guid: f60ef781da3d69240a9b3af076412419,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}

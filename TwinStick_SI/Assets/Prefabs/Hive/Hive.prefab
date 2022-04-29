@@ -372,7 +372,7 @@ MonoBehaviour:
     type: 3}
   allBees: []
   beeBulletContainer: {fileID: 3612568345401150348}
-  pollenGenSpeed: 10
+  pollenGenSpeed: 0.5
   pollenStock: 500
   pollenStockMax: 1000
 --- !u!114 &3776650422330948857
