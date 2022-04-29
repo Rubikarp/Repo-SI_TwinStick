@@ -213,6 +213,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7541243723747648342}
     m_Modifications:
+    - target: {fileID: 2311738497803574309, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311738497803574309, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: accThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311738497803574309, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: runThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311738497803574309, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: runBonusSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2311738497803574311, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
       propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -282,6 +302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '#Avatar#'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602120349444770390, guid: 33762f79514364c46bae965d1d23d537,
+        type: 3}
+      propertyPath: maxDist
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5176662508659887756, guid: 33762f79514364c46bae965d1d23d537,
         type: 3}
@@ -653,12 +678,12 @@ PrefabInstance:
     - target: {fileID: 8576301939153229568, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.9921976
+      value: 1.7784201
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9302642
+      value: 0.7673232
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -668,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6771622
+      value: -3.104568
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939153229575, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -703,17 +728,17 @@ PrefabInstance:
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9302642
+      value: 0.7673232
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 10.996838
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6771622
+      value: -3.104568
       objectReference: {fileID: 0}
     - target: {fileID: 8576301939658999905, guid: f60ef781da3d69240a9b3af076412419,
         type: 3}
@@ -809,10 +834,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 11, z: -6.5}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_FollowOffset: {x: 4, y: 11, z: -4}
+  m_XDamping: 0.5
+  m_YDamping: 0.5
+  m_ZDamping: 0.5
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
