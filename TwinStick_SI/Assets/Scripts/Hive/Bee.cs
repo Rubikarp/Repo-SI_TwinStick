@@ -19,6 +19,8 @@ public class Bee : MonoBehaviour
 {
     [HideInInspector ]public NavMeshAgent navAgent;
     private BEE_STATE _state = BEE_STATE.FOLLOWING;
+    public Animator animator;
+    [HideInInspector] public bool hasPollen; public Pollen pollenCaried;
     public BEE_STATE state 
     { 
         get { return _state; }
@@ -28,13 +30,17 @@ public class Bee : MonoBehaviour
             switch (value)
             {
                 case BEE_STATE.GROUNDED:
+                    animator.SetBool("death", true);
                     break;
                 case BEE_STATE.FOLLOWING:
+                    animator.SetBool("idle", true);
                     break;
                 case BEE_STATE.WAITING:
-                    navAgent.SetDestination(hive.transform.position);
+                    animator.SetBool("idle", true);
+                    navAgent.SetDestination(Hive.Instance.transform.position);
                     break;
                 case BEE_STATE.WORKING:
+                    animator.SetBool("idle", true);
                     break;
                 default:
                     break;
@@ -57,21 +63,17 @@ public class Bee : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
-    {
-        if (state is not BEE_STATE.FOLLOWING)
-        {
 
-        }
-    }
 
     public void Pew(Vector3 dir)
     {
+        animator.SetTrigger("Attack");
         bulletPool.Shoot(transform.position, Quaternion.LookRotation(dir, Vector3.up));
     }
 
     public void Die()
     {
+        
         health.TakeDamage();
         Destroy(gameObject, 0.15f);
     }
