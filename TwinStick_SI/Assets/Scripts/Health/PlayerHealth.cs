@@ -23,14 +23,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Parameter")]
     [SerializeField] float deathDelay = 0.2f;
 
-    public void Initialise()
+    public void Start()
     {
         healthPoint = 1;
     }
 
     public void CheckForBee()
     {
-        if(healthPoint < 2 && !HaveBee)
+        if(healthPoint < 2)
         {
             healthPoint = 2;
             onHeal?.Invoke();

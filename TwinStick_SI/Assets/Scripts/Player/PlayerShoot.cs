@@ -57,7 +57,6 @@ public class PlayerShoot : MonoBehaviour
         if (!canShoot || !pollenStock.CanConsume(shootLightCost)) 
         {
             onCannotCharge?.Invoke();
-            Debug.LogError("Can't shoot");
             return;
         }
 
