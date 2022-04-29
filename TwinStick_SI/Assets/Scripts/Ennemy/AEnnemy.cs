@@ -191,7 +191,7 @@ public abstract class AEnnemy : MonoBehaviour
                 float angle = Vector3.Angle(target.transform.forward, (transform.position - target.transform.position).normalized);
                 
                 angle = Random.Range(angle - 90, angle + 90);
-                Debug.Log(angle);
+                //Debug.Log(angle);
                 if (typeOfEnnemy == AI_TYPE.AI_RANGE)
                 {
                    // attackDistance = Random.Range(attackDistance - 3, attackDistance+3);
