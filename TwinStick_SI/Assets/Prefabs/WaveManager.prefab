@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046601719298525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.2, y: 0, z: 231.3}
+  m_LocalPosition: {x: 265.16406, y: 2.7255678, z: 231.58952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602056240361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.3, y: 0, z: 200.2}
+  m_LocalPosition: {x: 115.28546, y: 8.002197, z: 191.37463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602094033678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 251.7, y: 0, z: 52.9}
+  m_LocalPosition: {x: 285.4917, y: 2.3214674, z: 146.68365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498bb8c7f68a2f84cba19d28856e1a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFirstWave: 10
+  delayBeforeFirstWave: 5
   waveNbr: 0
   onNewWave:
     m_PersistentCalls:
@@ -224,19 +224,19 @@ MonoBehaviour:
   - name: Wave2
     ennemies: {fileID: 11400000, guid: cee9aba0a6221524580eda85f1f3110f, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 45
+    cooldownBeforeNextWave: 15
   - name: Wave3
     ennemies: {fileID: 11400000, guid: 900ec6b39d128ac4fb67d45cadb0b5f3, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
-    cooldownBeforeNextWave: 60
+    cooldownBeforeNextWave: 20
   - name: Wave4
     ennemies: {fileID: 11400000, guid: 438aa951c3463c14a922c8ce2f537692, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 20
+    cooldownBeforeNextWave: 15
   - name: Wave5
     ennemies: {fileID: 11400000, guid: 222079c260d733249906eb82853daeca, type: 2}
     spawnPoint: {fileID: 2745046602754883355}
-    cooldownBeforeNextWave: 60
+    cooldownBeforeNextWave: 15
   - name: Wave6_1
     ennemies: {fileID: 11400000, guid: b62a1ebfc5638e547ba0438353a2cbe1, type: 2}
     spawnPoint: {fileID: 2745046601201301761}
@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745046602754883355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 147.3, y: 0, z: 38.8}
+  m_LocalPosition: {x: 149.48799, y: 0, z: 70.4356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

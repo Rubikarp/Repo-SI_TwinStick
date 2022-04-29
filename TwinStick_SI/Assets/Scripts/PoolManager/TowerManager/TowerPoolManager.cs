@@ -72,6 +72,7 @@ public class TowerPoolManager : Singleton<TowerPoolManager>
             if (!tower.activeSelf && (tower.GetComponent<ATower>().tower_type==towerType))
             {
                 Vector3 towerpos = parent.position;
+                towerpos.y = 0;
                 foreach (GameObject towerActif in listOfCreatedTower)
                 {
                     if (towerActif.activeSelf)
