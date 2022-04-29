@@ -24,6 +24,8 @@ public class GeneratorTower : ATower
             pollen.transform.position = transform.position + new Vector3(Mathf.Cos(x), -0.5f, Mathf.Sin(y)) * (distanceSpawnPollen+Random.Range(0,1));
             pollen.GetComponent<Pollen>().ownerTower = this;
             towerPollens.Add(pollen.GetComponent<Pollen>());
+            anim.SetTrigger("isAttacking");
+
         }
         if (generatedPollen > minimumPollenToBee)
         {

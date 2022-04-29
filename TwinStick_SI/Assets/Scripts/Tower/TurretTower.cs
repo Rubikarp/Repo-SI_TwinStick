@@ -8,15 +8,31 @@ public class TurretTower : ATower
     private GameObject target;
     private BasicHealth bhTarget;
 
-    public int AttackDistance = 6;
+    public int AttackDistance = 10;
+
+
+
+
 
     public override void Action()
     {
         if (CheckTarget())
         {
+            anim.SetTrigger("isAttacking");
             bhTarget.TakeDamage((int)actionAmount);
         }
     }
+
+    public override void Orient()
+    {
+        if(target!=null && target.activeSelf)
+        {
+            Vector3 toTarget = target.transform.position - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(toTarget.normalized, Vector3.up), Time.deltaTime * 6f);
+            Debug.DrawRay(transform.position, toTarget, Color.cyan);
+        }
+    }
+
 
     bool CheckTarget()
     {
