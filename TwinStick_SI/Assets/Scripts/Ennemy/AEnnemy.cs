@@ -25,6 +25,9 @@ public enum AI_TYPE
     AI_RANGE,
     AI_RANGE_TURRET,
     AI_RANGE_GENERATOR,
+    AI_EXPLODE,
+    AI_EXPLODE_TURRET,
+    AI_EXPLODE_GENERATOR,
 }
 
 
@@ -33,10 +36,11 @@ public abstract class AEnnemy : MonoBehaviour
     public AI_STATE currentState;
     public AI_TYPE typeOfEnnemy;
 
-    public int speed = 3;
     public int attackDistance = 10;
+    public int attackDamage = 1;
     public GameObject target;
     bool isPriorityTarget=false;
+    [SerializeField]
     protected NavMeshAgent navAgent;
     [SerializeField] 
     protected Rigidbody rigidBody;
@@ -56,11 +60,21 @@ public abstract class AEnnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        navAgent = GetComponent<NavMeshAgent>();
+        //navAgent = GetComponent<NavMeshAgent>();
+        
     }
 
     void Update()
     {
+        //Look at Ennemy
+
+        if (target != null && target.activeSelf)
+        {
+            Vector3 toTarget = target.transform.position - transform.position;
+            transform.rotation = Quaternion.Slerp( transform.rotation,Quaternion.LookRotation(toTarget.normalized, Vector3.up),Time.deltaTime * 2f);
+            Debug.DrawRay(transform.position, toTarget, Color.cyan);
+        }
+
         switch (currentState)
         {
             case AI_STATE.AI_STATE_SPAWNING:
@@ -101,6 +115,7 @@ public abstract class AEnnemy : MonoBehaviour
                 break;
         }
         Debug.DrawLine(navAgent.destination, navAgent.destination + Vector3.up * 3, Color.red);
+        
 
         // 
     }
@@ -111,7 +126,7 @@ public abstract class AEnnemy : MonoBehaviour
     {
         isPriorityTarget = false;
         target = (GameObject) GameObject.FindObjectOfType<Hive>().gameObject;
-
+        Debug.Log(gameObject.name+" | Target Found : " + target.name);
         GameObject closestTower=null;
         float closestDistance = 0;
         foreach (GameObject tower in TowerPoolManager.Instance.GetAllActiveTower())
@@ -135,6 +150,7 @@ public abstract class AEnnemy : MonoBehaviour
 
         currentState = AI_STATE.AI_STATE_REACH_TARGET;
         bh = target.GetComponent<BasicHealth>();
+        Debug.Log(gameObject.name + " | Target Found : " + target.name);
 
 
     }
@@ -208,7 +224,7 @@ public abstract class AEnnemy : MonoBehaviour
         if (target.activeSelf)
         {
             distanceFromEnnemy = (transform.position - target.transform.position).magnitude;
-            if (distanceFromEnnemy < attackDistance || (transform.position - navAgent.destination).magnitude<1)
+            if (distanceFromEnnemy < attackDistance+1 || (transform.position - navAgent.destination).magnitude<1)
             {
                 navAgent.isStopped = true;
                 rigidBody.velocity = Vector3.zero;
@@ -249,22 +265,28 @@ public abstract class AEnnemy : MonoBehaviour
     {
         GameObject col = collision.gameObject;
         
-        IHealth targetable = col.GetComponent<IHealth>();
+        BasicHealth targetable = col.GetComponent<BasicHealth>();
         if (targetable!=null)
         {
-            if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
+            Debug.Log(gameObject.name + " | " + targetable.TargetType);
+            if (targetable.TargetType == TARGET_TYPE.TARGET_TYPE_BUILDING && !isPriorityTarget)
             {
                 target = col;
-                bh = target.GetComponent<BasicHealth>();
+                bh = targetable;
                 isPriorityTarget = true;
+                Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
             if(targetable.TargetType == TARGET_TYPE.TARGET_TYPE_PLAYER && !isPriorityTarget)
             {
                 target = col;
-                bh = target.GetComponent<BasicHealth>();
+                bh = targetable;
                 isPriorityTarget = true;
+                Debug.Log(gameObject.name + " | Target Found : " + target.name);
             }
         }
+
+        
+
     }
     #endregion
 

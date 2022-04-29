@@ -74,6 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
         type: 3}
+      propertyPath: targetType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156105845775576481, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+        type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -144,6 +149,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d8ccc874f3b0cf43a45a9c155760705, type: 3}
+--- !u!195 &883721521355511015 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6808287296332537184, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+    type: 3}
+  m_PrefabInstance: {fileID: 5924618573018810759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232584344439617694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4837848815089234201, guid: 6d8ccc874f3b0cf43a45a9c155760705,
@@ -164,14 +175,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 1
   typeOfEnnemy: 3
-  speed: 3
-  attackDistance: 7
+  attackDistance: 10
+  attackDamage: 1
   target: {fileID: 0}
+  navAgent: {fileID: 883721521355511015}
   rigidBody: {fileID: 6590274529193771402}
   boxCol: {fileID: 4729073714510017105}
   lastAttack: 0
   attackSpeed: 2
   distanceFromEnnemy: 0
+--- !u!114 &3178081831245189015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232584344439617694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22dd47bb40feb6d49b9a59858315b2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletContainer: {fileID: 1852276550950399329}
+  shoot: {fileID: 5626758187218644880, guid: 581acef3e03d9d4429ed8ce30a65479a, type: 3}
+--- !u!4 &1852276550950399329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5443975116203025638, guid: 6d8ccc874f3b0cf43a45a9c155760705,
+    type: 3}
+  m_PrefabInstance: {fileID: 5924618573018810759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &4729073714510017105 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: -7811086394726122538, guid: 6d8ccc874f3b0cf43a45a9c155760705,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using NaughtyAttributes;
+using UnityEngine.AI;
 
 [Serializable]
 public struct EnnemyPercent
@@ -63,7 +64,7 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
     {
         for (int i = 0; i < nb; i++)
         {
-            GameObject ennemyCreated = (GameObject)Instantiate(type, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject ennemyCreated = (GameObject)Instantiate(type, new Vector3(300, 0, 0), Quaternion.identity);
             ennemyCreated.name = "Ennemy #" + (listOfCreatedEnnemy.Count);
             ennemyCreated.transform.SetParent(gameObject.transform);
             ennemyCreated.GetComponent<AEnnemy>().currentState = AI_STATE.AI_STATE_IN_POOL;
@@ -160,7 +161,7 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             float safezonex = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             float safezonez = UnityEngine.Random.Range(-ennemyToSpawn.Count, ennemyToSpawn.Count);
             ennemy.transform.position = parent.position + new Vector3(safezonex, 1.1f, safezonez);
-
+            ennemy.GetComponent<NavMeshAgent>().Warp(parent.position);
             ennemyComp.FindNewTarget();
             yield return new WaitForSeconds(0.2f);
         }
