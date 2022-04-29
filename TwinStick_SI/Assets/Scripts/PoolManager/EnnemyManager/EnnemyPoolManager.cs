@@ -163,7 +163,7 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
             ennemy.transform.position = parent.position + new Vector3(safezonex, 1.1f, safezonez);
             ennemy.GetComponent<NavMeshAgent>().Warp(parent.position);
             ennemyComp.FindNewTarget();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
