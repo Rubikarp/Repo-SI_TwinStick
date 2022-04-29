@@ -16336,6 +16336,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &960661302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5036853577056430190, guid: 7fd037e54e1a2834cbe95592a2599f7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1985478325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab7c49517691ca4bbd22fa0f20c8d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &960661303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3776650422330948857, guid: 7fd037e54e1a2834cbe95592a2599f7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1985478325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cc9036c8a32ec49a038e408adb9dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962366052
 GameObject:
   m_ObjectHideFlags: 0
@@ -25207,6 +25231,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8554975042358247405, guid: 3e62e1416989e634e8859d4cd264dfdd,
+        type: 3}
+      propertyPath: hive
+      value: 
+      objectReference: {fileID: 960661302}
+    - target: {fileID: 8554975042358247405, guid: 3e62e1416989e634e8859d4cd264dfdd,
+        type: 3}
+      propertyPath: hiveHealth
+      value: 
+      objectReference: {fileID: 960661303}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e62e1416989e634e8859d4cd264dfdd, type: 3}
 --- !u!43 &1414479086
