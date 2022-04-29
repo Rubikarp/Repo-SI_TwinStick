@@ -63,7 +63,7 @@ public class EnnemyPoolManager : Singleton<EnnemyPoolManager>
     {
         for (int i = 0; i < nb; i++)
         {
-            GameObject ennemyCreated = (GameObject)Instantiate(type, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject ennemyCreated = (GameObject)Instantiate(type, new Vector3(200, 0, -51), Quaternion.identity);
             ennemyCreated.name = "Ennemy #" + (listOfCreatedEnnemy.Count);
             ennemyCreated.transform.SetParent(gameObject.transform);
             ennemyCreated.GetComponent<AEnnemy>().currentState = AI_STATE.AI_STATE_IN_POOL;
